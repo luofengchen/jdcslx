@@ -1,0 +1,56 @@
+$wi-100:100%;
+$hei-30:30px;
+$bdb: 1px solid #ddd;
+$bd: 1px solid #ddd;
+$wi-1200:1200px;
+$wid-1190:1190px;
+$c-999: #999;
+$c-e3e4e5:#e3e4e5;
+$c-5c5452:#5c5452;
+$c-f30213:#f30213;
+$margin-g:0 auto;
+$padding-g:0 2px;
+$fz-16:16px;
+$s-5p:5px;
+
+//------------------标头----------------//
+.mod_container,
+body {
+    min-height: $wid-1190;
+}
+
+#shortcur {
+    width: $wi-100;
+    height: $hei-30;
+    line-height: $hei-30;
+    background: $c-e3e4e5;
+    border-bottom: $bdb;
+    .w {
+        background: $c-e3e4e5;
+        color: $c-999;
+        width: $wi-1200;
+        height: $hei-30;
+        margin: $margin-g;
+       li{
+            float: left;
+            height: $hei-30;
+            padding: $padding-g;
+            .iconfont {
+                position: relative;
+                display: inline;
+                font-size: $fz-16;
+                color: $c-5c5452;
+                padding-right: $s-5p;
+            }
+            a {
+                color: $c-999;
+                text-decoration: none;
+            }
+        }
+        .style-red{
+            color: $c-f30213;
+        }
+    }
+}
+
+//----------------广告--------------------//

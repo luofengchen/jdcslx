@@ -1,0 +1,33 @@
+.mod_container,
+body {
+  min-height: 1190px; }
+
+#shortcur {
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  background: #e3e4e5;
+  border-bottom: 1px solid #ddd; }
+  #shortcur .w {
+    background: #e3e4e5;
+    color: #999;
+    width: 1200px;
+    height: 30px;
+    margin: 0 auto; }
+    #shortcur .w li {
+      float: left;
+      height: 30px;
+      padding: 0 2px; }
+      #shortcur .w li .iconfont {
+        position: relative;
+        display: inline;
+        font-size: 16px;
+        color: #5c5452;
+        padding-right: 5px; }
+      #shortcur .w li a {
+        color: #999;
+        text-decoration: none; }
+    #shortcur .w .style-red {
+      color: #f30213; }
+
+/*# sourceMappingURL=main.css.map */
