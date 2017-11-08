@@ -1,0 +1,23 @@
+width：1263px 5个模块
+body {
+	尺寸:1263px*314223px；
+
+}
+div#shortcut{
+	尺寸:1263px*31px
+}
+div#header{
+	尺寸:1263px*80px
+}
+div#w.has_qrcode {
+	尺寸：1200px*104px
+
+}
+// 主体部分
+div # mod_containere {
+	1263px * 13528px
+}
+
+div #cmsfooter{
+	1263px * 480px
+}
