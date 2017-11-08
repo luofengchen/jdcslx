@@ -1,7 +1,8 @@
+@charset "utf-8";
 $wi-100:100%;
 $hei-30:30px;
-$bdb: 1px solid #ddd;
-$bd: 1px solid #ddd;
+$bdb-1: 1px solid #ddd;
+$bd-1: 1px solid #ddd;
 $wi-1200:1200px;
 $wid-1190:1190px;
 $c-999: #999;
@@ -9,14 +10,23 @@ $c-e3e4e5:#e3e4e5;
 $c-5c5452:#5c5452;
 $c-f30213:#f30213;
 $margin-g:0 auto;
-$padding-g:0 2px;
 $fz-16:16px;
 $s-5p:5px;
+$wi-1:1px;
+$hei-12:12px;
+$mt-9:9px;
+$c-ccc:#ccc;
+$mr-10:10px;
+body,
+.mod_container {
+    min-height: $wid-1190;
+}
 
 //------------------标头----------------//
-.mod_container,
-body {
-    min-height: $wid-1190;
+@mixin bg-bds {
+    background: #fff;
+    border: solid #ddd;
+    border-width: 0 1px;
 }
 
 #shortcur {
@@ -24,17 +34,22 @@ body {
     height: $hei-30;
     line-height: $hei-30;
     background: $c-e3e4e5;
-    border-bottom: $bdb;
+    border-bottom: $bdb-1;
     .w {
         background: $c-e3e4e5;
         color: $c-999;
         width: $wi-1200;
         height: $hei-30;
         margin: $margin-g;
-       li{
+        li {
             float: left;
             height: $hei-30;
-            padding: $padding-g;
+            padding: 0 2px;
+        }
+        #ttbar-home {
+            float: left;
+            height: $hei-30;
+            padding: 0 2px;
             .iconfont {
                 position: relative;
                 display: inline;
@@ -47,10 +62,124 @@ body {
                 text-decoration: none;
             }
         }
-        .style-red{
-            color: $c-f30213;
+        .fr {
+            #ttbar-login {
+                margin-right: $mr-10;
+                .link-login {
+                    font-family: "verdana,simsun";
+                }
+                .style-red {
+                    color: $c-f30213;
+                }
+            }
+            .spacer {
+                width: $wi-1;
+                height: $hei-12;
+                margin-top: $mt-9;
+                padding: 0;
+                background: $c-ccc;
+                overflow: hidden;
+            }
+            .dt {
+                float: left;
+                padding: 0 8px;
+            }
+            .dorpdown {
+                z-index: 13;
+                .dt {
+                    width: 49px;
+                    padding-right: 25px;
+                }
+            }
+            .cw-icon {
+                .iconfont {
+                    position: absolute;
+                    right: 5px;
+                    top: 10px;
+                    width: 12px;
+                    height: $hei-12;
+                    line-height: $hei-12;
+                }
+            }
         }
+    }
+        .hover {
+            .dorpdown-layer {
+                -webkit-transition: all 0.6s cubic-bezier(0.23, 1, .32, 1);
+                display: block;
+            }
+            
+        }
+    .dd {
+        line-height: 24px;
+    }
+    .dorpdown-layer {
+        top: 30px;
+        background: #fff;
+        border: $bd-1;
+    }
+    li.hover {
+        padding: 0 1px;
+        .dt {
+            @include bg-bds;
+        }
+    }
+    li.dorpdown {
+        z-index: 13;
+    }
+    .dd-spacer {
+        position: absolute;
+        top: -7px;
+        height: 10px;
+        background: #fff;
+        overflow: hidden;
+    }
+    
+}
+
+//------------------shortcur结尾处------------//
+.dorpdown:hover .dorpdown-layer, .hover .dorpdown-layer{
+    display: block;
+    position: absolute;
+}
+.cw-icon {
+    float: left;
+    padding: 0 8px;
+}
+
+// #ttbar-myjd 开始处
+#ttbar-myjd {
+    .dorpdown-layer {
+        width: 280px;
+    }
+    .dt {
+      width: 49px;
+      padding-right: 25px;
+    }
+    .dd-spacer{
+        left: 0;
+        width: 82px;
+    }
+    .myjdlist1,
+    .myjdlist2 {
+        width: 265px;
+        padding: 5px 0 5px 15px;
+        overflow: hidden;
+    }
+    .myjdlist2,
+    .viewlist {
+        border-top: 1px solid #f1f1f1;
+    }
+    .viewlist {
+        width: 250px;
+        padding: 0 15px 10px;
+        padding-top: 10px;
+    }
+    .dd-spacer {
+        left: 0;
+        width: 82px;
     }
 }
 
+// #ttbar-myjd 结尾处
 //----------------广告--------------------//

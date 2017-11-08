@@ -8,6 +8,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=6+">
 		<meta name="renderer" content="webkit">
 		<link rel="dns-prefetch" href="//ai.jd.com">
+		<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
 		<title>京东超市-品类齐全-正品行货-精致服务</title>
 		<link rel="icon" href="//www.jd.com/favicon.ico" mce_href="//www.jd.com/favicon.ico" type="image/x-icon">
 		<link rel="stylesheet" type="text/css" href="css/main.css"/>
@@ -31,10 +32,79 @@
 							&nbsp;&nbsp;
 							<a href="javascript:regist();" class="link-regist style-red">免费注册</a>
 						</li>
+						<li class="spacer"></li>
+						<li class="fore2">
+							<div class="dt">
+								<a target="_blank" href="#">我的订单</a>
+							</div>
+						</li>
+						<li class="spacer"></li>
+						<li class="fore3 dorpdown" id="ttbar-myjd" data-load="1">
+							<div class="dt cw-icon">
+								<a target="_blank" href="#" >我的京东</a>
+								<i class="iconfont"></i>
+							</div>
+							<div class="dd dorpdown-layer">
+
+								<div class="dd-spacer"></div>
+								<div class="myjdlist1"></div>
+								<div class="myjdlist2"></div>
+								<div class="viewlist"></div>
+							</div>
+						</li> 
+						<li class="spacer"></li>
+						<li class="fore4">
+							<div class="dt">
+						<a target="_blank" href="">京东会员</a>
+							</div>
+						</li>
+						<li class="spacer"></li>
+						<li class="fore5">
+							<div class="dt">
+						<a target="_blank" href="">企业采购</a>
+							</div>
+						</li>
+						<li class="spacer"></li>
+						<li class="fore6 dorpdown" id="ttbar-serv" data-load= "1">
+							<div class="dt cw-icon">
+								客户服务
+								<i class="iconfont"></i>
+							</div>
+							
+						</li>
+						<li class="spacer"></li>
+					<li class="fore7 dorpdown" id="ttbar-navs" data-load= "1">
+							<div class="dt cw-icon">
+								网站导航
+								<i class="iconfont"></i>
+							</div>
+							
+						</li>
+						<li class="spacer"></li>
+					<li class="fore8 dorpdown" id="ttbar-apps" data-load= "1">
+							<div class="dt cw-icon">
+								<a href="" target="_blank">手机京东</a>
+							</div>
+							<div class="dd dorpdown-layer">
+							<div class="dd-spacer"></div>
+							<div class="dd-inner" id="ttbar-apps-main">
+								
+							</div>
+							</div>
+						</li>
 					</ul>
 				
 			</div>
 		</div>
+		
+		
+		<script type="text/javascript">
+			$("#ttbar-myjd").hover(function  () {
+				$(this).addClass("hover")
+			},function  () {
+				$(this).removeClass("hover")
+			})
+		</script>
 	</body>
 
 </html>

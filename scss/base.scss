@@ -56,11 +56,13 @@ section,
 summary {
     display: block;
 }
+
 hr {
     -moz-box-sizing: content-box;
     box-sizing: content-box;
     height: 0
 }
+
 button,
 html input[type=button],
 input[type=submit] {
@@ -72,9 +74,15 @@ button[disabled],
 html input[disabled] {
     cursor: default;
 }
+
 ol,
 ul {
     list-style: none;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
 }
 
 img {
@@ -82,6 +90,7 @@ img {
     vertical-align: middle;
     display: block;
 }
+
 em,
 i,
 u {
@@ -112,6 +121,24 @@ u {
     font-weight: 700;
 }
 
+.dorpdown {
+    position: relative;
+}
+
+.cw-icon {
+    position: relative;
+    cursor: default;
+    zoom: 1;
+    i {
+        display: block;
+        overflow: hidden;
+    }
+}
+.dorpdown-layer{
+    display: none;
+    position: absolute;
+}
+
 .hide {
     display: none;
 }
@@ -137,6 +164,7 @@ u {
 .clearfix {
     *zoom: 1;
 }
+
 a {
     color: #666;
     text-decoration: none
@@ -145,6 +173,7 @@ a {
 a:hover {
     color: #f30213
 }
+
 .p-detail,
 .p-img,
 .p-market,
@@ -152,17 +181,18 @@ a:hover {
 .p-price {
     overflow: hidden
 }
+
 .m,
 .mb,
 .mc,
 .mt,
 .sm,
 .smb,
-.smc                                                                                                                                                                                                                                                                                            
-.smt {
+.smc .smt {
     overflow: hidden;
     zoom: 1
 }
+
 .img-error {
     background: url(//misc.360buyimg.com/lib/skin/e/i/error-jd.gif) no-repeat 50% 50%
 }
@@ -172,54 +202,68 @@ a:hover {
     src: url(//misc.360buyimg.com/jdf/1.0.0/unit/ui-base/5.0.0/font/iconfont.eot);
     src: url(//misc.360buyimg.com/jdf/1.0.0/unit/ui-base/5.0.0/font/iconfont.eot#iefix) format("embedded-opentype"), url(//misc.360buyimg.com/jdf/1.0.0/unit/ui-base/5.0.0/font/iconfont.woff) format("woff"), url(//misc.360buyimg.com/jdf/1.0.0/unit/ui-base/5.0.0/font/iconfont.ttf) format("truetype"), url(//misc.360buyimg.com/jdf/1.0.0/unit/ui-base/5.0.0/font/iconfont.svg#iconfont) format("svg")
 }
+
 .iconfont {
     font-family: iconfont;
     font-style: normal;
     -webkit-text-stroke-width: .2px;
     -moz-osx-font-smoothing: grayscale
 }
+
 .mod_container {
-    font-family: Microsoft YaHei,tahoma,arial,Hiragino Sans GB,\\5b8b\4f53,sans-serif;
+    font-family: Microsoft YaHei, tahoma, arial, Hiragino Sans GB, \\5b8b\4f53, sans-serif;
     background: #f6f6f6;
     overflow: hidden
 }
+
 body {
     font: 12px/150% tahoma, arial, Microsoft YaHei, Hiragino Sans GB, "\u5b8b\u4f53", sans-serif;
     -webkit-font-smoothing: antialiased;
     color: #666;
     background: #fff
 }
-.mod_container,body {
+
+.mod_container,
+body {
     min-width: 1190px
 }
+
 .o2_mini body {
     min-width: 990px
 }
+
 .grid_c1 {
     width: 1190px;
     margin-left: auto;
     margin-right: auto
 }
+
 .o2_mini .mod_container {
     min-width: 990px
 }
+
 .o2_mini .grid_c1 {
     width: 990px
 }
+
 .o2_wide .w {
     width: 1200px
 }
+
 .o2_mini .w {
     width: 1000px
 }
+
 .o2_wide .mod_w {
     width: 1200px;
 }
+
 .mod_w {
     width: 1000px;
     margin-left: auto;
     margin-right: auto
 }
+
 .o2data-lazyload {
     background: url(//misc.360buyimg.com/mtd/pc/index/gb/images/lazyload.gif) no-repeat 50% #fff
 }
@@ -266,11 +310,11 @@ body {
     padding-left: 80px
 }
 
-#search-2014,#settleup-2014 {
+#search-2014,
+#settleup-2014 {
     margin-top: 27px
 }
 
 #cmsfooter {
     min-height: 480px
 }
-
