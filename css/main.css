@@ -313,7 +313,6 @@ body,
   cursor: pointer; }
 
 #logo-2014 {
-  width: 350px;
   height: 56px;
   padding: 0;
   margin-top: 26px;
@@ -323,13 +322,12 @@ body,
   z-index: 12;
   margin: 15px 0 22px; }
   #logo-2014 .logo {
+    display: block;
     position: absolute;
-    left: -9999px;
     left: 0;
     margin-top: 0;
     background-image: url("//static.360buyimg.com/mtd/pc/supermarket_v3/3.0.1/v3/images/sprite_chaoshi_mod_header_v2@1x.png");
     background-position: 0 0;
-    -moz-background-size: 213px 82px;
     background-size: 213px 82px;
     background-repeat: no-repeat;
     width: 213px;
@@ -346,6 +344,7 @@ body,
     border-bottom: 2px solid #c91523; }
     .logo_dropdown .dropdown_box .dt {
       color: #fff;
+      width: 49px;
       text-align: center;
       font-size: 0;
       line-height: 24px; }
@@ -359,14 +358,9 @@ body,
     right: 0;
     top: 9px;
     text-indent: -9999px;
-    -webkit-transition: -webkit-transform .1s ease;
-    transition: -webkit-transform .1s ease;
-    -moz-transition: transform .1s ease, -moz-transform .1s ease;
-    transition: transform .1s ease;
     transition: transform .1s ease, -webkit-transform .1s ease, -moz-transform .1s ease;
     background-image: url("//static.360buyimg.com/mtd/pc/supermarket_v3/3.0.1/v3/images/sprite_chaoshi_mod_header_v2@1x.png");
     background-position: -19px -56px;
-    -moz-background-size: 213px 82px;
     background-size: 213px 82px;
     background-repeat: no-repeat;
     width: 11px;
