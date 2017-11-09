@@ -42,6 +42,10 @@ var {
   margin: 0;
   padding: 0; }
 
+a {
+  color: #666;
+  text-decoration: none; }
+
 article,
 aside,
 details,
@@ -80,8 +84,7 @@ li {
 
 img {
   border: 0;
-  vertical-align: middle;
-  display: block; }
+  vertical-align: middle; }
 
 em,
 i,
@@ -172,7 +175,7 @@ a:hover {
 
 @font-face {
   font-family: iconfont;
-  src: url(//misc.360buyimg.com/jdf/1.0.0/unit/ui-base/5.0.0/font/iconfont.eot);
+  src: url("//misc.360buyimg.com/jdf/1.0.0/unit/ui-base/5.0.0/font/iconfont.eot");
   src: url(//misc.360buyimg.com/jdf/1.0.0/unit/ui-base/5.0.0/font/iconfont.eot#iefix) format("embedded-opentype"), url(//misc.360buyimg.com/jdf/1.0.0/unit/ui-base/5.0.0/font/iconfont.woff) format("woff"), url(//misc.360buyimg.com/jdf/1.0.0/unit/ui-base/5.0.0/font/iconfont.ttf) format("truetype"), url(//misc.360buyimg.com/jdf/1.0.0/unit/ui-base/5.0.0/font/iconfont.svg#iconfont) format("svg"); }
 .iconfont {
   font-family: iconfont;
@@ -194,6 +197,19 @@ body {
 .mod_container,
 body {
   min-width: 1190px; }
+
+.w {
+  width: 900px;
+  margin: 0 auto; }
+
+.clr {
+  content: "";
+  display: block;
+  overflow: hidden;
+  clear: both;
+  height: 0;
+  line-height: 0;
+  font-size: 0; }
 
 .o2_mini body {
   min-width: 990px; }
@@ -217,6 +233,12 @@ body {
 
 .o2_wide .mod_w {
   width: 1200px; }
+
+.o2_wide #logo-2014 {
+  width: 350px; }
+
+.o2_wide #search-2014 {
+  margin: 27px 80px 0; }
 
 .mod_w {
   width: 1000px;

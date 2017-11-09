@@ -29,23 +29,40 @@ body,
     border-width: 0 1px;
 }
 
+.root61 {
+    #shortcur {
+        #ttbar-navs {
+            dl {
+                width: 259px;
+            }
+            .item {
+                width: 86px;
+            }
+        }
+    }
+}
+
 #shortcur {
     width: $wi-100;
     height: $hei-30;
     line-height: $hei-30;
     background: $c-e3e4e5;
     border-bottom: $bdb-1;
+    a {
+        color: $c-999;
+        &:hover {
+            color: $c-f30213;
+        }
+    }
+    li {
+        float: left;
+        height: $hei-30;
+        padding: 0 2px;
+    }
     .w {
         background: $c-e3e4e5;
         color: $c-999;
         width: $wi-1200;
-        height: $hei-30;
-        margin: $margin-g;
-        li {
-            float: left;
-            height: $hei-30;
-            padding: 0 2px;
-        }
         #ttbar-home {
             float: left;
             height: $hei-30;
@@ -56,10 +73,6 @@ body,
                 font-size: $fz-16;
                 color: $c-5c5452;
                 padding-right: $s-5p;
-            }
-            a {
-                color: $c-999;
-                text-decoration: none;
             }
         }
         .fr {
@@ -103,13 +116,12 @@ body,
             }
         }
     }
-        .hover {
-            .dorpdown-layer {
-                -webkit-transition: all 0.6s cubic-bezier(0.23, 1, .32, 1);
-                display: block;
-            }
-            
+    .hover {
+        .dorpdown-layer {
+            -webkit-transition: all 0.6s cubic-bezier(0.23, 1, .32, 1);
+            //          display: block;
         }
+    }
     .dd {
         line-height: 24px;
     }
@@ -118,14 +130,16 @@ body,
         background: #fff;
         border: $bd-1;
     }
-    li.hover {
-        padding: 0 1px;
-        .dt {
-            @include bg-bds;
+    li {
+        &.hover {
+            padding: 0 1px;
+            .dt {
+                @include bg-bds;
+            }
         }
-    }
-    li.dorpdown {
-        z-index: 13;
+        &li.dorpdown {
+            z-index: 13;
+        }
     }
     .dd-spacer {
         position: absolute;
@@ -134,17 +148,222 @@ body,
         background: #fff;
         overflow: hidden;
     }
-    
+    #ttbar-atte,
+    #ttbar-serv {
+        .dt {
+            width: 49px;
+            padding-right: 25px;
+        }
+        .dd {
+            padding-bottom: 8px;
+        }
+        .dd-spacer {
+            left: 0;
+            width: 82px;
+        }
+        .item {
+            display: inline-block;
+            width: 70px;
+        }
+    }
+    #ttbar-serv {
+        .dd {
+            width: 170px;
+        }
+        .item-business,
+        .item-client {
+            font-weight: 700;
+            padding-left: 10px;
+            color: #666;
+        }
+        .item {
+            padding-left: 10px;
+        }
+        .item-business {
+            border-top: 1px solid #eee;
+            padding-top: 5px;
+            margin-top: 5px;
+        }
+    }
+    .dt {
+        float: left;
+        padding: 0 8px;
+    }
+    #ttbar-navs {
+        .dt {
+            width: 49px;
+            padding-right: 25px;
+        }
+        .dd {
+            width: 1208px;
+            right: -69px;
+            padding: 20px 0 16px;
+        }
+        .dd-spacer {
+            right: 69px;
+            width: 82px;
+        }
+        dl.fore1 {
+            width: 347px;
+            border-left: none;
+        }
+        dl {
+            float: left;
+            padding-left: 20px;
+            border-left: 1px solid #eee;
+        }
+        dt {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #666;
+        }
+        .item {
+            float: left;
+            width: 100px;
+        }
+        .fore2 {
+            display: block;
+        }
+    }
+    //  #ttbar-navs结束
+    li {
+        &#ttbar-apps {
+            .dt {
+                background: 0 0;
+            }
+        }
+    }
+    #ttbar-apps {
+        .dorpdown-layer {
+            right: 0;
+        }
+        .dd {
+            width: 190px;
+            border-bottom: 3px solid #60575a;
+        }
+        .dd-spacer {
+            position: absolute;
+            display: block;
+            top: -9px;
+            left: 154px;
+            margin-left: -5px;
+            width: 0;
+            height: 0;
+            line-height: 0;
+            font-size: 0;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #e4e4e4 #e4e4e4 #fff;
+        }
+    }
 }
 
 //------------------shortcur结尾处------------//
-.dorpdown:hover .dorpdown-layer, .hover .dorpdown-layer{
+//apps开始
+.mobile_pop_item {
+    position: relative;
+    z-index: 5;
+    padding: 15px 0;
+    border-bottom: 1px solid #E7E7E7;
+}
+
+.mobile_pop_device_lk {
+    background-image: url("//misc.360buyimg.com/mtd/pc/index/home/images/sprite_mobile@1x.png");
+}
+
+.mobile_pop_qrcode {
+    position: absolute;
+    left: 5px;
+    top: 14px;
+    width: 74px;
+    height: 74px;
+    border: 1px solid #CCC;
+    background-color: #F7F7F7;
+}
+
+.mobile_pop_qrcode {
+    img {
+        width: 70px;
+        height: 70px;
+        margin: 2px 0 0 2px;
+    }
+}
+
+.mobile_pop_info {
+    margin: 0 10px 0 86px;
+    min-height: 70px;
+}
+
+.mobile_pop_tit {
+    font-size: 12px;
+    line-height: 17px;
+    color: #666 !important;
+}
+
+.mobile_pop_tit {
+    a {
+        color: #666 !important;
+    }
+}
+
+.mobile_pop_value {
+    margin: 3px 0;
+    line-height: 14px;
+    color: #F10214;
+}
+
+.mobile_pop_device {
+    overflow: hidden;
+    height: 25px;
+}
+
+.mobile_pop_device_lk {
+    overflow: hidden;
+    float: left;
+    margin-right: 2px;
+    width: 25px;
+    height: 25px;
+    text-indent: -999px;
+}
+
+.mobile_pop_device_ios {
+    background-position: 0 0;
+}
+
+.mobile_pop_device_and {
+    background-position: 0 -26px;
+}
+
+.mobile_pop_device_pad {
+    background-position: 0 -52px;
+}
+
+@media only screen and ( -webkit-min-device-pixel-ratio:1.5),
+only screen and ( min--moz-device-pixel-ratio:1.5),
+only screen and ( -o-min-device-pixel-ratio:3/2),
+only screen and ( min-device-pixel-ratio:1.5) {
+    .mobile_pop_device_lk {
+        background-image: url("//misc.360buyimg.com/mtd/pc/index/home/images/sprite_mobile@2x.png");
+        background-size: 25px 77px;
+    }
+}
+
+.dorpdown:hover .dorpdown-layer,
+.hover .dorpdown-layer {
     display: block;
     position: absolute;
 }
+
 .cw-icon {
     float: left;
     padding: 0 8px;
+    .i,
+    i {
+        display: block;
+        position: absolute;
+        overflow: hidden;
+    }
 }
 
 // #ttbar-myjd 开始处
@@ -153,10 +372,10 @@ body,
         width: 280px;
     }
     .dt {
-      width: 49px;
-      padding-right: 25px;
+        width: 49px;
+        padding-right: 25px;
     }
-    .dd-spacer{
+    .dd-spacer {
         left: 0;
         width: 82px;
     }
@@ -165,6 +384,11 @@ body,
         width: 265px;
         padding: 5px 0 5px 15px;
         overflow: hidden;
+        .fore1,
+        .fore2 {
+            float: left;
+            width: 126px;
+        }
     }
     .myjdlist2,
     .viewlist {
@@ -173,13 +397,206 @@ body,
     .viewlist {
         width: 250px;
         padding: 0 15px 10px;
+        border-top: 1px solid #F1F1F1;
         padding-top: 10px;
+        .smt {
+            overflow: hidden;
+            zoom: 1;
+            h4 {
+                float: left;
+            }
+            .extra {
+                float: right;
+            }
+        }
+        .smc {
+            overflow: hidden;
+            zoom: 1;
+            .item {
+                float: left;
+                padding: 4px;
+                line-height: 0;
+                font-size: 0;
+            }
+        }
     }
     .dd-spacer {
         left: 0;
         width: 82px;
     }
+    img[Attributes Style] {
+        width: 50px;
+        height: 50px;
+    }
 }
 
 // #ttbar-myjd 结尾处
-//----------------广告--------------------//
+//----------------小广告第二栏--------------------//
+.chaoshi_top_lk {
+    display: block;
+    position: relative;
+}
+
+.grid_c1 {
+    width: 1190px;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.chaoshi_top_close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-image: url("//static.360buyimg.com/mtd/pc/supermarket_v3/3.0.1/v3/images/sprite_chaoshi_index.png");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    cursor: pointer
+}
+
+#logo-2014 {
+    width: 350px;
+    height: 56px;
+    padding: 0;
+    margin-top: 26px;
+    margin-bottom: 22px;
+    position: relative;
+    float: left;
+    z-index: 12;
+    margin: 15px 0 22px;
+    .logo {
+        position: absolute;
+        left: -9999px;
+        left: 0;
+        margin-top: 0;
+        background-image: url("//static.360buyimg.com/mtd/pc/supermarket_v3/3.0.1/v3/images/sprite_chaoshi_mod_header_v2@1x.png");
+        background-position: 0 0;
+        -moz-background-size: 213px 82px;
+        background-size: 213px 82px;
+        background-repeat: no-repeat;
+        width: 213px;
+        height: 54px
+    }
+}
+
+.logo_dropdown {
+    position: absolute;
+    width: 90px;
+    top: 12px;
+    left: 234px;
+    z-index: 3;
+    .dropdown_box {
+        height: 24px;
+        border-bottom: 2px solid #c91523;
+        .dt {
+            color: #fff;
+            text-align: center;
+            font-size: 0;
+            line-height: 24px;
+        }
+        .ui-areamini-text{
+            overflow: hidden;
+            text-align: center;
+            color: #c91523;
+            font-size: 14px;
+            margin-left: -5px;
+        }
+    }
+    .cw-icon {
+        i {
+            right: 0;
+            top: 9px;
+            text-indent: -9999px;
+            -webkit-transition: -webkit-transform .1s ease;
+            transition: -webkit-transform .1s ease;
+            -moz-transition: transform .1s ease, -moz-transform .1s ease;
+            transition: transform .1s ease;
+            transition: transform .1s ease, -webkit-transform .1s ease, -moz-transform .1s ease;
+            background-image: url("//static.360buyimg.com/mtd/pc/supermarket_v3/3.0.1/v3/images/sprite_chaoshi_mod_header_v2@1x.png");
+            background-position: -19px -56px;
+            -moz-background-size: 213px 82px;
+            background-size: 213px 82px;
+            background-repeat: no-repeat;
+            width: 11px;
+            height: 7px
+        }
+    }
+    
+}
+
+//.logo_dropdown 结束
+.dropdown_locate {
+    background-image: url("//static.360buyimg.com/mtd/pc/supermarket_v3/3.0.1/v3/images/sprite_chaoshi_mod_header_v2@1x.png");
+    background-position: 0 -56px;
+    -moz-background-size: 213px 82px;
+    background-size: 213px 82px;
+    background-repeat: no-repeat;
+    width: 17px;
+    height: 26px
+}
+
+.dropdown_wrap {
+    width: 65px;
+    height: 26px;
+    margin-left: 6px;
+    li{
+        .dorpdown-layer{
+            top: 26px;
+            left: -1px;
+            background: #fff;
+            border: 1px solid #ddd;
+        }
+        
+    }
+    .dropdown_box{
+        .dd{
+            width: 301px;
+            padding: 10px 0 10px 10px;
+        }
+        .dorpdown-layer{
+            .item{
+                float: left;
+                width: 60px;
+                padding: 2px 0;
+            }
+        }
+    }
+}
+
+#search-2014 {
+    width: 450px;
+    margin-right: 0;
+    position: relative;
+    z-index: 11;
+    float: left;
+}
+
+#settleup-2014 {
+    margin-left: 30px;
+    float: left;
+    margin-right: 0;
+    z-index: 11;
+    height: 36px;
+}
+
+#search-2014,
+#settleup-2014 {
+    margin-top: 27px;
+}
+
+.headerqrcode {
+    position: relative;
+    margin-top: 27px;
+    float: right;
+    margin-left: 30px;
+    width: 120px;
+}
+
+#hotwords {
+    width: 462px;
+    padding-left: 80px;
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+}

@@ -21,3 +21,10 @@ div # mod_containere {
 div #cmsfooter{
 	1263px * 480px
 }
+
+我的足迹接口GET：https://diviner.jd.com/diviner?lid=1&lim=5&ec=utf-8&uuid=15083204825022113429184&pin=&p=202001&sku=&ck=pin,ipLocation,atw,aview&callback=?
+
+
+客户服务接口GET：https://dc.3.cn/client/get?callback=？
+
+网站导航接口GET：https://dc.3.cn/navigation/get?callback=？
