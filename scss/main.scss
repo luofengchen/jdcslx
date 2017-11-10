@@ -63,6 +63,13 @@ body,
         background: $c-e3e4e5;
         color: $c-999;
         width: $wi-1200;
+        .dorpdown:hover,
+        .hover {
+            .dorpdown-layer {
+                display: block;
+                position: absolute;
+            }
+        }
         #ttbar-home {
             float: left;
             height: $hei-30;
@@ -349,12 +356,6 @@ only screen and ( min-device-pixel-ratio:1.5) {
     }
 }
 
-.dorpdown:hover .dorpdown-layer,
-.hover .dorpdown-layer {
-    display: block;
-    position: absolute;
-}
-
 .cw-icon {
     float: left;
     padding: 0 8px;
@@ -507,25 +508,30 @@ only screen and ( min-device-pixel-ratio:1.5) {
             right: 0;
             top: 9px;
             text-indent: -9999px;
+            -webkit-transition: -webkit-transform .1s ease;
+            transition: -webkit-transform .1s ease;
+            -moz-transition: transform .1s ease, -moz-transform .1s ease;
+            transition: transform .1s ease;
             transition: transform .1s ease, -webkit-transform .1s ease, -moz-transform .1s ease;
             background-image: url("//static.360buyimg.com/mtd/pc/supermarket_v3/3.0.1/v3/images/sprite_chaoshi_mod_header_v2@1x.png");
             background-position: -19px -56px;
+            -moz-background-size: 213px 82px;
             background-size: 213px 82px;
             background-repeat: no-repeat;
             width: 11px;
-            height: 7px
+            height: 7px;
         }
     }
-    ul{
-        li{
-            &.hover {
-                .iconfont {
-                        transform: rotate(-90px);
-                    }
-                }
+    .hover {
+        .cw-icon {
+            i {
+                -webkit-transform: rotate(180deg);
+                -moz-transform: rotate(180deg);
+                -ms-transform: rotate(180deg);
+                transform: rotate(180deg)
+            }
         }
     }
-       
 }
 
 //.logo_dropdown 结束
@@ -575,12 +581,6 @@ only screen and ( min-device-pixel-ratio:1.5) {
     }
 }
 
-//定位i的动画样式
-.dorpdown-layer {
-    //  display: none;
-    position: absolute;
-}
-
 #search-2014 {
     width: 450px;
     margin-right: 0;
@@ -597,17 +597,181 @@ only screen and ( min-device-pixel-ratio:1.5) {
     height: 36px;
 }
 
-#search-2014,
-#settleup-2014 {
-    margin-top: 27px;
+#shelper {
+    overflow: hidden;
+    position: absolute;
+    top: 36px;
+    left: 0;
+    border: 1px solid #ccc;
+    background: #fff;
 }
 
-//.has_qrcode {
-//  position: relative;
-//  margin-top: 27px;
-//  float: right;
-//  margin-left: 30px;
-//  width: 120px;
+//搜索框
+.has_qrcode {
+    //  position: relative;
+    //  margin-top: 27px;
+    //  float: right;
+    //  margin-left: 30px;
+    //  width: 120px;
+    #search-2014 {
+        width: 450px;
+        margin-right: 0;
+        .text {
+            width: 360px;
+            border-color: #ffa133;
+            float: left;
+            height: 24px;
+            line-height: 24px;
+            color: #999;
+            padding: 4px;
+            margin-bottom: 4px;
+            border-width: 2px 0 2px 2px;
+            border-style: solid;
+            outline: 0;
+            font-size: 12px;
+        }
+        .button {
+            width: 80px;
+            background: #ffa133;
+            float: left;
+            height: 36px;
+            font-family: tahoma, arial, Microsoft YaHei, Hiragino Sans GB, "\u5b8b\u4f53", sans-serif;
+            border: 0;
+            border-radius: 0;
+            line-height: 1;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .cw-icon {
+            i {
+                top: 0;
+                left: 0;
+                width: 82px;
+                height: 36px;
+            }
+        }
+    }
+    //#search-2014 结束
+    #shelper {
+        width: 448px;
+    }
+    //#settleup-2014开始
+    #settleup-2014 {
+        margin-left: 30px;
+        float: left;
+        .cw-icon {
+            width: 91px;
+            height: 34px;
+            border: 1px solid #dfdfdf;
+            padding: 0 28px 0 19px;
+            background: #f9f9f9;
+            line-height: 34px;
+            a {
+                color: #f30213;
+            }
+            .ci-left {
+                top: 9px;
+                left: 90px;
+                width: 16px;
+                height: 16px;
+                background: url("//misc.360buyimg.com/jdf/1.0.0/unit/shoppingcart/5.0.0/i/settleup-@1x.png") no-repeat;
+                background-size: 16px 16px;
+                overflow: hidden;
+            }
+            .ci-right {
+                display: none;
+                top: 13px;
+                right: 12px;
+                height: 10px;
+                width: 10px;
+                background: url("//misc.360buyimg.com/jdf/1.0.0/unit/shoppingcart/5.0.0/i/right-@1x.png") no-repeat;
+                background-size: 10px 10px;
+                overflow: hidden;
+            }
+            .ci-count {
+                position: absolute;
+                top: 7px;
+                left: 105px;
+                display: inline-block;
+                *zoom: 1;
+                *display: inline;
+                padding: 1px;
+                font-size: 12px;
+                line-height: 14px;
+                letter-spacing: -1px;
+                color: #fff;
+                background-color: #da1026;
+                border-radius: 7px;
+                min-width: 14px;
+                font-family: tahoma, arial;
+                text-align: center
+            }
+        }
+        .dorpdown-layer {
+            //          bottom: -10px;
+            .prompt {
+                padding: 10px 15px;
+            }
+            .nogoods {
+                padding-left: 30px;
+                height: 49px;
+                line-height: 49px;
+                overflow: hidden;
+                color: #999;
+                b {
+                    float: left;
+                    width: 56px;
+                    height: 49px;
+                    background-image: url("//misc.360buyimg.com/jdf/1.0.0/unit/shoppingcart/5.0.0/i/settleup-nogoods.png");
+                }
+            }
+        }
+    }
+    //settleup-2014结束
+}
+
+//.has_qrcode 结束
+@mixin hpl {
+    display: block;
+    right: 0;
+    width: 308px;
+}
+
+@mixin bglay {
+    background: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+}
+
+@mixin pspac {
+    position: absolute;
+    right: 0;
+    top: -7px;
+    width: 138px;
+    height: 12px;
+    background: #fff;
+}
+
+#settleup-2014 {
+    z-index: 11;
+    height: 36px;
+    &.hover {
+        .dorpdown-layer {
+            @include hpl;
+            @include bglay;
+        }
+        .cw-icon {
+            @include bglay;
+        }
+        .spacer {
+            @include pspac;
+        }
+    }
+}
+
+//#settleup-content{
+//  
 //}
 #hotwords {
     width: 462px;

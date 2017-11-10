@@ -72,7 +72,6 @@ $("#ttbar-navs").hover(function() {
 				str1 += "<dl class='fore" + (i + 1) + "'><dt>" + data.data[i].n + "</dt><dd>" + str2 + "</dd></dl>";
 			}
 			str1 = "<div class='dd-spacer'></div>" + str1;
-			console.log(str1);
 			$("#ttbar-navs .dorpdown-layer").html(str1);
 		}
 	})
@@ -82,7 +81,13 @@ $("#ttbar-navs").hover(function() {
 
 $("#ttbar-apps").hover(function() {
 	$(this).addClass("hover");
+//				<div class="dd dorpdown-layer"><div class="dd-spacer"></div><div class="dd-inner" id="ttbar-apps-main"></div></div>		
+	var str1 = `<div class="dd dorpdown-layer"><div class="dd-spacer"></div><div class="dd-inner" id="ttbar-apps-main"></div></div>`;
+	 var str2 = '<div class="mobile_pop_item"> <div class="mobile_pop_qrcode mobile_pop_qrcode_1"><img src="//img10.360buyimg.com/da/jfs/t7525/251/1899038567/28110/d5764256/59a51bf6Nb8e478cc.png"></div> \<div class="mobile_pop_info"> \<h5 class="mobile_pop_tit"><a href="//app.jd.com/" target="_blank">&#25163;&#26426;&#20140;&#19996;</a></h5> \<p class="mobile_pop_value">&#x65B0;&#x4EBA;&#x4E13;&#x4EAB;&#x5927;&#x793C;&#x5305;</p> \<p class="mobile_pop_device"> \<a class="mobile_pop_device_lk mobile_pop_device_ios" href="https://itunes.apple.com/cn/app/id414245413" target="_blank">APP Store</a> \<a class="mobile_pop_device_lk mobile_pop_device_and" href="https://storage.jd.com/jdmobile/JDMALL-PC2.apk" target="_blank">&#x5B89;&#x5353;&#x5E02;&#x573A;</a> \<a class="mobile_pop_device_lk mobile_pop_device_pad" href="https://itunes.apple.com/cn/app/jing-dong-hd/id434374726" target="_blank">APP Store</a> \</p> \</div> \</div> \<div class="mobile_pop_item"> \<div class="mobile_pop_qrcode mobile_pop_qrcode_2"><img src="//img30.360buyimg.com/da/jfs/t3907/165/1380364192/12868/f47b703b/5874a54dNcec29924.jpg"></div> \<div class="mobile_pop_info"> \<h5 class="mobile_pop_tit">&#x5173;&#x6CE8;&#x4EAC;&#x4E1C;&#x5FAE;&#x4FE1;</h5> \<p class="mobile_pop_value">&#x5FAE;&#x4FE1;&#x626B;&#x4E00;&#x626B;&#x5173;&#x6CE8;<br>&#x65B0;&#x7C89;&#x6700;&#x9AD8;180&#x5143;<br>&#x60CA;&#x559C;&#x793C;&#x5305;</p> \</div> \</div> \<div class="mobile_pop_item"> \<div class="mobile_pop_qrcode mobile_pop_qrcode_3"><img src="//img13.360buyimg.com/da/jfs/t4018/193/1415357059/15408/876d5d6e/5874a555Ne8192324.jpg"></div> <div class="mobile_pop_info"> <h5 class="mobile_pop_tit"><a href="https://m.jr.jd.com/helppage/downApp/jrAppPromote.html" target="_blank">&#x4EAC;&#x4E1C;&#x91D1;&#x878D;&#x5BA2;&#x6237;&#x7AEF;</a></h5> <p class="mobile_pop_value">&#26032;&#20154;&#19987;&#20139;&#22823;&#31036;&#21253;</p> <p class="mobile_pop_device"> <a class="mobile_pop_device_lk mobile_pop_device_ios" href="https://itunes.apple.com/cn/app/jing-dong-jin-rong-hui-li/id895682747?mt=8" target="_blank">APP Store</a> <a class="mobile_pop_device_lk mobile_pop_device_and" href="http://211.151.9.66/downapp/jrapp_jr188.apk" target="_blank">&#x5B89;&#x5353;&#x5E02;&#x573A;</a> </p> </div> </div>';
+	$(this).append(str1);
+	$("#ttbar-apps-main").html(str2);
 }, function() {
+	$(this).find(".dorpdown-layer").remove();
 	$(this).removeClass("hover");
 });
 $(function() {
@@ -118,27 +123,46 @@ $(function() {
 			for(var i in prov) {
 				str3 += `<div class="item"><a data-id="${prov[i]}" href="javascript:void(0)">${i}</a></div>`
 			}
-			console.log(str2);
-			console.log(str3);
 			str2 = str2.replace(/<%=list%>/gi, str3);
-			console.log(str2);
 			$("#ttbar-mycity").find(".ui-areamini-content").html(str3);
 			// 单个省份信息排列
 		}
 	});
+	
+	
+	
 });
+
+
+
 $("#ttbar-mycity").hover(function() {
 	$(this).addClass("hover");
 	console.log($(this).children(".dt").children('.iconfont'));
-	$(this).children(".dt").children('.iconfont').css({
-		"transition": "all 0.5s",
-		"transform": "rotate(-180deg)"
-	});
-	console.log('aa');
 }, function() {
 	$(this).removeClass("hover");
-	$(this).children(".dt").children('.iconfont').css({
-		"transition": "all 0.5s",
-		"transform": "rotate(0deg)"
-	});
+});
+$("#settleup-2014").hover(function  () {
+	$(this).addClass("hover");
+},function  () {
+	$(this).removeClass("hover");
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
