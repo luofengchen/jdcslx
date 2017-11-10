@@ -475,7 +475,7 @@ only screen and ( min-device-pixel-ratio:1.5) {
         background-repeat: no-repeat;
         width: 213px;
         height: 54px;
-        }
+    }
 }
 
 .logo_dropdown {
@@ -516,6 +516,16 @@ only screen and ( min-device-pixel-ratio:1.5) {
             height: 7px
         }
     }
+    ul{
+        li{
+            &.hover {
+                .iconfont {
+                        transform: rotate(-90px);
+                    }
+                }
+        }
+    }
+       
 }
 
 //.logo_dropdown 结束
@@ -529,6 +539,7 @@ only screen and ( min-device-pixel-ratio:1.5) {
     height: 26px
 }
 
+//定位style
 .dropdown_wrap {
     width: 65px;
     height: 26px;
@@ -540,8 +551,12 @@ only screen and ( min-device-pixel-ratio:1.5) {
             background: #fff;
             border: 1px solid #ddd;
         }
+        .dd {
+            line-height: 24px;
+        }
     }
     .dropdown_box {
+        transition: all 0.5s;
         .dd {
             width: 301px;
             padding: 10px 0 10px 10px;
@@ -551,9 +566,19 @@ only screen and ( min-device-pixel-ratio:1.5) {
                 float: left;
                 width: 60px;
                 padding: 2px 0;
+                a {
+                    float: left;
+                    padding: 0 8px;
+                }
             }
         }
     }
+}
+
+//定位i的动画样式
+.dorpdown-layer {
+    //  display: none;
+    position: absolute;
 }
 
 #search-2014 {
@@ -577,14 +602,13 @@ only screen and ( min-device-pixel-ratio:1.5) {
     margin-top: 27px;
 }
 
-.headerqrcode {
-    position: relative;
-    margin-top: 27px;
-    float: right;
-    margin-left: 30px;
-    width: 120px;
-}
-
+//.has_qrcode {
+//  position: relative;
+//  margin-top: 27px;
+//  float: right;
+//  margin-left: 30px;
+//  width: 120px;
+//}
 #hotwords {
     width: 462px;
     padding-left: 80px;

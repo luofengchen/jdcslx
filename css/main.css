@@ -365,6 +365,8 @@ body,
     background-repeat: no-repeat;
     width: 11px;
     height: 7px; }
+  .logo_dropdown ul li.hover .iconfont {
+    transform: rotate(-90px); }
 
 .dropdown_locate {
   background-image: url("//static.360buyimg.com/mtd/pc/supermarket_v3/3.0.1/v3/images/sprite_chaoshi_mod_header_v2@1x.png");
@@ -384,13 +386,23 @@ body,
     left: -1px;
     background: #fff;
     border: 1px solid #ddd; }
-  .dropdown_wrap .dropdown_box .dd {
-    width: 301px;
-    padding: 10px 0 10px 10px; }
-  .dropdown_wrap .dropdown_box .dorpdown-layer .item {
-    float: left;
-    width: 60px;
-    padding: 2px 0; }
+  .dropdown_wrap li .dd {
+    line-height: 24px; }
+  .dropdown_wrap .dropdown_box {
+    transition: all 0.5s; }
+    .dropdown_wrap .dropdown_box .dd {
+      width: 301px;
+      padding: 10px 0 10px 10px; }
+    .dropdown_wrap .dropdown_box .dorpdown-layer .item {
+      float: left;
+      width: 60px;
+      padding: 2px 0; }
+      .dropdown_wrap .dropdown_box .dorpdown-layer .item a {
+        float: left;
+        padding: 0 8px; }
+
+.dorpdown-layer {
+  position: absolute; }
 
 #search-2014 {
   width: 450px;
@@ -409,13 +421,6 @@ body,
 #search-2014,
 #settleup-2014 {
   margin-top: 27px; }
-
-.headerqrcode {
-  position: relative;
-  margin-top: 27px;
-  float: right;
-  margin-left: 30px;
-  width: 120px; }
 
 #hotwords {
   width: 462px;
