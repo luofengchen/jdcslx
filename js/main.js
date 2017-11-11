@@ -128,24 +128,75 @@ $(function() {
 			// 单个省份信息排列
 		}
 	});
-	
-	
+	//settleup-2014 后面插入 二维码
 	
 });
-
-
-
-$("#ttbar-mycity").hover(function() {
-	$(this).addClass("hover");
-	console.log($(this).children(".dt").children('.iconfont'));
+$(".logo_dropdown").hover(function() {
+	$(this).find("#ttbar-mycity").addClass("hover");
+	console.log($(this));
 }, function() {
-	$(this).removeClass("hover");
+	$(this).find("#ttbar-mycity").removeClass("hover");
 });
 $("#settleup-2014").hover(function  () {
 	$(this).addClass("hover");
 },function  () {
 	$(this).removeClass("hover");
 })
+$("#settleup-2014").hover(function(){
+	$(this).addClass("hover");
+//	dorpdown-layer
+	var str = `<div class="spacer"></div><div class="prompt"><div class="nogoods"><b></b>\u8d2d\u7269\u8f66\u4e2d\u8fd8\u6ca1\u6709\u5546\u54c1\uff0c\u8d76\u7d27\u9009\u8d2d\u5427\uff01</div></div>`;
+	$(this).find('.dorpdown-layer').html(str);
+},function  () {
+	$(this).removeClass("hover");
+})
+$(function(){
+	var str = `<div class="headerqrcode" id="J_headerqrcode" style="display: block;"><a href="javascript:;" class="headerqrcode_lk"><i class="headerqrcode_ico"></i><span class="headerqrcode_txt">扫码享受优惠</span></a><div class="headerqrcode_qc"><div class="headerqrcode_qcimg"><img data-src="//qrimg.jd.com/https%3A%2F%2Fpro.m.jd.com%2Fmall%2Factive%2F2hqsQcyM5bEUVSStkN3BwrBHqVLd%2Findex.html-110-1-4-0.png?v=1" src="//qrimg.jd.com/https%3A%2F%2Fpro.m.jd.com%2Fmall%2Factive%2F2hqsQcyM5bEUVSStkN3BwrBHqVLd%2Findex.html-110-1-4-0.png?v=1"></div><div class="headerqrcode_arrow"><i class="headerqrcode_arrow_bd"></i><i class="headerqrcode_arrow_bg"></i></div></div></div>`;
+	$("#settleup-2014").after(str);
+	$.ajax({
+		type:"get",
+		url:"https://dc.3.cn/category/get?callback=?",
+		async:true,
+		dataType:"jsonp",
+		scriptCharset:"gbk",
+		success:function  (data) {
+			console.log(data);
+		}
+	});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

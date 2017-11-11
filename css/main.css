@@ -234,7 +234,6 @@ body,
     background-image: url("//misc.360buyimg.com/mtd/pc/index/home/images/sprite_mobile@2x.png");
     background-size: 25px 77px; } }
 .cw-icon {
-  float: left;
   padding: 0 8px; }
   .cw-icon .i,
   .cw-icon i {
@@ -395,6 +394,8 @@ body,
     border: 1px solid #ddd; }
   .dropdown_wrap li .dd {
     line-height: 24px; }
+  .dropdown_wrap li.hover .dorpdown-layer {
+    display: block; }
   .dropdown_wrap .dropdown_box {
     transition: all 0.5s; }
     .dropdown_wrap .dropdown_box .dd {
@@ -433,6 +434,9 @@ body,
 .has_qrcode #search-2014 {
   width: 450px;
   margin-right: 0; }
+  .has_qrcode #search-2014 .form {
+    width: 450px;
+    height: 36px; }
   .has_qrcode #search-2014 .text {
     width: 360px;
     border-color: #ffa133;
@@ -553,5 +557,17 @@ body,
   height: 20px;
   line-height: 20px;
   overflow: hidden; }
+
+.headerqrcode_lk:hover {
+  color: #666; }
+
+.headerqrcode:hover .headerqrcode_qc {
+  opacity: 1;
+  visibility: visible; }
+
+.o2_retina .headerqrcode_ico {
+  -moz-background-size: 25px 25px;
+  background-size: 25px 25px;
+  background-image: url("//static.360buyimg.com/mtd/pc/cms/index/images/qrcode_25x25@2x.png"); }
 
 /*# sourceMappingURL=main.css.map */

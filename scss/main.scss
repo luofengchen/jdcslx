@@ -357,7 +357,7 @@ only screen and ( min-device-pixel-ratio:1.5) {
 }
 
 .cw-icon {
-    float: left;
+    //      float: left;
     padding: 0 8px;
     .i,
     i {
@@ -560,6 +560,11 @@ only screen and ( min-device-pixel-ratio:1.5) {
         .dd {
             line-height: 24px;
         }
+        &.hover {
+            .dorpdown-layer {
+                display: block;
+            }
+        }
     }
     .dropdown_box {
         transition: all 0.5s;
@@ -616,6 +621,10 @@ only screen and ( min-device-pixel-ratio:1.5) {
     #search-2014 {
         width: 450px;
         margin-right: 0;
+        .form{
+            width: 450px;
+            height: 36px;
+        }
         .text {
             width: 360px;
             border-color: #ffa133;
@@ -779,4 +788,18 @@ only screen and ( min-device-pixel-ratio:1.5) {
     height: 20px;
     line-height: 20px;
     overflow: hidden;
+}
+
+.headerqrcode_lk:hover {
+    color: #666
+}
+
+.headerqrcode:hover .headerqrcode_qc {
+    opacity: 1;
+    visibility: visible
+}
+.o2_retina .headerqrcode_ico {
+    -moz-background-size: 25px 25px;
+    background-size: 25px 25px;
+    background-image: url("//static.360buyimg.com/mtd/pc/cms/index/images/qrcode_25x25@2x.png")
 }

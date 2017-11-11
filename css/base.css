@@ -284,4 +284,78 @@ body {
 #cmsfooter {
   min-height: 480px; }
 
+.headerqrcode {
+  position: relative;
+  margin-top: 27px;
+  float: right;
+  margin-left: 30px;
+  width: 120px; }
+  .headerqrcode a:hover {
+    color: #666; }
+
+.headerqrcode_lk {
+  text-align: center;
+  border: 1px solid #dfdfdf;
+  display: block;
+  height: 34px;
+  line-height: 34px;
+  background: #f9f9f9;
+  position: relative;
+  padding-left: 30px; }
+
+.headerqrcode_ico, .headerqrcode_txt {
+  display: inline-block; }
+
+.headerqrcode_ico {
+  width: 25px;
+  height: 25px;
+  background: url("//static.360buyimg.com/mtd/pc/cms/index/images/qrcode_25x25.png") no-repeat;
+  position: absolute;
+  top: 5px;
+  left: 8px; }
+
+.headerqrcode_qc {
+  position: absolute;
+  border: 1px solid #DFDFDF;
+  width: 108px;
+  padding: 5px;
+  text-align: center;
+  z-index: 100;
+  background: #fff;
+  opacity: 0;
+  visibility: hidden;
+  zoom: 1;
+  transition: all .3s;
+  top: 35px; }
+
+.headerqrcode_qcimg {
+  width: 110px;
+  height: 100px; }
+  .headerqrcode_qcimg img {
+    width: 100px;
+    height: 100px;
+    background: url("//misc.360buyimg.com/mtd/pc/index/gb/images/loading.gif") no-repeat 50% !important; }
+
+.headerqrcode_arrow {
+  position: absolute;
+  display: none;
+  left: 62px;
+  top: -16px; }
+
+.headerqrcode_arrow_bd, .headerqrcode_arrow_bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  border: 8px dashed transparent; }
+
+.headerqrcode_arrow_bd {
+  border-bottom: 8px solid #c3c3c3; }
+
+.headerqrcode_arrow_bg {
+  border-bottom: 8px solid #fff;
+  top: 1px; }
+
 /*# sourceMappingURL=base.css.map */
