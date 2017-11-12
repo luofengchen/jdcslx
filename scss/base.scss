@@ -217,7 +217,7 @@ a:hover {
 }
 
 .mod_container {
-    font-family: Microsoft YaHei, tahoma, arial, Hiragino Sans GB, \\5b8b\4f53, sans-serif;
+    font-family: Microsoft YaHei,tahoma,arial,Hiragino Sans GB,\\5b8b\4f53,sans-serif;
     background: #f6f6f6;
     overflow: hidden
 }
@@ -259,12 +259,13 @@ body {
     margin-right: auto
 }
 
-.o2_mini .mod_container {
-    min-width: 990px
-}
-
-.o2_mini .grid_c1 {
-    width: 990px
+.o2_mini {
+    .mod_container {
+        min-width: 990px
+    }
+    .grid_c1 {
+        width: 990px
+    }
 }
 
 .o2_wide .w {
@@ -292,7 +293,7 @@ body {
         width: 450px;
         margin-right: 0;
     }
-    #shelper{
+    #shelper {
         width: 448px;
     }
 }
@@ -314,30 +315,28 @@ body {
 .mod_container img {
     background: url(//misc.360buyimg.com/lib/skin/e/i/error-jd.gif) no-repeat 50% 50%
 }
-.o2_wide #search-2014 {
-    width: 540px;
-    margin: 27px 80px 0
-}
 
-.o2_wide #search-2014 .text {
-    width: 450px
-}
-
-.o2_wide #settleup-2014 {
-    margin-right: 0
-}
-
-.o2_wide #logo-2014 .extra {
-    padding-left: 11px
-}
-
-.o2_wide #shelper {
-    width: 538px
-}
-
-.o2_wide #hotwords {
-    width: 462px;
-    padding-left: 80px
+.o2_wide {
+    #search-2014 {
+        width: 540px;
+        margin: 27px 80px 0;
+        .text {
+            width: 450px
+        }
+    }
+    #settleup-2014 {
+        margin-right: 0
+    }
+    #logo-2014 .extra {
+        padding-left: 11px
+    }
+    #shelper {
+        width: 538px
+    }
+    #hotwords {
+        width: 462px;
+        padding-left: 80px
+    }
 }
 
 #search-2014,
@@ -438,3 +437,15 @@ body {
     border-bottom: 8px solid #fff;
     top: 1px;
 }
+
+.o2_wide{
+    .chaoshi_menu_list_link {
+        padding: 0 24px;
+    }
+    .chaoshi_menu_ad_item_first{
+        margin-left: 0;
+    }
+    .chaoshi_menu_ad_item{
+        margin-left: 26px;
+    }
+} 

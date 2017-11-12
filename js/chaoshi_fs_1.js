@@ -1,6 +1,6 @@
 (function(window){
-    window.data = window.data || {};
-    window.data['chaoshi_fs_1'] = {
+    shuju = window.shuju || {};
+    shuju['data'] = {
       menuList: [{"NAME":"\u8d85\u5e02\u9996\u9875","URL":"\/\/chaoshi.jd.com","YFLAG":"1"},{"NAME":"\u5bb6\u5ead\u91cf\u8d29","URL":"\/\/chaoshi.jd.com\/liangfan","YFLAG":"1"},{"NAME":"\u4eac\u4e1c\u751f\u9c9c","URL":"https:\/\/fresh.jd.com\/","YFLAG":"1"},{"NAME":"\u54c1\u724c\u7279\u5356","URL":"\/\/chaoshi.jd.com\/pinpai","YFLAG":"1"},{"NAME":"\u54c1\u8d28\u8fdb\u53e3","URL":"https:\/\/channel.jd.com\/1320-5019.html","YFLAG":"1"},{"NAME":"\u5c71\u59c6\u4f1a\u5458\u5e97","URL":"https:\/\/samsclub.jd.com\/","YFLAG":"1"},{"NAME":"PLUS\u4e13\u573a","URL":"https:\/\/sale.jd.com\/act\/f3Xynl42RA5.html"}],
       adList: [{"title":"\u6ee199\u514d\u8fd0\u8d39","picUrl":"\/\/img11.360buyimg.com\/cms\/jfs\/t5176\/120\/2413062618\/773\/fafe7aa3\/591aa606Nfe17fd41.png","picUrl80":"\/\/img13.360buyimg.com\/cms\/jfs\/t2971\/221\/2213333141\/2082\/7b91886f\/57a1c079N9540299d.jpg","price":"0.00","url":"\/\/aotu.jd.com","skuId":"1"},{"title":"100%\u6e20\u9053\u4fdd\u8bc1","picUrl":"\/\/img12.360buyimg.com\/cms\/jfs\/t5464\/344\/2422426436\/707\/47720902\/591aa62aN516cd9c6.png","picUrl80":"\/\/img12.360buyimg.com\/cms\/jfs\/t3256\/357\/137765317\/3623\/39ae1762\/57a7e7b0Nc0d9a67b.jpg","price":"0.00","url":"\/\/aotu.jd.com","skuId":"1"}],
       navTitle: [{"NAME":"\u4eac\u4e1c\u8d85\u5e02\u9891\u9053\u5206\u7c7b","URL":"\/\/chaoshi.jd.com","YFLAG":"1"}],

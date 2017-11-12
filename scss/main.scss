@@ -490,7 +490,7 @@ only screen and ( min-device-pixel-ratio:1.5) {
         border-bottom: 2px solid #c91523;
         .dt {
             color: #fff;
-//          width: 49px;
+            //          width: 49px;
             text-align: center;
             font-size: 0;
             line-height: 24px;
@@ -649,6 +649,8 @@ only screen and ( min-device-pixel-ratio:1.5) {
     #shelper {
         width: 448px;
         overflow: hidden;
+        display: none;
+        visibility: hidden;
         position: absolute;
         top: 36px;
         left: 0;
@@ -662,8 +664,8 @@ only screen and ( min-device-pixel-ratio:1.5) {
             line-height: 22px;
             padding: 1px 6px;
             cursor: pointer;
-                //              background:rgb(255, 255, 255);
-            background:rgb(255,255,255);
+            //              background:rgb(255, 255, 255);
+            background: rgb(255, 255, 255);
             &.fore1 {
                 width: 100%;
                 padding: 0;
@@ -674,7 +676,7 @@ only screen and ( min-device-pixel-ratio:1.5) {
                         padding: 0 6px;
                     }
                     &:hover {
-//                      background: #f5f5f5!important;
+                        //                      background: #f5f5f5!important;
                         a: {
                             color: #f30213;
                         }
@@ -948,3 +950,270 @@ only screen and ( min-device-pixel-ratio:1.5) {
     background-size: 25px 25px;
     background-image: url("//static.360buyimg.com/mtd/pc/cms/index/images/qrcode_25x25@2x.png")
 }
+
+.chaoshi_fs {
+    position: relative;
+    min-height: 593px;
+    margin-bottom: 15px;
+}
+
+.chaoshi_menu {
+    background: #fff!important;
+    height: 33px;
+    font-size: 0;
+    overflow: hidden;
+}
+
+.grid_c1 {
+    width: 1190px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.chaoshi_menu_list {
+    padding-left: 190px;
+    li {
+        &:nth-of-type(1) {
+            a{
+                
+            }
+        }
+    }
+}
+
+.chaoshi_menu_list_item {
+    position: relative;
+    margin-left: -1px;
+    font-size: 0;
+}
+
+.chaoshi_menu_list_split {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -6px;
+    width: 1px;
+    height: 12px;
+    background-color: #ccc;
+}
+.chaoshi_menu_list_link {
+    display: inline-block;
+    zoom: 1;
+    line-height: 33px;
+    font-size: 14px;
+    text-align: center;
+    color: #333;
+    &:hover {
+        color: #ffa133;
+    }
+}
+.o2_wide {
+    .chaoshi_menu_ad_item_first {
+        margin-left: 0;
+    }
+}
+.chaoshi_menu_ad_item {
+    color: #3c3c3c;
+    font-size: 14px;
+}
+.chaoshi_menu_ad_icon {
+    margin-right: 7px;
+    width: 22px;
+    height: 21px;
+}
+.chaoshi_menu_ad_icon,
+.chaoshi_menu_ad_txt {
+    vertical-align: middle;
+    display: inline-block;
+    zoom: 1;
+    line-height: 33px;
+}
+
+.chaoshi_menu_list_link_on {
+    color: #ffa133;
+    border-left: 0;
+}
+.chaoshi_banner_wrapper{
+    position: relative;
+    z-index: 2;
+    height: 550px;
+    background: #f6f6f6;
+}
+.grid_c1{
+    width: 1190px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.chaoshi_nav{
+    width: 190px;
+    position: absolute;
+    top: -33px;
+    left: 0;
+    height: 583px;
+    z-index: 6;
+}
+.chaoshi_nav_header{
+    height: 33px;
+    line-height: 33px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    padding-left: 15px;
+    background-color: #ffa133;
+}
+.chaoshi_nav_body{
+    width: 100%;
+    height: 550px;
+    position: relative;
+    .item{
+        height: 60px;
+        padding: 0 15px;
+        border-top: 1px solid #fff;
+        border-left: 1px solid #fff;
+        background: #fff;
+    }
+    .item_header{
+        padding-top: 11px;
+        border-bottom: 1px solid transparent;
+        width: 159px;
+        height: 49px;
+        position: relative;
+    }
+    
+    .item_decoration{
+        position: absolute;
+        width: 1px;
+        height: 59px;
+        top: 0;
+        right: -16px;
+        background-color: #fff;
+        z-index: 22;
+    }
+    .item_header_title{
+        color: #333;
+        margin-bottom: 2px;
+        position: relative;
+        height: 20px;
+        font-weight: 400;
+    }
+    .item_header_title_arrow{
+        position: absolute;
+        right: 0;
+        top: 4px;
+        display: block;
+        width: 5px;
+        height: 9px;
+        font-size: 14px;
+        font-family: simsun;
+        font-weight: 400;
+    }
+    .item_header_sublinks{
+        font-style: 12px;
+        color: #999;
+        height: 18px;
+        width: 100%;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+    .item_body{
+        position: absolute;
+        left: 190px;
+        top: 0;
+        border-color: #fff;
+        width: 1000px;
+        z-index: 21;
+        box-shadow: 4px 0 8px rgba(0,0,0,.2);
+    }
+    .item_header_sublinks_link_first{
+        margin-left: 0;
+    }
+    .item_header_sublinks_link{
+        font-size: 12px;
+        color: #999;
+        margin-left: 3px;
+    }
+    .item_header_sublinks_link_last{
+        margin-right: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

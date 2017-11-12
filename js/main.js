@@ -82,7 +82,6 @@ $("#ttbar-navs").hover(function() {
 
 $("#ttbar-apps").hover(function() {
 	$(this).addClass("hover");
-	//				<div class="dd dorpdown-layer"><div class="dd-spacer"></div><div class="dd-inner" id="ttbar-apps-main"></div></div>		
 	var str1 = `<div class="dd dorpdown-layer"><div class="dd-spacer"></div><div class="dd-inner" id="ttbar-apps-main"></div></div>`;
 	var str2 = '<div class="mobile_pop_item"> <div class="mobile_pop_qrcode mobile_pop_qrcode_1"><img src="//img10.360buyimg.com/da/jfs/t7525/251/1899038567/28110/d5764256/59a51bf6Nb8e478cc.png"></div> \<div class="mobile_pop_info"> \<h5 class="mobile_pop_tit"><a href="//app.jd.com/" target="_blank">&#25163;&#26426;&#20140;&#19996;</a></h5> \<p class="mobile_pop_value">&#x65B0;&#x4EBA;&#x4E13;&#x4EAB;&#x5927;&#x793C;&#x5305;</p> \<p class="mobile_pop_device"> \<a class="mobile_pop_device_lk mobile_pop_device_ios" href="https://itunes.apple.com/cn/app/id414245413" target="_blank">APP Store</a> \<a class="mobile_pop_device_lk mobile_pop_device_and" href="https://storage.jd.com/jdmobile/JDMALL-PC2.apk" target="_blank">&#x5B89;&#x5353;&#x5E02;&#x573A;</a> \<a class="mobile_pop_device_lk mobile_pop_device_pad" href="https://itunes.apple.com/cn/app/jing-dong-hd/id434374726" target="_blank">APP Store</a> \</p> \</div> \</div> \<div class="mobile_pop_item"> \<div class="mobile_pop_qrcode mobile_pop_qrcode_2"><img src="//img30.360buyimg.com/da/jfs/t3907/165/1380364192/12868/f47b703b/5874a54dNcec29924.jpg"></div> \<div class="mobile_pop_info"> \<h5 class="mobile_pop_tit">&#x5173;&#x6CE8;&#x4EAC;&#x4E1C;&#x5FAE;&#x4FE1;</h5> \<p class="mobile_pop_value">&#x5FAE;&#x4FE1;&#x626B;&#x4E00;&#x626B;&#x5173;&#x6CE8;<br>&#x65B0;&#x7C89;&#x6700;&#x9AD8;180&#x5143;<br>&#x60CA;&#x559C;&#x793C;&#x5305;</p> \</div> \</div> \<div class="mobile_pop_item"> \<div class="mobile_pop_qrcode mobile_pop_qrcode_3"><img src="//img13.360buyimg.com/da/jfs/t4018/193/1415357059/15408/876d5d6e/5874a555Ne8192324.jpg"></div> <div class="mobile_pop_info"> <h5 class="mobile_pop_tit"><a href="https://m.jr.jd.com/helppage/downApp/jrAppPromote.html" target="_blank">&#x4EAC;&#x4E1C;&#x91D1;&#x878D;&#x5BA2;&#x6237;&#x7AEF;</a></h5> <p class="mobile_pop_value">&#26032;&#20154;&#19987;&#20139;&#22823;&#31036;&#21253;</p> <p class="mobile_pop_device"> <a class="mobile_pop_device_lk mobile_pop_device_ios" href="https://itunes.apple.com/cn/app/jing-dong-jin-rong-hui-li/id895682747?mt=8" target="_blank">APP Store</a> <a class="mobile_pop_device_lk mobile_pop_device_and" href="http://211.151.9.66/downapp/jrapp_jr188.apk" target="_blank">&#x5B89;&#x5353;&#x5E02;&#x573A;</a> </p> </div> </div>';
 	$(this).append(str1);
@@ -179,13 +178,13 @@ $(function() {
 				async: true,
 				success: function(data) {
 					var Array = data[1].ptt.split("&");
-					var str1 = `<li class='fore1'><div id='d_0' suggest-pos='1.def.0' class='fore1' title='${data[1].key}'><div class='search-item'>${data[1].key}</div><div class='search-count'>约${data[1].qre}个商品</div></div><div id='d_1' class='item1' ><a href='${data[1].pul}?suggest=1.prom.0.V00&amp;wq=s' style='float:left;width:100%;'>${Array[0]}<img src='${data[1].ppc}'> ${Array[1]}</a></div></li>`;
+					var str1 = `<li class='fore1'><div id='d_0' suggest-pos='1.def.0' class='fore1' title='${data[1].key}'><div class='search-item'>${data[1].key}</div><div class='search-count'>约${data[1].qre}个商品</div></div><div id='d_1' class='item1'><a href='${data[1].pul}?suggest=1.prom.0.V00&amp;wq=s' style='float:left;width:100%;'>${Array[0]}<img src='${data[1].ppc}' style="padding-left: 4px;"> ${Array[1]}</a></div></li>`;
 					for(var i = 2; i < data.length - 1; i++) {
 						str1 += `<li id='d_${i}' suggest-pos='${i}.def.0' title='${data[i].key}'><div class="search-item">${data[i].key}</div><div class="search-count">约${data[i].qre}个商品</div></li>`;
 					}
 					str1 = str1 + `<li class="close">关闭</li>`;
 					$("#shelper").css({
-						"display": "block"
+						"display": "block","visibility": "visible"
 					}).html(str1);
 					listclick();
 				}
@@ -204,7 +203,6 @@ $(function() {
 		success:function  (dd) {
 //			console.log(dd);
 			var str = '';
-//			<a data-id="7052" data-position-id="2" href="//sale.jd.com/act/Sw1OTAmaqzfK.html" target="_blank">美妆盛宴</a>
 		for(var i = 1;i<dd.length;i++){
 			str += `<a data-id="${dd[i].id}" data-position-id="${dd[i].order}" href="${dd[i].url_info}" target="_blank">${dd[i].name}</a>`;
 		}
@@ -227,9 +225,7 @@ function listclick() {
 		$(this).css({
 			"background": "#f5f5f5"
 		});
-//		background: rgb(255, 223, 198);
 		$(this).children("a").css({"color":"#f30213"});
-//		background: rgb(255, 223, 198);
 	}, function() {
 		$(this).css({
 			"background": "rgb(255, 255, 255)"
@@ -277,10 +273,61 @@ function listfocusout() {
 }
 
 $(function(){
-	console.log(window.data);
-	console.log(window.data.chaoshi_fs_1.navTitle[0]);
+//	console.log(window.data);
 	var str = `<div class="chaoshi_fs" id="chaoshi_fs_1" data-id="chaoshi_fs_1" data-async="true" data-tpl="chaoshi_fs_tpl"></div>`;
+	$(".mod_container").append(str);
 	var str1 = `<div class="chaoshi_menu"><div class="grid_c1 clearfix"><ul class="chaoshi_menu_list clearfix fl"></ul><ul class="chaoshi_menu_ad clearfix fr"></ul></div></div>`;
+	//此處是列表
+//	<div class="chaoshi_banner_wrapper clearfix grid_c1">
+//			<div class="chaoshi_banner_inner">
+//				<div class="chaoshi_nav">
+//					<div class="chaoshi_nav_header"></div>
+//					<div class="chaoshi_nav_body"></div>
+//				</div>
+//			</div>
+//		</div>
+console.log(shuju.data);
+	$("#chaoshi_fs_1").append(str1);
+		var str3 = '';
+		var str4 = '';
+	for (var i = 0; i < shuju.data.menuList.length; i++) {
+		str3+=`<li class="chaoshi_menu_list_item fl"><i class="chaoshi_menu_list_split"></i><a href="${shuju.data.menuList[i].URL}" clstag="channel|keycount|3054|h_words1_1" target="_blank" class="chaoshi_menu_list_link" title="${shuju.data.menuList[i].NAME}">${shuju.data.menuList[i].NAME}</a></li>`;
+	}
+	$("#chaoshi_fs_1").children(".chaoshi_menu").find(".chaoshi_menu_list").append(str3);
+	$("#chaoshi_fs_1").children(".chaoshi_menu").find(".chaoshi_menu_list").children("li:first").children("a:first").addClass("chaoshi_menu_list_link_on");
+	for (var i = 0; i < shuju.data.adList.length; i++){
+	str4 +=`<li class="chaoshi_menu_ad_item fl"><i class="mod_png chaoshi_menu_ad_icon" style="background-image: url(${shuju.data.adList[i].picUrl});"></i><span class="chaoshi_menu_ad_txt">${shuju.data.adList[i].title}</span></li>`;
+	}
+	$("#chaoshi_fs_1").children(".chaoshi_menu").find(".chaoshi_menu_ad").append(str4);
+	$("#chaoshi_fs_1").children(".chaoshi_menu").find(".chaoshi_menu_list").children("li:first").children("a:first").addClass("chaoshi_menu_list_link_on");
+	$("#chaoshi_fs_1").children(".chaoshi_menu").find(".chaoshi_menu_ad").children("li:first").addClass("chaoshi_menu_ad_item_first");
+	
+	
+	var str = '';
+	str = `<div class="chaoshi_banner_wrapper clearfix grid_c1"><div class="chaoshi_banner_inner"><div class="chaoshi_nav"><div class="chaoshi_nav_header">${shuju.data.navTitle[0].NAME}</div><div class="chaoshi_nav_body"></div></div></div></div>`;
+	$("#chaoshi_fs_1").append(str);
+//	console.log($("#chaoshi_fs_1").children(".chaoshi_banner_wrapper").find(".chaoshi_nav_body"))
+	var str = '';
+	var str1 = '';
+	for (var i = 0; i <shuju.data.navFirst.length; i++) {
+		str += `<div class="item"><div class="item_header"><div class="item_decoration" style="display: block;"></div><h3 class="item_header_title">${shuju.data.navFirst[i].NAME}<i class="item_header_title_arrow">&gt;</i></h3><p class="item_header_sublinks">{%%}</p></div></div>`;
+		for (var j = 0; j < shuju.data.navFirst[i].children.length; j++) {
+			shuju.data.navFirst[i].children[j].NAME
+			str1 += `<a href="${shuju.data.navFirst[i].children[j].URL} "clstag="channel|keycount|3054|BANNERNAVHEADER1_${i}_${j}" class="item_header_sublinks_link" title="${shuju.data.navFirst[i].children[j].NAME}">${shuju.data.navFirst[i].children[j].NAME}</a>`;
+		}
+		console.log(str)
+		str = str.replace(/{%%}/g,str1)
+//		console.log(str.replace(/{%%}/g,str1));
+		console.log(str);
+		str1 = '';
+	}
+	
+	$("#chaoshi_fs_1").children(".chaoshi_banner_wrapper").find(".chaoshi_nav_body").append(str);
+//<div class="chaoshi_banner_wrapper clearfix grid_c1"><div class="chaoshi_banner_inner"><div class="chaoshi_nav"><div class="chaoshi_nav_header">京东超市频道分类</div></div></div></div>
+//	${shuju.data.adList[i].title}
+	
+
+
 	
 })
 
