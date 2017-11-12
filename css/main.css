@@ -838,5 +838,7 @@ body,
     margin-left: 3px; }
   .chaoshi_nav_body .item_header_sublinks_link_last {
     margin-right: 0; }
+  .chaoshi_nav_body .item_last {
+    height: 61px; }
 
 /*# sourceMappingURL=main.css.map */

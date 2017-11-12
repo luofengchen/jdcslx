@@ -96,9 +96,9 @@ $(function() {
 		url: "https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00397625&callback=?",
 		async: true,
 		dataType: "jsonp",
-		success: function(data) {
-			//						console.log(data,data.DATA.adData[0].pictureUrl);
-			$("#o-header").html("<a id='chaoshi_top_lk_28' class='chaoshi_top_lk grid_c1' href='" + data.DATA.adData[0].link + "' target='_blank' clstag='channel|keycount|3054|topBanner28_0' style='background: transparent;' title=''><img src='" + data.DATA.adData[0].pictureUrl + "' data-lazy-img='done' width='1190' height='80'><div class='chaoshi_top_close'></div></a>");
+		success: function(data) {	
+			console.log(data)
+			$("#o-header").html("<a id='chaoshi_top_lk_28' class='chaoshi_top_lk grid_c1' href='" + data.DATA.adData[0].link+"' target='_blank' clstag='channel|keycount|3054|topBanner28_0' style='background: transparent;' title=''><img src='" + data.DATA.adData[0].pictureUrl + "' data-lazy-img='done' width='1190' height='80'><div class='chaoshi_top_close'></div></a>");
 			data = "";
 		}
 
@@ -306,7 +306,6 @@ console.log(shuju.data);
 	var str = '';
 	str = `<div class="chaoshi_banner_wrapper clearfix grid_c1"><div class="chaoshi_banner_inner"><div class="chaoshi_nav"><div class="chaoshi_nav_header">${shuju.data.navTitle[0].NAME}</div><div class="chaoshi_nav_body"></div></div></div></div>`;
 	$("#chaoshi_fs_1").append(str);
-//	console.log($("#chaoshi_fs_1").children(".chaoshi_banner_wrapper").find(".chaoshi_nav_body"))
 	var str = '';
 	var str1 = '';
 	for (var i = 0; i <shuju.data.navFirst.length; i++) {
@@ -315,14 +314,17 @@ console.log(shuju.data);
 			shuju.data.navFirst[i].children[j].NAME
 			str1 += `<a href="${shuju.data.navFirst[i].children[j].URL} "clstag="channel|keycount|3054|BANNERNAVHEADER1_${i}_${j}" class="item_header_sublinks_link" title="${shuju.data.navFirst[i].children[j].NAME}">${shuju.data.navFirst[i].children[j].NAME}</a>`;
 		}
-		console.log(str)
-		str = str.replace(/{%%}/g,str1)
+//		console.log(str)
+		str = str.replace(/{%%}/g,str1);
 //		console.log(str.replace(/{%%}/g,str1));
-		console.log(str);
+//		console.log(str);
 		str1 = '';
 	}
-	
 	$("#chaoshi_fs_1").children(".chaoshi_banner_wrapper").find(".chaoshi_nav_body").append(str);
+	console.log($("#chaoshi_fs_1").children(".chaoshi_banner_wrapper").find(".chaoshi_nav_body").children(".item:last"));
+	
+	$("#chaoshi_fs_1").children(".chaoshi_banner_wrapper").find(".chaoshi_nav_body").children(".item:last").addClass("item_last");
+	
 //<div class="chaoshi_banner_wrapper clearfix grid_c1"><div class="chaoshi_banner_inner"><div class="chaoshi_nav"><div class="chaoshi_nav_header">京东超市频道分类</div></div></div></div>
 //	${shuju.data.adList[i].title}
 	
