@@ -47,7 +47,7 @@ body,
     height: $hei-30;
     line-height: $hei-30;
     background: $c-e3e4e5;
-    border-bottom: $bdb-1;
+    border-bottom: solid 1px #ddd;
     a {
         color: $c-999;
         &:hover {
@@ -464,9 +464,8 @@ only screen and ( min-device-pixel-ratio:1.5) {
     position: relative;
     float: left;
     z-index: 12;
-    margin: 15px 0 22px;
+    margin: 26px 0 22px;
     .logo {
-        display: block;
         position: absolute;
         left: 0;
         margin-top: 0;
@@ -476,6 +475,7 @@ only screen and ( min-device-pixel-ratio:1.5) {
         background-repeat: no-repeat;
         width: 213px;
         height: 54px;
+        text-indent: -20000px;
     }
 }
 
@@ -490,7 +490,7 @@ only screen and ( min-device-pixel-ratio:1.5) {
         border-bottom: 2px solid #c91523;
         .dt {
             color: #fff;
-            width: 49px;
+//          width: 49px;
             text-align: center;
             font-size: 0;
             line-height: 24px;
@@ -587,8 +587,6 @@ only screen and ( min-device-pixel-ratio:1.5) {
 }
 
 #search-2014 {
-    width: 450px;
-    margin-right: 0;
     position: relative;
     z-index: 11;
     float: left;
@@ -602,26 +600,12 @@ only screen and ( min-device-pixel-ratio:1.5) {
     height: 36px;
 }
 
-#shelper {
-    overflow: hidden;
-    position: absolute;
-    top: 36px;
-    left: 0;
-    border: 1px solid #ccc;
-    background: #fff;
-}
-
 //搜索框
 .has_qrcode {
-    //  position: relative;
-    //  margin-top: 27px;
-    //  float: right;
-    //  margin-left: 30px;
-    //  width: 120px;
     #search-2014 {
         width: 450px;
         margin-right: 0;
-        .form{
+        .form {
             width: 450px;
             height: 36px;
         }
@@ -664,6 +648,122 @@ only screen and ( min-device-pixel-ratio:1.5) {
     //#search-2014 结束
     #shelper {
         width: 448px;
+        overflow: hidden;
+        position: absolute;
+        top: 36px;
+        left: 0;
+        border: 1px solid #ccc;
+        background: #fff;
+        li {
+            //          a:hover {
+            //              color: #f30213;
+            //          }
+            overflow: hidden;
+            line-height: 22px;
+            padding: 1px 6px;
+            cursor: pointer;
+                //              background:rgb(255, 255, 255);
+            background:rgb(255,255,255);
+            &.fore1 {
+                width: 100%;
+                padding: 0;
+                border-bottom: 1px solid #ddd;
+                div {
+                    overflow: hidden;
+                    &.fore1 {
+                        padding: 0 6px;
+                    }
+                    &:hover {
+//                      background: #f5f5f5!important;
+                        a: {
+                            color: #f30213;
+                        }
+                    }
+                    a {
+                        float: left;
+                        width: 100%;
+                    }
+                }
+                .item1,
+                .item2 {
+                    float: none;
+                    width: auto;
+                    padding: 1px 6px 1px 20px;
+                }
+                .item {
+                    height: 22px;
+                    overflow: hidden;
+                    zoom: 1;
+                }
+                .item {
+                    float: none;
+                    width: auto;
+                    padding: 1px 6px 1px 20px;
+                    height: 22px;
+                    overflow: hidden;
+                    zoom: 1;
+                }
+                .search-item {
+                    width: 170px;
+                }
+            }
+            &.close:hover,
+            &.fore1:hover {
+                background: 0 0;
+            }
+            &.brand-search {
+                border-bottom: 1px solid #ddd;
+                .info {
+                    color: #e4393c;
+                    margin-bottom: 2px;
+                }
+                .bs-item {
+                    margin-bottom: 7px;
+                    .logo {
+                        width: 90px;
+                    }
+                    .logo,
+                    .name {
+                        display: inline-block;
+                        height: 30px;
+                        font-size: 14px;
+                        vertical-align: middle;
+                        overflow: hidden;
+                    }
+                    .name {
+                        line-height: 30px;
+                        margin-left: 5px;
+                        white-space: normal;
+                        text-overflow: ellipsis;
+                        width: 265px;
+                    }
+                }
+            }
+        }
+        .search-item {
+            float: left;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        .search-count {
+            overflow: hidden;
+            color: #aaa;
+            text-align: right;
+            float: right;
+        }
+        .close {
+            border-top: 1px solid #efefef;
+            text-align: right;
+        }
+        .item3 {
+            cursor: default;
+            a {
+                float: left;
+                margin-right: 10px;
+                white-space: normal;
+            }
+        }
     }
     //#settleup-2014开始
     #settleup-2014 {
@@ -741,6 +841,23 @@ only screen and ( min-device-pixel-ratio:1.5) {
 }
 
 //.has_qrcode 结束
+.root61 #shelper {
+    li.brand-search .bs-item .name {
+        width: 384px
+    }
+}
+
+#hotwords {
+    float: left;
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+    a {
+        margin-right: 10px;
+        color: #999;
+    }
+}
+
 @mixin hpl {
     display: block;
     right: 0;
@@ -788,6 +905,33 @@ only screen and ( min-device-pixel-ratio:1.5) {
     height: 20px;
     line-height: 20px;
     overflow: hidden;
+    a {
+        margin-right: 10px;
+        color: #999;
+        a.highlight,
+        &:hover {
+            color: #F30213;
+        }
+    }
+}
+
+#hotwords strong {
+    color: #999;
+}
+
+#hotwords-2014 {
+    position: relative;
+    float: left;
+    left: 95px;
+    width: 584px;
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+    a {
+        float: left;
+        white-space: normal;
+        margin-right: 10px;
+    }
 }
 
 .headerqrcode_lk:hover {
@@ -798,6 +942,7 @@ only screen and ( min-device-pixel-ratio:1.5) {
     opacity: 1;
     visibility: visible
 }
+
 .o2_retina .headerqrcode_ico {
     -moz-background-size: 25px 25px;
     background-size: 25px 25px;

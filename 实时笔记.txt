@@ -29,6 +29,15 @@ div #cmsfooter{
 
 网站导航接口GET：https://dc.3.cn/navigation/get?callback=?
 
+ul推荐列表接口GET:https://dd-search.jd.com/?terminal=pc&ver=2&zip=1&key=%E8%B6%85%E5%B8%82%E5%A4%A7%E8%81%94%E6%AC%A2&pvid=3c4519a1d3754978b0ae0926be13272f&t=1510369570877&curr_url=chaoshi.jd.com%2F&callback=?
+
+search搜索接口GET：https://dd-search.jd.com/?terminal=pc&ver=2&zip=1&key=s&pvid=f1cbd4c04d4f4efe914619248084632f&t=1510381984529&curr_url=chaoshi.jd.com%2F&callback=jQuery1604510 不能用，服务器禁止其他非自身调用
+
 搜索框下的接口GET：https://cds.3.cn/get_jimdb_key/get?key=hotword&argv=h-1761&callback=?
 
 限时抢购接口GET：https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00397879&callback=?
+
+
+https://sale.jd.com/act/FciOehkX53fqAY.html?suggest=1.prom.0.V00&wq=s
+
+

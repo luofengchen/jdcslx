@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+//			$.ajax({
+//				type:"get",
+//				url:"data1.json",
+//				async:true,
+//				success:function (data) {
+//					console.log(data[0])
+//				}
+//			});
+			$.get("data1.json",function  (dd) {
+				console.log(dd[10])
+			})
+//			var url1 = "data1.json" + "?callback=?";
+			
+		//				console.dir(data)
+				
+		</script>
+	</body>
+</html>

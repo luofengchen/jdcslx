@@ -12,7 +12,7 @@ body,
   height: 30px;
   line-height: 30px;
   background: #e3e4e5;
-  border-bottom: 1px solid #ddd; }
+  border-bottom: solid 1px #ddd; }
   #shortcur a {
     color: #999; }
     #shortcur a:hover {
@@ -318,9 +318,8 @@ body,
   position: relative;
   float: left;
   z-index: 12;
-  margin: 15px 0 22px; }
+  margin: 26px 0 22px; }
   #logo-2014 .logo {
-    display: block;
     position: absolute;
     left: 0;
     margin-top: 0;
@@ -329,7 +328,8 @@ body,
     background-size: 213px 82px;
     background-repeat: no-repeat;
     width: 213px;
-    height: 54px; }
+    height: 54px;
+    text-indent: -20000px; }
 
 .logo_dropdown {
   position: absolute;
@@ -342,7 +342,6 @@ body,
     border-bottom: 2px solid #c91523; }
     .logo_dropdown .dropdown_box .dt {
       color: #fff;
-      width: 49px;
       text-align: center;
       font-size: 0;
       line-height: 24px; }
@@ -410,8 +409,6 @@ body,
         padding: 0 8px; }
 
 #search-2014 {
-  width: 450px;
-  margin-right: 0;
   position: relative;
   z-index: 11;
   float: left; }
@@ -422,14 +419,6 @@ body,
   margin-right: 0;
   z-index: 11;
   height: 36px; }
-
-#shelper {
-  overflow: hidden;
-  position: absolute;
-  top: 36px;
-  left: 0;
-  border: 1px solid #ccc;
-  background: #fff; }
 
 .has_qrcode #search-2014 {
   width: 450px;
@@ -468,7 +457,93 @@ body,
     width: 82px;
     height: 36px; }
 .has_qrcode #shelper {
-  width: 448px; }
+  width: 448px;
+  overflow: hidden;
+  position: absolute;
+  top: 36px;
+  left: 0;
+  border: 1px solid #ccc;
+  background: #fff; }
+  .has_qrcode #shelper li {
+    overflow: hidden;
+    line-height: 22px;
+    padding: 1px 6px;
+    cursor: pointer;
+    background: white; }
+    .has_qrcode #shelper li.fore1 {
+      width: 100%;
+      padding: 0;
+      border-bottom: 1px solid #ddd; }
+      .has_qrcode #shelper li.fore1 div {
+        overflow: hidden; }
+        .has_qrcode #shelper li.fore1 div.fore1 {
+          padding: 0 6px; }
+        .has_qrcode #shelper li.fore1 div:hover {
+          a-color: #f30213; }
+        .has_qrcode #shelper li.fore1 div a {
+          float: left;
+          width: 100%; }
+      .has_qrcode #shelper li.fore1 .item1,
+      .has_qrcode #shelper li.fore1 .item2 {
+        float: none;
+        width: auto;
+        padding: 1px 6px 1px 20px; }
+      .has_qrcode #shelper li.fore1 .item {
+        height: 22px;
+        overflow: hidden;
+        zoom: 1; }
+      .has_qrcode #shelper li.fore1 .item {
+        float: none;
+        width: auto;
+        padding: 1px 6px 1px 20px;
+        height: 22px;
+        overflow: hidden;
+        zoom: 1; }
+      .has_qrcode #shelper li.fore1 .search-item {
+        width: 170px; }
+    .has_qrcode #shelper li.close:hover, .has_qrcode #shelper li.fore1:hover {
+      background: 0 0; }
+    .has_qrcode #shelper li.brand-search {
+      border-bottom: 1px solid #ddd; }
+      .has_qrcode #shelper li.brand-search .info {
+        color: #e4393c;
+        margin-bottom: 2px; }
+      .has_qrcode #shelper li.brand-search .bs-item {
+        margin-bottom: 7px; }
+        .has_qrcode #shelper li.brand-search .bs-item .logo {
+          width: 90px; }
+        .has_qrcode #shelper li.brand-search .bs-item .logo,
+        .has_qrcode #shelper li.brand-search .bs-item .name {
+          display: inline-block;
+          height: 30px;
+          font-size: 14px;
+          vertical-align: middle;
+          overflow: hidden; }
+        .has_qrcode #shelper li.brand-search .bs-item .name {
+          line-height: 30px;
+          margin-left: 5px;
+          white-space: normal;
+          text-overflow: ellipsis;
+          width: 265px; }
+  .has_qrcode #shelper .search-item {
+    float: left;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden; }
+  .has_qrcode #shelper .search-count {
+    overflow: hidden;
+    color: #aaa;
+    text-align: right;
+    float: right; }
+  .has_qrcode #shelper .close {
+    border-top: 1px solid #efefef;
+    text-align: right; }
+  .has_qrcode #shelper .item3 {
+    cursor: default; }
+    .has_qrcode #shelper .item3 a {
+      float: left;
+      margin-right: 10px;
+      white-space: normal; }
 .has_qrcode #settleup-2014 {
   margin-left: 30px;
   float: left; }
@@ -529,6 +604,18 @@ body,
       height: 49px;
       background-image: url("//misc.360buyimg.com/jdf/1.0.0/unit/shoppingcart/5.0.0/i/settleup-nogoods.png"); }
 
+.root61 #shelper li.brand-search .bs-item .name {
+  width: 384px; }
+
+#hotwords {
+  float: left;
+  height: 20px;
+  line-height: 20px;
+  overflow: hidden; }
+  #hotwords a {
+    margin-right: 10px;
+    color: #999; }
+
 #settleup-2014 {
   z-index: 11;
   height: 36px; }
@@ -557,6 +644,27 @@ body,
   height: 20px;
   line-height: 20px;
   overflow: hidden; }
+  #hotwords a {
+    margin-right: 10px;
+    color: #999; }
+    #hotwords a a.highlight, #hotwords a:hover {
+      color: #F30213; }
+
+#hotwords strong {
+  color: #999; }
+
+#hotwords-2014 {
+  position: relative;
+  float: left;
+  left: 95px;
+  width: 584px;
+  height: 20px;
+  line-height: 20px;
+  overflow: hidden; }
+  #hotwords-2014 a {
+    float: left;
+    white-space: normal;
+    margin-right: 10px; }
 
 .headerqrcode_lk:hover {
   color: #666; }

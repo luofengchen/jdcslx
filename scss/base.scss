@@ -200,7 +200,7 @@ a:hover {
 }
 
 .img-error {
-    background: url(//misc.360buyimg.com/lib/skin/e/i/error-jd.gif) no-repeat 50% 50%
+    background: url("//misc.360buyimg.com/lib/skin/e/i/error-jd.gif") no-repeat 50% 50%
 }
 
 @font-face {
@@ -287,6 +287,16 @@ body {
     margin: 27px 80px 0;
 }
 
+.has_qrcode {
+    #search-2014 {
+        width: 450px;
+        margin-right: 0;
+    }
+    #shelper{
+        width: 448px;
+    }
+}
+
 .mod_w {
     width: 1000px;
     margin-left: auto;
@@ -304,11 +314,6 @@ body {
 .mod_container img {
     background: url(//misc.360buyimg.com/lib/skin/e/i/error-jd.gif) no-repeat 50% 50%
 }
-
-.o2_wide #logo-2014 {
-    width: 350px
-}
-
 .o2_wide #search-2014 {
     width: 540px;
     margin: 27px 80px 0
@@ -343,20 +348,21 @@ body {
 #cmsfooter {
     min-height: 480px
 }
-.headerqrcode{
+
+.headerqrcode {
     position: relative;
     margin-top: 27px;
     float: right;
     margin-left: 30px;
     width: 120px;
-    a{
-        &:hover{
+    a {
+        &:hover {
             color: #666;
         }
     }
 }
 
-.headerqrcode_lk{
+.headerqrcode_lk {
     text-align: center;
     border: 1px solid #dfdfdf;
     display: block;
@@ -366,19 +372,22 @@ body {
     position: relative;
     padding-left: 30px;
 }
-.headerqrcode_ico, .headerqrcode_txt{
+
+.headerqrcode_ico,
+.headerqrcode_txt {
     display: inline-block;
-    
 }
-.headerqrcode_ico{
+
+.headerqrcode_ico {
     width: 25px;
     height: 25px;
-   background: url("//static.360buyimg.com/mtd/pc/cms/index/images/qrcode_25x25.png") no-repeat;
-   position: absolute;
-   top: 5px;
-   left: 8px;
+    background: url("//static.360buyimg.com/mtd/pc/cms/index/images/qrcode_25x25.png") no-repeat;
+    position: absolute;
+    top: 5px;
+    left: 8px;
 }
-.headerqrcode_qc{
+
+.headerqrcode_qc {
     position: absolute;
     border: 1px solid #DFDFDF;
     width: 108px;
@@ -392,22 +401,26 @@ body {
     transition: all .3s;
     top: 35px;
 }
-.headerqrcode_qcimg{
+
+.headerqrcode_qcimg {
     width: 110px;
     height: 100px;
-    img{
+    img {
         width: 100px;
         height: 100px;
         background: url("//misc.360buyimg.com/mtd/pc/index/gb/images/loading.gif") no-repeat 50%!important;
     }
 }
-.headerqrcode_arrow{
+
+.headerqrcode_arrow {
     position: absolute;
     display: none;
     left: 62px;
     top: -16px;
 }
-.headerqrcode_arrow_bd, .headerqrcode_arrow_bg{
+
+.headerqrcode_arrow_bd,
+.headerqrcode_arrow_bg {
     position: absolute;
     left: 0;
     top: 0;
@@ -415,38 +428,13 @@ body {
     height: 0;
     overflow: hidden;
     border: 8px dashed transparent;
-    
 }
-.headerqrcode_arrow_bd{
+
+.headerqrcode_arrow_bd {
     border-bottom: 8px solid #c3c3c3;
 }
-.headerqrcode_arrow_bg{
+
+.headerqrcode_arrow_bg {
     border-bottom: 8px solid #fff;
     top: 1px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
