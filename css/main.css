@@ -447,7 +447,7 @@ body,
     font-family: tahoma, arial, Microsoft YaHei, Hiragino Sans GB, "\u5b8b\u4f53", sans-serif;
     border: 0;
     border-radius: 0;
-    line-height: 1;
+    line-height: 1px;
     color: #fff;
     font-size: 16px;
     cursor: pointer; }
@@ -784,6 +784,11 @@ body,
     border-top: 1px solid #fff;
     border-left: 1px solid #fff;
     background: #fff; }
+  .chaoshi_nav_body .item_hover {
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    height: 59px; }
   .chaoshi_nav_body .item_header {
     padding-top: 11px;
     border-bottom: 1px solid transparent;
@@ -822,14 +827,6 @@ body,
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden; }
-  .chaoshi_nav_body .item_body {
-    position: absolute;
-    left: 190px;
-    top: 0;
-    border-color: #fff;
-    width: 1000px;
-    z-index: 21;
-    box-shadow: 4px 0 8px rgba(0, 0, 0, 0.2); }
   .chaoshi_nav_body .item_header_sublinks_link_first {
     margin-left: 0; }
   .chaoshi_nav_body .item_header_sublinks_link {
@@ -840,5 +837,301 @@ body,
     margin-right: 0; }
   .chaoshi_nav_body .item_last {
     height: 61px; }
+  .chaoshi_nav_body .item_header {
+    padding-top: 11px;
+    border-bottom: 1px solid transparent;
+    width: 159px;
+    height: 49px;
+    position: relative; }
+  .chaoshi_nav_body .item_decoration {
+    display: none;
+    position: absolute;
+    width: 1px;
+    height: 59px;
+    top: 0;
+    right: -16px;
+    background-color: #fff;
+    z-index: 22; }
+  .chaoshi_nav_body .item_body {
+    position: absolute;
+    left: 190px;
+    top: 0;
+    background-color: #fff;
+    width: 1000px;
+    box-shadow: 4px 0 8px rgba(0, 0, 0, 0.2);
+    z-index: 21; }
+
+.chaoshi_nav_sub_title {
+  color: #333;
+  font-size: 14px;
+  font-weight: 700;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #ddd; }
+
+.chaoshi_nav_sub_main {
+  padding-top: 6px; }
+
+.chaoshi_nav_sub_main_link {
+  margin-right: 14px;
+  margin-bottom: 5px;
+  font-size: 12px;
+  color: #777;
+  display: inline-block; }
+
+.item_body_wrapper {
+  border-top: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 30px 30px 52px 56px; }
+
+.chaoshi_nav_sub {
+  width: 692px;
+  min-height: 1px;
+  position: relative;
+  float: left; }
+
+.chaoshi_nav_sub_item {
+  float: left;
+  width: 190px;
+  height: 93px;
+  margin-right: 30px;
+  margin-bottom: 20px;
+  overflow: hidden; }
+
+.chaoshi_nav_recommend_link {
+  display: block;
+  width: 100%;
+  height: 95px;
+  margin-bottom: 20px; }
+
+.chaoshi_banner_mid {
+  margin-left: 200px;
+  width: 780px;
+  height: 100%; }
+
+.chaoshi_carousel {
+  width: 780px;
+  height: 400px;
+  overflow: hidden;
+  font-size: 0;
+  position: relative; }
+
+.chaoshi_carousel_main {
+  width: 780px;
+  height: 100%;
+  position: relative; }
+
+.chaoshi_carousel_item {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0; }
+
+.chaoshi_carousel_link {
+  display: block;
+  width: 100%;
+  height: 100%; }
+
+.chaoshi_carousel_img {
+  width: 780px;
+  height: 100%; }
+
+.chaoshi_carousel_nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 5; }
+
+.chaoshi_carousel_next,
+.chaoshi_carousel_prev {
+  position: absolute;
+  top: 50%;
+  margin-top: -30px;
+  display: block;
+  width: 24px;
+  height: 60px;
+  line-height: 60px;
+  background: rgba(0, 0, 0, 0.21);
+  text-align: center;
+  font-size: 24px;
+  font-family: simsun;
+  color: #fff;
+  z-index: 5; }
+  .chaoshi_carousel_next::hover,
+  .chaoshi_carousel_prev::hover {
+    color: #ffa133; }
+
+.chaoshi_carousel_prev {
+  left: 0; }
+
+.chaoshi_carousel_next {
+  right: 0; }
+
+.chaoshi_carousel_nav_btn {
+  float: left;
+  display: inline-block;
+  height: 5px;
+  background-color: #4a4110;
+  margin-right: 1px;
+  font-size: 0; }
+
+.chaoshi_bottom {
+  width: 100%;
+  height: 150px;
+  font-size: 0;
+  overflow: hidden; }
+
+.chaoshi_bottom_item {
+  width: 50%;
+  height: 150px; }
+
+.chaoshi_bottom_img,
+.chaoshi_bottom_link {
+  width: 100%;
+  height: 100%; }
+
+.chaoshi_bottom_link {
+  display: block; }
+
+.chaoshi_right {
+  width: 200px;
+  height: 100%;
+  position: relative;
+  text-align: center;
+  overflow: hidden; }
+
+.chaoshi_coupon {
+  padding: 0 10px;
+  height: 275px;
+  background: linear-gradient(180deg, #ffeec6 0, #ffd7a7); }
+
+.chaoshi_coupon .chaoshi_right_tt {
+  padding: 20px 0 7px; }
+
+.chaoshi_right_tt {
+  line-height: 16px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #934b20; }
+
+.chaoshi_right_tip {
+  padding: 0 0 10px;
+  line-height: 1px;
+  color: #af6f24;
+  opacity: 0.5; }
+
+.chaoshi_coupon_bd {
+  position: relative;
+  border-top: 4px solid #ffa133;
+  box-shadow: 0 3px 9px rgba(255, 161, 51, 0.25);
+  background: #fff; }
+
+.chaoshi_handy {
+  padding: 0 10px;
+  height: 275px;
+  background: linear-gradient(180deg, #fff2c6 0, #ffdeaa); }
+
+.chaoshi_coupon_info {
+  display: block;
+  position: relative;
+  height: 114px;
+  padding-top: 30px;
+  background: #fff;
+  text-align: right; }
+  .chaoshi_coupon_info:before {
+    left: -4px; }
+
+.chaoshi_coupon_info_num1 {
+  height: 26px;
+  margin: 0 15px 12px;
+  font-size: 26px;
+  color: #68300a;
+  text-align: center; }
+  .chaoshi_coupon_info_num1 em {
+    margin-left: 6px;
+    line-height: 26px;
+    font-size: 36px;
+    font-weight: 700; }
+
+.chaoshi_coupon_info_num2 {
+  height: 12px;
+  line-height: 12px;
+  margin: 0 18px 23px;
+  color: #5f3211;
+  text-align: center; }
+
+.chaoshi_coupon_info_tip {
+  position: absolute;
+  bottom: 0;
+  left: 2px;
+  width: 175px;
+  height: 36px;
+  line-height: 36px;
+  color: #633415;
+  text-align: center;
+  border-top: 3px dashed #e6e6e6;
+  overflow: hidden; }
+
+.chaoshi_coupon_more {
+  display: block;
+  height: 36px;
+  line-height: 36px;
+  font-size: 14px;
+  color: #fff;
+  background: #ffa133;
+  border-radius: 2px;
+  overflow: hidden; }
+
+.chaoshi_handy {
+  padding: 0 10px;
+  height: 275px;
+  background: linear-gradient(180deg, #fff2c6 0, #ffdeaa); }
+
+.chaoshi_right_tt {
+  padding: 10px 0;
+  line-height: 16px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #934b20; }
+
+.chaoshi_handy_carousel_main {
+  height: 185px;
+  background: #fff;
+  box-shadow: 0 6px 13px rgba(255, 160, 24, 0.26); }
+
+.chaoshi_handy_carousel_item {
+  left: 0;
+  right: 0;
+  padding: 20px 0; }
+
+.chaoshi_handy_carousel_link {
+  display: block; }
+
+.chaoshi_handy_carousel_img {
+  margin: 0 auto 20px;
+  width: 100px;
+  height: 100px; }
+
+.chaoshi_handy_carousel_enter {
+  display: inline-block;
+  width: 105px;
+  height: 25px;
+  line-height: 25px;
+  color: #fff;
+  border-radius: 15px;
+  background: linear-gradient(90deg, #ffa133 0, #ffc333); }
+
+.chaoshi_handy_carousel_nav {
+  display: block;
+  font-size: 0;
+  padding-top: 10px;
+  height: 18px;
+  overflow: hidden; }
+
+.chaoshi_carousel_nav_btn_last {
+  margin-right: 0; }
+
+.chaoshi_carousel_nav_btn_on {
+  background: #ec7002; }
 
 /*# sourceMappingURL=main.css.map */

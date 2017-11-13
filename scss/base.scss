@@ -449,3 +449,59 @@ body {
         margin-left: 26px;
     }
 } 
+@mixin wnqcfd{
+    content: '';
+    margin: 0 5px;
+    display: inline-block;
+    vertical-align: middle;
+    width: 10px;
+    height: 1px;
+    background: #934b20;
+}
+.chaoshi_right_tt{
+    &:after{
+        @include wnqcfd;
+    }
+    &:before{
+        @include wnqcfd;
+    }
+}
+@mixin wnqcfl1{
+    content: '';
+    position: absolute;
+    z-index: 2;
+    bottom: 33px;
+    width: 8px;
+    height: 8px;
+    background: #ffdeb2;
+    border-radius: 8px;
+}
+.chaoshi_coupon_info{
+    &:after{
+        @include wnqcfl1;
+    }
+    &:before{
+        @include wnqcfl1;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

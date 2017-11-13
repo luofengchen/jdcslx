@@ -364,4 +364,40 @@ body {
 .o2_wide .chaoshi_menu_ad_item {
   margin-left: 26px; }
 
+.chaoshi_right_tt:after {
+  content: '';
+  margin: 0 5px;
+  display: inline-block;
+  vertical-align: middle;
+  width: 10px;
+  height: 1px;
+  background: #934b20; }
+.chaoshi_right_tt:before {
+  content: '';
+  margin: 0 5px;
+  display: inline-block;
+  vertical-align: middle;
+  width: 10px;
+  height: 1px;
+  background: #934b20; }
+
+.chaoshi_coupon_info:after {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  bottom: 33px;
+  width: 8px;
+  height: 8px;
+  background: #ffdeb2;
+  border-radius: 8px; }
+.chaoshi_coupon_info:before {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  bottom: 33px;
+  width: 8px;
+  height: 8px;
+  background: #ffdeb2;
+  border-radius: 8px; }
+
 /*# sourceMappingURL=base.css.map */

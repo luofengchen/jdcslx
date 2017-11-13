@@ -91,18 +91,18 @@ $("#ttbar-apps").hover(function() {
 	$(this).removeClass("hover");
 });
 $(function() {
-	$.ajax({
-		type: "get",
-		url: "https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00397625&callback=?",
-		async: true,
-		dataType: "jsonp",
-		success: function(data) {	
-			console.log(data)
-			$("#o-header").html("<a id='chaoshi_top_lk_28' class='chaoshi_top_lk grid_c1' href='" + data.DATA.adData[0].link+"' target='_blank' clstag='channel|keycount|3054|topBanner28_0' style='background: transparent;' title=''><img src='" + data.DATA.adData[0].pictureUrl + "' data-lazy-img='done' width='1190' height='80'><div class='chaoshi_top_close'></div></a>");
-			data = "";
-		}
-
-	});
+	//	$.ajax({
+	//		type: "get",
+	//		url: "https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00397625&callback=?",
+	//		async: true,
+	//		dataType: "jsonp",
+	//		success: function(data) {	
+	//			console.log(data)
+	//			$("#o-header").html("<a id='chaoshi_top_lk_28' class='chaoshi_top_lk grid_c1' href='" + data.DATA.adData[0].link+"' target='_blank' clstag='channel|keycount|3054|topBanner28_0' style='background: transparent;' title=''><img src='" + data.DATA.adData[0].pictureUrl + "' data-lazy-img='done' width='1190' height='80'><div class='chaoshi_top_close'></div></a>");
+	//			data = "";
+	//		}
+	//
+	//	});
 	$.ajax({
 		type: "get",
 		url: "json/province&city.json?callback=?",
@@ -184,7 +184,8 @@ $(function() {
 					}
 					str1 = str1 + `<li class="close">关闭</li>`;
 					$("#shelper").css({
-						"display": "block","visibility": "visible"
+						"display": "block",
+						"visibility": "visible"
 					}).html(str1);
 					listclick();
 				}
@@ -199,38 +200,36 @@ $(function() {
 		type: "get",
 		url: "https://cds.3.cn/get_jimdb_key/get?key=hotword&argv=h-1761&callback=?",
 		async: true,
-		dataType:"jsonp",
-		success:function  (dd) {
-//			console.log(dd);
+		dataType: "jsonp",
+		success: function(dd) {
 			var str = '';
-		for(var i = 1;i<dd.length;i++){
-			str += `<a data-id="${dd[i].id}" data-position-id="${dd[i].order}" href="${dd[i].url_info}" target="_blank">${dd[i].name}</a>`;
-		}
-		$("#hotwords").html(str);
-			
+			for(var i = 1; i < dd.length; i++) {
+				str += `<a data-id="${dd[i].id}" data-position-id="${dd[i].order}" href="${dd[i].url_info}" target="_blank">${dd[i].name}</a>`;
+			}
+			$("#hotwords").html(str);
+
 		}
 	});
 
 })
 
 function listclick() {
-	var flag = true;
-	setTimeout(function() {
-		if(flag = true) {
-			listfocusout();
-		}
-	}, 100)
+	listfocusout();
 	$("#shelper").children(".fore1").children("div").hover(function() {
 		console.log("输出div的hover")
 		$(this).css({
 			"background": "#f5f5f5"
 		});
-		$(this).children("a").css({"color":"#f30213"});
+		$(this).children("a").css({
+			"color": "#f30213"
+		});
 	}, function() {
 		$(this).css({
 			"background": "rgb(255, 255, 255)"
 		});
-		$(this).children("a").css({"color":"#666"});
+		$(this).children("a").css({
+			"color": "#666"
+		});
 	})
 
 	$("#shelper").children("li").not(".fore1,.close").hover(function() {
@@ -245,13 +244,13 @@ function listclick() {
 	$("#shelper").children(".fore1").children("div").click(function(e) {
 		$("#key").val($("#shelper").find("#d_0").find(".search-item").text());
 		$("#shelper").slideUp();
-		flag = false;
 	})
 
 	$("#shelper").children().not(".fore1,.close").click(function(e) {
-		$("#key").val($(e.target).children(".search-item").text());
+		console.log($(e.target));
+		console.log("aaaa", $(this).children(".search-item").text())
+		$("#key").val($(this).children(".search-item").text());
 		$("#shelper").slideUp();
-		flag = false;
 	})
 	$("#key").focus(function() {
 		if($("#key").val() == "") {
@@ -272,111 +271,197 @@ function listfocusout() {
 	});
 }
 
-$(function(){
-//	console.log(window.data);
+$(function() {
 	var str = `<div class="chaoshi_fs" id="chaoshi_fs_1" data-id="chaoshi_fs_1" data-async="true" data-tpl="chaoshi_fs_tpl"></div>`;
 	$(".mod_container").append(str);
 	var str1 = `<div class="chaoshi_menu"><div class="grid_c1 clearfix"><ul class="chaoshi_menu_list clearfix fl"></ul><ul class="chaoshi_menu_ad clearfix fr"></ul></div></div>`;
-	//此處是列表
-//	<div class="chaoshi_banner_wrapper clearfix grid_c1">
-//			<div class="chaoshi_banner_inner">
-//				<div class="chaoshi_nav">
-//					<div class="chaoshi_nav_header"></div>
-//					<div class="chaoshi_nav_body"></div>
-//				</div>
-//			</div>
-//		</div>
-console.log(shuju.data);
 	$("#chaoshi_fs_1").append(str1);
-		var str3 = '';
-		var str4 = '';
-	for (var i = 0; i < shuju.data.menuList.length; i++) {
-		str3+=`<li class="chaoshi_menu_list_item fl"><i class="chaoshi_menu_list_split"></i><a href="${shuju.data.menuList[i].URL}" clstag="channel|keycount|3054|h_words1_1" target="_blank" class="chaoshi_menu_list_link" title="${shuju.data.menuList[i].NAME}">${shuju.data.menuList[i].NAME}</a></li>`;
+	var str3 = '';
+	var str4 = '';
+	for(var i = 0; i < shuju.data.menuList.length; i++) {
+		str3 += `<li class="chaoshi_menu_list_item fl"><i class="chaoshi_menu_list_split"></i><a href="${shuju.data.menuList[i].URL}" clstag="channel|keycount|3054|h_words1_1" target="_blank" class="chaoshi_menu_list_link" title="${shuju.data.menuList[i].NAME}">${shuju.data.menuList[i].NAME}</a></li>`;
 	}
 	$("#chaoshi_fs_1").children(".chaoshi_menu").find(".chaoshi_menu_list").append(str3);
 	$("#chaoshi_fs_1").children(".chaoshi_menu").find(".chaoshi_menu_list").children("li:first").children("a:first").addClass("chaoshi_menu_list_link_on");
-	for (var i = 0; i < shuju.data.adList.length; i++){
-	str4 +=`<li class="chaoshi_menu_ad_item fl"><i class="mod_png chaoshi_menu_ad_icon" style="background-image: url(${shuju.data.adList[i].picUrl});"></i><span class="chaoshi_menu_ad_txt">${shuju.data.adList[i].title}</span></li>`;
+	for(var i = 0; i < shuju.data.adList.length; i++) {
+		str4 += `<li class="chaoshi_menu_ad_item fl"><i class="mod_png chaoshi_menu_ad_icon" style="background-image: url(${shuju.data.adList[i].picUrl});"></i><span class="chaoshi_menu_ad_txt">${shuju.data.adList[i].title}</span></li>`;
 	}
 	$("#chaoshi_fs_1").children(".chaoshi_menu").find(".chaoshi_menu_ad").append(str4);
 	$("#chaoshi_fs_1").children(".chaoshi_menu").find(".chaoshi_menu_list").children("li:first").children("a:first").addClass("chaoshi_menu_list_link_on");
 	$("#chaoshi_fs_1").children(".chaoshi_menu").find(".chaoshi_menu_ad").children("li:first").addClass("chaoshi_menu_ad_item_first");
-	
-	
+
 	var str = '';
 	str = `<div class="chaoshi_banner_wrapper clearfix grid_c1"><div class="chaoshi_banner_inner"><div class="chaoshi_nav"><div class="chaoshi_nav_header">${shuju.data.navTitle[0].NAME}</div><div class="chaoshi_nav_body"></div></div></div></div>`;
 	$("#chaoshi_fs_1").append(str);
 	var str = '';
 	var str1 = '';
-	for (var i = 0; i <shuju.data.navFirst.length; i++) {
+	for(var i = 0; i < shuju.data.navFirst.length; i++) {
 		str += `<div class="item"><div class="item_header"><div class="item_decoration" style="display: block;"></div><h3 class="item_header_title">${shuju.data.navFirst[i].NAME}<i class="item_header_title_arrow">&gt;</i></h3><p class="item_header_sublinks">{%%}</p></div></div>`;
-		for (var j = 0; j < shuju.data.navFirst[i].children.length; j++) {
+		for(var j = 0; j < shuju.data.navFirst[i].children.length; j++) {
 			shuju.data.navFirst[i].children[j].NAME
 			str1 += `<a href="${shuju.data.navFirst[i].children[j].URL} "clstag="channel|keycount|3054|BANNERNAVHEADER1_${i}_${j}" class="item_header_sublinks_link" title="${shuju.data.navFirst[i].children[j].NAME}">${shuju.data.navFirst[i].children[j].NAME}</a>`;
 		}
-//		console.log(str)
-		str = str.replace(/{%%}/g,str1);
-//		console.log(str.replace(/{%%}/g,str1));
-//		console.log(str);
+		str = str.replace(/{%%}/g, str1);
 		str1 = '';
 	}
 	$("#chaoshi_fs_1").children(".chaoshi_banner_wrapper").find(".chaoshi_nav_body").append(str);
-	console.log($("#chaoshi_fs_1").children(".chaoshi_banner_wrapper").find(".chaoshi_nav_body").children(".item:last"));
-	
 	$("#chaoshi_fs_1").children(".chaoshi_banner_wrapper").find(".chaoshi_nav_body").children(".item:last").addClass("item_last");
-	
-//<div class="chaoshi_banner_wrapper clearfix grid_c1"><div class="chaoshi_banner_inner"><div class="chaoshi_nav"><div class="chaoshi_nav_header">京东超市频道分类</div></div></div></div>
-//	${shuju.data.adList[i].title}
-	
+	for(var i = 4; i < shuju.data.groupIdsAd.length; i++) {
+		$("#chaoshi_fs_1").children(".chaoshi_banner_wrapper").find(".chaoshi_nav_body").children(".item").eq(i - 4).attr({
+			"data-id": shuju.data.groupIdsAd[i].ANCHOR,
+			"data-title": shuju.data.groupIdsAd[i].NAME
+		})
+	}
+	var str = `<div class="item_body" style="display: none; visibility: visible;"><div class="item_body_wrapper clearfix"><ul class="chaoshi_nav_sub clearfix"></ul><div class="chaoshi_nav_recommend"></div></div></div>`;
+	$("#chaoshi_fs_1").children(".chaoshi_banner_wrapper").find(".chaoshi_nav_body").children(".item").append(str);
+	var str1 = '';
+	var str2 = '';
+	var str3 = '';
+	for(let i = 0; i < shuju.data.navFirst.length; i++) {
+		var navthird = "navThird" + (i + 1);
+		var a = 0
+		for(let j = 0; j < shuju.data[navthird].length; j++) {
+			str1 += `<li class="chaoshi_nav_sub_item"><div class="chaoshi_nav_sub_title">${shuju.data[navthird][j].NAME}</div><div class="chaoshi_nav_sub_main clearfix">{%%}</div></li>`;
+			for(let m = 0; m < shuju.data[navthird][j].children.length; m++) {
+				str2 += `<a href="${shuju.data[navthird][j].children[m].URL}" target="_blank" clstag="channel|keycount|3054|BANNERNAVBODY1_${i+1}_${j+1}_${m+1}" class="chaoshi_nav_sub_main_link" title="${shuju.data[navthird][j].children[m].NAME}">${shuju.data[navthird][j].children[m].NAME}</a>`;
+			}
+			str1 = str1.replace(/({%%})/gi, str2)
+		}
+		$("#chaoshi_fs_1").children(".chaoshi_banner_wrapper").find(".chaoshi_nav_body").children(".item").eq(i).find(".chaoshi_nav_sub").append(str1);
+		str2 = '';
+		str1 = '';
+	}
 
+	for(let i = 0; i < shuju.data.navFirst.length; i++) {
+		var o = $("#chaoshi_fs_1").children(".chaoshi_banner_wrapper").find(".chaoshi_nav_body").children(".item").eq(i),
+			s = '';
+		var groupid = o.attr("data-id");
+		$.ajax({
+			type: "get",
+			url: `https://ai.jd.com/General?app=Bi&action=get_ad&groupId=${groupid}&callback=?`,
+			async: true,
+			dataType: "jsonp",
+			success: function(data) {
+				for(var j = 0; j < data.DATA.adData.length; j++) {
+					s += `<a href="${data.DATA.adData[j].link}" clstag="channel|keycount|3054|BANNERNAVRECOMMEND${i}_1_${j}" target="_blank" class="chaoshi_nav_recommend_link"> <img src="${data.DATA.adData[j].pictureUrl}" data-lazy-img="done" class="chaoshi_nav_recommend_pic" alt="" title="" data-webp="no"></a>`
+				}
+				//					console.log(o.find(".chaoshi_nav_recommend"))
+				$("#chaoshi_fs_1").children(".chaoshi_banner_wrapper").find(".chaoshi_nav_body").children(".item").find(".chaoshi_nav_recommend").eq(i).html(s);
+				s = '';
+			}
+		});
+	}
 
-	
+	$("#chaoshi_fs_1").children(".chaoshi_banner_wrapper").find(".chaoshi_nav_body").children(".item").hover(function() {
+		var a = $(this),
+			o = a.find(".item_body"),
+			i = a.index();
+		a.addClass("item_hover").find(".item_decoration").show();
+		o.show();
+		if(i > 4) {
+			var e = 551 - o.height();
+			e = Math.max(e, 0),
+				o.css("top", e);
+		}
+		o.css("visibility", "visible");
+	}, function() {
+		$(this).removeClass("item_hover").find(".item_body").hide().end().find(".item_decoration").hide();
+	});
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+$(function() {
+	var s = '',
+		s1 = '',
+		ran = 0,
+		sji = 0,
+		length1 = 0,
+		s2 = '',
+		s3 = '',
+		s4 = '';
+	//轮播框架
+	//			chaoshi_carousel_nav_btn_last
+	//			chaoshi_carousel_nav_btn_on 轮播触发按钮的class名
+	s = `<div class="chaoshi_banner_mid fl"><div class="chaoshi_carousel"><ul class="chaoshi_carousel_main">{1%%}</ul><div class="chaoshi_carousel_extra"><div class="chaoshi_carousel_btns"><a href="javascript:void(0)" clstag="channel|keycount|3054|BANNERCAROUSELBTN1_1" class="chaoshi_carousel_prev">&lt;</a><a href="javascript:void(0)" clstag="channel|keycount|3054|BANNERCAROUSELBTN1_2" class="chaoshi_carousel_next">&gt;</a></div><div class="chaoshi_carousel_nav clearfix">{2%%}</div></div></div><ul class="chaoshi_bottom clearfix">{3%%}</ul></div>`;
+	$.when($.ajax({
+		type: "get",
+		url: "https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368271&callback=?",
+		async: true,
+		dataType: "jsonp",
+		success: function(a) {
+			s1 = `<li class="chaoshi_carousel_item chaoshi_carousel_item_on" style="opacity: 1; z-index: 1; position: absolute;"><a href="${a.DATA.adData[0].link}" clstag="channel|keycount|3054|BANNERCAROUSEL1_${0}" target="_blank" class="chaoshi_carousel_link"><img src="${a.DATA.adData[0].pictureUrl}" data-lazy-img="done" class="chaoshi_carousel_img" title="" alt=""></a></li>`;
+			for(let i = 1; i < 6; i++) {
+				console.log(i)
+				s1 += `<li class="chaoshi_carousel_item" style="opacity: 0; z-index: 0; position: absolute;"><a href="${a.DATA.adData[i].link}" clstag="channel|keycount|3054|BANNERCAROUSEL1_${i}" target="_blank" class="chaoshi_carousel_link"><img src="${a.DATA.adData[i].pictureUrl}" data-lazy-img="done" class="chaoshi_carousel_img" title="" alt=""></a></li>`
+			}
+		}
+	}), $.ajax({
+		type: "get",
+		url: "https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368340&callback=?",
+		async: true,
+		dataType: "jsonp",
+		success: function(a) {
+			s3 += `<li class="chaoshi_bottom_item fl" ><a href="${a.DATA.adData[0].link}" clstag="channel|keycount|3054|BANNERBOTTOMRECOMMEND1_1" class="chaoshi_bottom_link" target="_blank"><img class="chaoshi_bottom_img" src="${a.DATA.adData[0].pictureUrl}" data-lazy-img="done" alt="" title=""></a></li>`;
+		}
+	}), $.ajax({
+		type: "get",
+		url: "https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368847&callback=?",
+		async: true,
+		dataType: "jsonp",
+		success: function(a) {
+			s3 += `<li class="chaoshi_bottom_item fl" ><a href="${a.DATA.adData[0].link}" clstag="channel|keycount|3054|BANNERBOTTOMRECOMMEND1_2" class="chaoshi_bottom_link" target="_blank"><img class="chaoshi_bottom_img" src="${a.DATA.adData[0].pictureUrl}" data-lazy-img="done" alt="" title=""></a></li>`;
+		}
+	})).done(
+		function() {
+			s = s.replace(/{1%%}/gi, s1);
+			s = s.replace(/{3%%}/gi, s3);
+			for(var i = 0; i < 6; i++) {
+				s2 += `<a href="javascript:void(0)" class="chaoshi_carousel_nav_btn" style="width: 129.167px;"></a>`;
+			}
+			s = s.replace(/{2%%}/gi, s2);
+			//			console.log(s)
+			$(".chaoshi_banner_inner").append(s);
+			$(".chaoshi_carousel_nav").find(".chaoshi_carousel_nav_btn:first").addClass("chaoshi_carousel_nav_btn_on");
+			//			console.log($(".chaoshi_carousel_nav").find(".chaoshi_carousel_nav_btn"))
+			$(".chaoshi_carousel_nav").find(".chaoshi_carousel_nav_btn:last").addClass("chaoshi_carousel_nav_btn_last");
+			var i = 0;
+			var length = $(".chaoshi_carousel_main").children("li").length;
+			var timer = null;
+			
+			timer = setInterval(function(){
+				starts ()
+			},4000)
+			
+			
+			console.log($(".chaoshi_carousel_prev"),$(".chaoshi_carousel_prev"));
+			
+			$(".chaoshi_carousel_prev").bind("click",function(){
+				i--;
+				if (i<0) {
+					i = 0;
+				}
+				starts ();
+			})
+			$(".chaoshi_carousel_prev,.chaoshi_carousel_next").hover(function(){
+				
+			},function(){
+				
+			})
+			$(".chaoshi_carousel_next").bind("click",function(){
+				starts ();
+			})
+			function starts () {
+				i++;
+				if (i>length - 1) {
+					i = 0;
+				}
+					$(".chaoshi_carousel_main").children("li").css("position","absolute")
+					$(".chaoshi_carousel_main").children("li").eq(i).animate({
+						"z-index":"5","opacity":"1"
+					},1000).siblings().animate({
+						"z-index":"0","opacity":"0"
+					},1000);
+					$(".chaoshi_carousel_nav").children("a").eq(i).addClass("chaoshi_carousel_nav_btn_on").siblings().removeClass("chaoshi_carousel_nav_btn_on");
+			}
+		});
+		
+})
+//function结束处

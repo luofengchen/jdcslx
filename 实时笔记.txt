@@ -40,4 +40,17 @@ search搜索接口GET：https://dd-search.jd.com/?terminal=pc&ver=2&zip=1&key=s&pvid=
 
 https://sale.jd.com/act/FciOehkX53fqAY.html?suggest=1.prom.0.V00&wq=s
 
+整个商品详情的侧边图片:https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00397582&callback=chaoshi_fs_1_00397582&_=1510541830739
+groupId为分组的数据
+
+
+便捷生活接口GET大轮播右下：https://ai.jd.com/General?app=Bi&action=get_sku&groupId=00737125&callback=chaoshi_fs_1_handy
+Goods&_=1510556948323
+
+大轮播图接口：https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368271&callback=chaoshi_fs_1_carouselItems&_=1510556948273
+
+大轮播下的两个广告接口GET：https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368847&callback=chaoshi_fs_1_carouselItems&_=1510556948273
+
+
+
 
