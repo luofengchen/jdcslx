@@ -170,12 +170,6 @@ u {
 .clearfix {
     *zoom: 1;
 }
-
-a {
-    color: #666;
-    text-decoration: none
-}
-
 a:hover {
     color: #f30213
 }
@@ -312,9 +306,11 @@ body {
     background: #f7f7f7
 }
 
-.mod_container img {
+.mod_container{
+    img {
     background: url(//misc.360buyimg.com/lib/skin/e/i/error-jd.gif) no-repeat 50% 50%
 }
+} 
 
 .o2_wide {
     #search-2014 {

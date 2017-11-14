@@ -3,28 +3,45 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
-		
-		
-		
+		<script src="js/util.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/countdown.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-//			$.ajax({
-//				type:"get",
-//				url:"data1.json",
-//				async:true,
-//				success:function (data) {
-//					console.log(data[0])
-//				}
-//			});
-			$.get("data1.json",function  (dd) {
-				console.log(dd[10])
-			})
-//			var url1 = "data1.json" + "?callback=?";
-			
-		//				console.dir(data)
-			
+			getTimeSchedules();
+			function getTimeSchedules() {
+            var t = new Date
+              , i = a.getCalendar(t, 0)
+              , o = a.getCalendar(t, 1)
+              , e = t.getHours();
+            i.split("/")[1],
+            i.split("/")[2],
+            o.split("/")[1],
+            o.split("/")[2];
+            _.console.log(e);
+            var s = {
+                start: i + " 00:00:00",
+                end: i + " 08:00:00"
+            };
+            return e >= 8 && e < 12 && (s = {
+                start: i + " 08:00:00",
+                end: i + " 12:00:00"
+            }),
+            e >= 12 && e < 16 && (s = {
+                start: i + " 12:00:00",
+                end: i + " 16:00:00"
+            }),
+            e >= 16 && e < 20 && (s = {
+                start: i + " 16:00:00",
+                end: i + " 20:00:00"
+            }),
+            e >= 20 && e < 24 && (s = {
+                start: i + " 20:00:00",
+                end: o + " 00:00:00"
+            }),
+//          s
+            console.log(e,s)
+        }
 		</script>
 	</body>
 </html>

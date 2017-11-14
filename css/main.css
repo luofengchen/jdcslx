@@ -445,9 +445,9 @@ body,
     float: left;
     height: 36px;
     font-family: tahoma, arial, Microsoft YaHei, Hiragino Sans GB, "\u5b8b\u4f53", sans-serif;
-    border: 0;
+    border: none;
     border-radius: 0;
-    line-height: 1px;
+    line-height: 1;
     color: #fff;
     font-size: 16px;
     cursor: pointer; }
@@ -682,7 +682,7 @@ body,
 
 .chaoshi_fs {
   position: relative;
-  min-height: 593px;
+  min-height: 583px;
   margin-bottom: 15px; }
 
 .chaoshi_menu {
@@ -690,11 +690,6 @@ body,
   height: 33px;
   font-size: 0;
   overflow: hidden; }
-
-.grid_c1 {
-  width: 1190px;
-  margin-left: auto;
-  margin-right: auto; }
 
 .chaoshi_menu_list {
   padding-left: 190px; }
@@ -751,11 +746,6 @@ body,
   z-index: 2;
   height: 550px;
   background: #f6f6f6; }
-
-.grid_c1 {
-  width: 1190px;
-  margin-left: auto;
-  margin-right: auto; }
 
 .chaoshi_nav {
   width: 190px;
@@ -827,13 +817,13 @@ body,
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden; }
-  .chaoshi_nav_body .item_header_sublinks_link_first {
-    margin-left: 0; }
   .chaoshi_nav_body .item_header_sublinks_link {
     font-size: 12px;
     color: #999;
     margin-left: 3px;
     margin-right: 3px; }
+  .chaoshi_nav_body .item_header_sublinks_link_first {
+    margin-left: 0; }
   .chaoshi_nav_body .item_header_sublinks_link_last {
     margin-right: 0; }
   .chaoshi_nav_body .item_last {
@@ -1090,6 +1080,8 @@ body,
   background: #ffa133;
   border-radius: 2px;
   overflow: hidden; }
+  .chaoshi_coupon_more:hover {
+    color: #fff; }
 
 .chaoshi_handy {
   padding: 0 10px;
@@ -1106,6 +1098,7 @@ body,
 .chaoshi_handy_carousel_main {
   height: 185px;
   background: #fff;
+  border-radius: 8px;
   box-shadow: 0 6px 13px rgba(255, 160, 24, 0.26); }
 
 .chaoshi_handy_carousel_item {
@@ -1129,6 +1122,8 @@ body,
   color: #fff;
   border-radius: 15px;
   background: linear-gradient(90deg, #ffa133 0, #ffc333); }
+  .chaoshi_handy_carousel_enter:hover {
+    color: #fff; }
 
 .chaoshi_handy_carousel_nav {
   display: block;
@@ -1137,10 +1132,432 @@ body,
   height: 18px;
   overflow: hidden; }
 
+.chaoshi_handy_carousel_nav_btn {
+  display: inline-block;
+  margin: 0 4px;
+  width: 5px;
+  height: 5px;
+  border-radius: 100%;
+  background: #ffa133;
+  border: 1px solid #ffdeaa; }
+  .chaoshi_handy_carousel_nav_btn.on {
+    border-color: #ffa133;
+    background: none; }
+
 .chaoshi_carousel_nav_btn_last {
   margin-right: 0; }
 
 .chaoshi_carousel_nav_btn_on {
   background: #ec7002; }
+
+.chaoshi_seckill {
+  min-height: 320px;
+  margin-bottom: 15px;
+  background: url("//static.360buyimg.com/mtd/pc/supermarket_v3/3.0.1/v3/images/chaoshi_seckill_bg.png") center 0 no-repeat; }
+  .chaoshi_seckill .time_item {
+    position: relative;
+    float: left;
+    width: 48px;
+    height: 35px;
+    background-color: #362746;
+    color: #fff;
+    font-size: 24px;
+    font-family: Arial;
+    font-weight: 700;
+    text-align: center;
+    line-height: 35px;
+    margin-top: 21px;
+    letter-spacing: 12px;
+    text-indent: 5px; }
+    .chaoshi_seckill .time_item:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      margin-left: -1px;
+      width: 2px;
+      height: 100%;
+      background: #efe6dd; }
+  .chaoshi_seckill .time_split {
+    float: left;
+    margin: 35px 4px 0;
+    width: 2px;
+    height: 6px;
+    font-size: 0;
+    line-height: 0; }
+  .chaoshi_seckill .time_split_top {
+    margin-bottom: 4px; }
+  .chaoshi_seckill .time_split_dot {
+    display: block;
+    width: 2px;
+    height: 2px;
+    border-radius: 100%;
+    background: #362746; }
+  .chaoshi_seckill .time_split_bottom {
+    top: 30px; }
+
+.grid_c1 {
+  width: 1190px;
+  margin-left: auto;
+  margin-right: auto; }
+
+.chaoshi_seckill_hd {
+  position: relative;
+  height: 70px;
+  line-height: 70px;
+  color: #fff; }
+
+.chaoshi_seckill_tit {
+  position: relative;
+  float: left;
+  margin-left: 15px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 78px;
+  height: 70px;
+  padding: 0 0 0 52px;
+  color: #333;
+  letter-spacing: 1px; }
+  .chaoshi_seckill_tit:before {
+    content: '';
+    position: absolute;
+    left: 19px;
+    top: 50%;
+    margin-top: -5px;
+    background-image: url("//static.360buyimg.com/mtd/pc/supermarket_v3/3.0.1/v3/images/sprite_chaoshi_index@1x.png");
+    background-position: 0 -52px;
+    background-size: 118px 73px;
+    background-repeat: no-repeat;
+    width: 19px;
+    height: 21px; }
+
+.chaoshi_seckill_time {
+  float: left;
+  height: 70px; }
+  .chaoshi_seckill_time .csi_pic {
+    position: relative;
+    text-align: center; }
+  .chaoshi_seckill_time .csi_name {
+    color: #333 px;
+    min-width: 100%;
+    height: 36px;
+    text-align: left;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    transition: -webkit-transform .4s ease; }
+
+.chaoshi_seckill_time_tip {
+  float: left;
+  margin: 33px 25px 0 0;
+  padding-left: 15px;
+  line-height: 14px;
+  font-size: 14px;
+  color: #333;
+  border-left: 1px solid #333; }
+
+.chaoshi_seckill_time_main {
+  float: left; }
+
+.chaoshi_seckill_list {
+  float: left;
+  width: 990px;
+  height: 250px;
+  overflow: hidden;
+  background-color: #fff; }
+
+.chaoshi_seckill_item {
+  float: left;
+  width: 164px;
+  height: 100%;
+  padding: 0 14px 0 19px;
+  border-right: 1px solid #e6e6e6; }
+  .chaoshi_seckill_item .csi_price_origin {
+    display: inline-block;
+    color: #999;
+    font-size: 12px; }
+  .chaoshi_seckill_item .csi_pic {
+    position: relative;
+    text-align: center; }
+  .chaoshi_seckill_item .csi_price {
+    white-space: normal; }
+  .chaoshi_seckill_item .csi_price_new {
+    display: inline-block;
+    width: 95px;
+    font-size: 18px;
+    font-weight: 700;
+    margin-right: 5px;
+    color: #ff002f; }
+  .chaoshi_seckill_item .csi_img {
+    width: 130px;
+    height: 130px;
+    margin: 17px 0;
+    transition: -webkit-transform .4s ease;
+    transform: translateZ(0); }
+  .chaoshi_seckill_item .csi_name {
+    color: #333;
+    min-width: 100%;
+    margin-bottom: 12px;
+    height: 36px;
+    text-align: left;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    transition: -webkit-transform .4s ease; }
+  .chaoshi_seckill_item .csi_pic_lk {
+    display: block;
+    outline: 0; }
+    .chaoshi_seckill_item .csi_pic_lk:hover a {
+      color: #ffa133; }
+    .chaoshi_seckill_item .csi_pic_lk:hover .csi_name {
+      color: #ffa133; }
+    .chaoshi_seckill_item .csi_pic_lk:hover .csi_img {
+      transform: translateY(-5px); }
+
+.chaoshi_seckill_more {
+  float: left;
+  width: 200px;
+  height: 250px; }
+  .chaoshi_seckill_more img {
+    min-width: 200px;
+    min-height: 250px; }
+
+.chaoshi_discount {
+  min-height: 575px;
+  margin-bottom: 25px; }
+  .chaoshi_discount .cdi_promote {
+    height: 18px;
+    margin-bottom: 12px; }
+  .chaoshi_discount .cdi_name {
+    margin-bottom: 2px; }
+
+.chaoshi_mod_head {
+  overflow: hidden;
+  padding: 0 0 20px;
+  height: 35px;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAHAQMAAAD3d2XqAAAABlBMVEUAAAC/v79T5hyIAAAAAXRSTlMAQObYZgAAAAtJREFUCNdjaECGABiOA4FOsWZrAAAAAElFTkSuQmCC") repeat-x 0 16px;
+  text-align: center;
+  font-size: 24px;
+  line-height: 35px; }
+
+.chaoshi_mod_head_title {
+  display: inline;
+  padding: 0 50px;
+  background-color: #f6f6f6;
+  font-weight: 400;
+  font-size: 26px;
+  color: #333; }
+
+.chaoshi_discount_big .cdb_item {
+  position: relative;
+  float: left;
+  width: 388px;
+  margin: 0 10px 20px 0;
+  background: #fff;
+  border: 1px solid #f2f2f2; }
+  .chaoshi_discount_big .cdb_item.last {
+    margin-right: 0; }
+.chaoshi_discount_big .cdb_bd {
+  position: relative;
+  padding: 20px 40px 0 190px;
+  height: 168px; }
+.chaoshi_discount_big .cdb_pic {
+  display: block;
+  position: absolute;
+  left: 20px;
+  top: 18px;
+  width: 150px;
+  height: 150px; }
+  .chaoshi_discount_big .cdb_pic img {
+    width: 100%;
+    height: 100%; }
+.chaoshi_discount_big .cdb_logo {
+  display: block;
+  margin-bottom: 13px;
+  width: auto;
+  height: 36px;
+  background: none !important; }
+.chaoshi_discount_big .cdb_name {
+  height: 36px;
+  margin-bottom: 4px;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  transition: color .25s ease; }
+.chaoshi_discount_big .cdb_ft_l {
+  position: relative;
+  float: left;
+  padding-left: 29px;
+  width: 204px;
+  height: 60px;
+  background: #f75f3c; }
+  .chaoshi_discount_big .cdb_ft_l:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    border-top: 5px solid #fff;
+    border-left: 5px solid #fff;
+    overflow: hidden; }
+.chaoshi_discount_big .cdb_price {
+  margin-bottom: 4px;
+  font-size: 16px;
+  color: #fff; }
+  .chaoshi_discount_big .cdb_price.nosalenum {
+    padding-top: 21px; }
+.chaoshi_discount_big .cdb_add {
+  bottom: -60px;
+  line-height: 60px;
+  background: #ffa133;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer; }
+.chaoshi_discount_big .cdb_ft_r {
+  float: right;
+  width: 155px;
+  height: 60px; }
+.chaoshi_discount_big .cdb_add_icon {
+  margin: 0 6px 0 0; }
+.chaoshi_discount_big .cdb_add_txt {
+  display: inline-block;
+  vertical-align: top; }
+.chaoshi_discount_big .cdb_price.nosalenum {
+  padding-top: 21px; }
+.chaoshi_discount_big .cdb_promote1 {
+  height: 18px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-bottom: 10px;
+  color: #999; }
+.chaoshi_discount_big .cdb_promote2 {
+  display: inline-block;
+  margin-bottom: 33px;
+  max-height: 36px;
+  color: #ffa133;
+  padding: 0 15px;
+  background: #fff5ea;
+  overflow: hidden; }
+
+.chaoshi_discount_small {
+  position: relative;
+  border-top: 1px solid #e6e6e6; }
+  .chaoshi_discount_small .cdi_name {
+    display: block;
+    height: 18px;
+    white-space: nowrap; }
+  .chaoshi_discount_small .cdi_add {
+    position: absolute;
+    right: 14px;
+    bottom: 16px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background: #ffa133; }
+
+.cdb_add_icon, .cdi_add_icon, .goods_add_icon {
+  display: inline-block;
+  vertical-align: middle;
+  background-image: url("//static.360buyimg.com/mtd/pc/supermarket_v3/3.0.1/v3/images/sprite_chaoshi_index@1x.png");
+  background-position: -21px -52px;
+  background-size: 118px 73px;
+  background-repeat: no-repeat;
+  width: 15px;
+  height: 15px; }
+
+.chaoshi_discount_listwrap {
+  position: relative;
+  float: left;
+  width: 990px;
+  height: 250px;
+  overflow: visible; }
+  .chaoshi_discount_listwrap:before {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    width: 0;
+    height: 0;
+    top: 0;
+    border: 10px dashed transparent;
+    overflow: hidden;
+    border-top: 10px solid #fe952d;
+    border-left: 10px solid #fe952d; }
+  .chaoshi_discount_listwrap:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 990px;
+    height: 10px;
+    background: url("//static.360buyimg.com/mtd/pc/supermarket_v3/3.0.1/v3/images/chaoshi_discount_line.png") 0 0 no-repeat; }
+
+.chaoshi_discount_list {
+  width: 100%;
+  height: 100%;
+  background-color: #fff; }
+
+.chaoshi_discount_item {
+  position: relative;
+  float: left;
+  width: 164px;
+  height: 100%;
+  padding: 0 14px 0 19px;
+  border-right: 1px solid #e6e6e6; }
+  .chaoshi_discount_item .cdi_pic {
+    position: relative;
+    text-align: center; }
+  .chaoshi_discount_item .cdi_pic_lk {
+    display: block;
+    outline: 0; }
+    .chaoshi_discount_item .cdi_pic_lk:hover .cdi_img {
+      transform: translateY(-5px); }
+    .chaoshi_discount_item .cdi_pic_lk:hover .cdi_name {
+      color: #ffa133; }
+  .chaoshi_discount_item .cdi_img {
+    width: 130px;
+    height: 130px;
+    margin: 17px 0;
+    transition: -webkit-transform .4s ease; }
+  .chaoshi_discount_item .cdi_name {
+    color: #333;
+    max-width: 100%;
+    text-align: left;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    transition: -webkit-transform .4s ease; }
+  .chaoshi_discount_item .cdi_price_new {
+    display: inline-block;
+    width: 95px;
+    font-size: 18px;
+    font-weight: 700;
+    margin-right: 5px;
+    color: #ff002f; }
+
+.chaoshi_discount_more {
+  position: relative;
+  z-index: 2;
+  float: left;
+  width: 200px;
+  height: 259px; }
+  .chaoshi_discount_more img {
+    margin-left: -20px;
+    min-width: 200px;
+    min-height: 259px; }
 
 /*# sourceMappingURL=main.css.map */

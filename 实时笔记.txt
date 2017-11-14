@@ -41,10 +41,17 @@ search搜索接口GET：https://dd-search.jd.com/?terminal=pc&ver=2&zip=1&key=s&pvid=
 groupId为分组的数据
 
 
-便捷生活轮播接口GET：23:03 2017/11/13 星期一
+便捷生活轮播接口GET：
 
 大轮播图接口：https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368271&callback=?
 
 大轮播下的两个广告接口GET：https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368847&callback=?
 
 
+家庭量贩上部分接口GET:https://ai.jd.com/General?app=Bi&action=get_sku&groupId=00725321&callback=?
+
+家庭量贩下部分接口GET:https://ai.jd.com/General?app=Bi&action=get_sku&groupId=00718507&callback=?
+
+品牌特卖上部分接口：https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368889&callback=?
+
+品牌特卖下部分接口：https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368892&callback=?
