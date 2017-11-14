@@ -721,29 +721,32 @@ $(function() {
 									url: "https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368889&callback=?",
 									async: true,
 									dataType: "jsonp",
-									success: function(a) {
+									success: function(b) {
 									console.log(shuju3.data);
-										for(var i = 0; i < Things.length; i++) {
-											Things[i]
-										}
+									
+//										for(var i = 0; i < Things.length; i++) {
+//											Things[i]
+											s1 = ``;
+											s2 = ``;
+//										}
 									}
 								})
-							})).done() 
+							}})).done()})
 
-					}
-				); //done结束处
+					
+//				); //done结束处
 			})
 
-		s = `<div class="chaoshi_brand grid_c1" id="chaoshi_brand_5" data-id="chaoshi_brand_5" data-async="true" data-elevator="true" data-tpl="chaoshi_brand_tpl">
-			<div class="chaoshi_mod_head">
-				<h3 class="chaoshi_mod_head_title"> ${shuju3.data.title[0].NAME}</h3>
-			</div>
-			<div class="chaoshi_brand_row clearfix">
-				<a class="chaoshi_brand_today" href="${a.DATA.adData[0].link}" clstag="channel|keycount|3054|today5_1_1" target="_blank" title="1"><img src="${a.DATA.adData[0].pictureUrl}" data-lazy-img="done" alt="1"></a>
-				<div class="chaoshi_brand_list chaoshi_brand_big clearfix">{aa1%%}</div>
-			</div>
-			<div class="chaoshi_brand_row clearfix">
-				<div class="chaoshi_brand_list chaoshi_brand_small clearfix">{aa2%%}</div>
-				<a class="chaoshi_brand_more" href="${shuju3.data.more[0].url}" clstag="channel|keycount|3054|more5_1_1" target="_blank" title="${shuju3.data.more[0].title}"><img src="${shuju3.data.more[0].picUrl}" data-lazy-img="done" data-webp="no" alt="${shuju3.data.more[0].picUrl}"></a>
-			</div>
-		</div>`;
+//		s = `<div class="chaoshi_brand grid_c1" id="chaoshi_brand_5" data-id="chaoshi_brand_5" data-async="true" data-elevator="true" data-tpl="chaoshi_brand_tpl">
+//			<div class="chaoshi_mod_head">
+//				<h3 class="chaoshi_mod_head_title"> ${shuju3.data.title[0].NAME}</h3>
+//			</div>
+//			<div class="chaoshi_brand_row clearfix">
+//				<a class="chaoshi_brand_today" href="${a.DATA.adData[0].link}" clstag="channel|keycount|3054|today5_1_1" target="_blank" title="1"><img src="${a.DATA.adData[0].pictureUrl}" data-lazy-img="done" alt="1"></a>
+//				<div class="chaoshi_brand_list chaoshi_brand_big clearfix">{aa1%%}</div>
+//			</div>
+//			<div class="chaoshi_brand_row clearfix">
+//				<div class="chaoshi_brand_list chaoshi_brand_small clearfix">{aa2%%}</div>
+//				<a class="chaoshi_brand_more" href="${shuju3.data.more[0].url}" clstag="channel|keycount|3054|more5_1_1" target="_blank" title="${shuju3.data.more[0].title}"><img src="${shuju3.data.more[0].picUrl}" data-lazy-img="done" data-webp="no" alt="${shuju3.data.more[0].picUrl}"></a>
+//			</div>
+//		</div>`;
