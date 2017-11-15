@@ -52,6 +52,11 @@ groupId为分组的数据
 
 家庭量贩下部分接口GET:https://ai.jd.com/General?app=Bi&action=get_sku&groupId=00718507&callback=?
 
-品牌特卖上部分接口：https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368889&callback=?
+品牌特卖上部分接口GET(大图)：https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368889&callback=?
 
-品牌特卖下部分接口：https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368892&callback=?
+品牌特卖上部分接口GET（4小图）：https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368891&callback=?
+
+品牌特卖下部分接口：https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368892&calback=?
+
+热卖商品价格接口GET：https://p.3.cn/prices/mgets?type=1&skuIds=J_1030656,J_1909882,J_1006574585,J_1029507,J_1135611,J_3043161,J_1385736,J_918498,J_1241849,J_1304821,J_848852,J_2518087,J_1030656,J_1909882,J_1006574585,J_1029507,J_1135611,J_3043161,J_1385736,J_918498,J_1241849,J_1304821,J_848852,J_2518087&callback=jQuery7594264&_=1510717499485
+

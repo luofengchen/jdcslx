@@ -1,5 +1,5 @@
 var datena;
-
+var s='',s1='',s2='',s3 = ``;
 $("#ttbar-myjd").hover(function() {
 	console.log(this);
 	$(this).addClass("hover");
@@ -94,28 +94,27 @@ $(function() {
 	$.ajax({
 		type: "get",
 		url: "json/province&city.json?callback=?",
-		async: true,
-		success: function(data) {
-			var str1 = '';
-			var str2 = '';
-			var str3 = '';
-			console.log();
-			var prov = data[0].province;
-			// <i class="iconfont"></i>
-			//i 转换后的值 上面
-			str1 = `<div class="dt cw-icon ui-areamini-text-wrap" style=""><i class="iconfont">&#xe604;</i><span class="ui-areamini-text" data-id="1" title="北京">北京</span></div><div class="dd dorpdown-layer"><div class="dd-spacer"></div><div class="ui-areamini-content-wrap"><div class="ui-areamini-content"></div></div></div>`;
-			$("#ttbar-mycity").html(str1);
-			//此处输出li下的框架
-			str2 = `<div class="ui-areamini-content-list"><%=list%></div>`;
-			// position下拉列表的省份信息
-			for(var i in prov) {
-				str3 += `<div class="item"><a data-id="${prov[i]}" href="javascript:void(0)">${i}</a></div>`
-			}
-			str2 = str2.replace(/<%=list%>/gi, str3);
-			$("#ttbar-mycity").find(".ui-areamini-content").html(str3);
-			// 单个省份信息排列
+		async: true
+	}).done(function(data) {
+		var str1 = '';
+		var str2 = '';
+		var str3 = '';
+		console.log();
+		var prov = data[0].province;
+		// <i class="iconfont"></i>
+		//i 转换后的值 上面
+		str1 = `<div class="dt cw-icon ui-areamini-text-wrap" style=""><i class="iconfont">&#xe604;</i><span class="ui-areamini-text" data-id="1" title="北京">北京</span></div><div class="dd dorpdown-layer"><div class="dd-spacer"></div><div class="ui-areamini-content-wrap"><div class="ui-areamini-content"></div></div></div>`;
+		$("#ttbar-mycity").html(str1);
+		//此处输出li下的框架
+		str2 = `<div class="ui-areamini-content-list"><%=list%></div>`;
+		// position下拉列表的省份信息
+		for(var i in prov) {
+			str3 += `<div class="item"><a data-id="${prov[i]}" href="javascript:void(0)">${i}</a></div>`
 		}
-	});
+		str2 = str2.replace(/<%=list%>/gi, str3);
+		$("#ttbar-mycity").find(".ui-areamini-content").html(str3);
+		// 单个省份信息排列
+	})
 });
 $(".logo_dropdown").hover(function() {
 	$(this).find("#ttbar-mycity").addClass("hover");
@@ -467,89 +466,86 @@ $(function() {
 })
 //function结束处
 $(function() {
-			var s = '';
-			s = `<div class="chaoshi_right fr"><div class="chaoshi_coupon"><p class="chaoshi_right_tt">${shuju.data.couponTT[0].NAME}</p><p class="chaoshi_right_tip">${shuju.data.couponTip[0].NAME}</p><div class="chaoshi_coupon_bd"><a class="chaoshi_coupon_info" href="${shuju.data.couponTT[0].customData}" target="_blank" style="z-index: 1;"><p class="chaoshi_coupon_info_num1">¥<em>${shuju.data.coupon[0].price*100}</em></p><p class="chaoshi_coupon_info_num2">满${shuju.data.coupon[0].promoteText}可用</p><p class="chaoshi_coupon_info_tip">${shuju.data.coupon[0].tag}</p></a><a class="chaoshi_coupon_more" href="//a.jd.com/channel/coupons.html?cat=2" target="_blank" clstag="channel|keycount|3054|couponMore1_10" >${shuju.data.couponMore[0].NAME}</a></div></div></div>`;
-			$(".chaoshi_banner_inner").append(s);
+var s = '';
+s = `<div class="chaoshi_right fr"><div class="chaoshi_coupon"><p class="chaoshi_right_tt">${shuju.data.couponTT[0].NAME}</p><p class="chaoshi_right_tip">${shuju.data.couponTip[0].NAME}</p><div class="chaoshi_coupon_bd"><a class="chaoshi_coupon_info" href="${shuju.data.couponTT[0].customData}" target="_blank" style="z-index: 1;"><p class="chaoshi_coupon_info_num1">¥<em>${shuju.data.coupon[0].price*100}</em></p><p class="chaoshi_coupon_info_num2">满${shuju.data.coupon[0].promoteText}可用</p><p class="chaoshi_coupon_info_tip">${shuju.data.coupon[0].tag}</p></a><a class="chaoshi_coupon_more" href="//a.jd.com/channel/coupons.html?cat=2" target="_blank" clstag="channel|keycount|3054|couponMore1_10" >${shuju.data.couponMore[0].NAME}</a></div></div></div>`;
+$(".chaoshi_banner_inner").append(s);
 
-			$.when($.ajax({
-				type: "get",
-				url: "https://ai.jd.com/General?app=Bi&action=get_sku&groupId=00737125&callback=?",
-				async: true,
-				dataType: "jsonp",
-				success: function(a) {
-					//			console.log(a)
-					//			console.log(a.DATA.data)
-					var s = '',
-						s1 = '',
-						s2 = '';
-					s = `<div class="chaoshi_handy"><h4 class="chaoshi_right_tt">${shuju.data.handyTT[0].NAME}</h4><p class="chaoshi_right_tip">${shuju.data.handyTip[0].NAME}</p><div class="chaoshi_handy_carousel"><ul class="chaoshi_handy_carousel_main">{aa&&}</ul><div class="chaoshi_handy_carousel_nav clearfix">{bb&&}</div></div></div>`;
+$.ajax({
+	type: "get",
+	url: "https://ai.jd.com/General?app=Bi&action=get_sku&groupId=00737125&callback=?",
+	async: true,
+	dataType: "jsonp"
+}).done(
+	function(a) {
+		//			console.log(a)
+		//			console.log(a.DATA.data)
+		var s = '',
+			s1 = '',
+			s2 = '';
+		s = `<div class="chaoshi_handy"><h4 class="chaoshi_right_tt">${shuju.data.handyTT[0].NAME}</h4><p class="chaoshi_right_tip">${shuju.data.handyTip[0].NAME}</p><div class="chaoshi_handy_carousel"><ul class="chaoshi_handy_carousel_main">{aa&&}</ul><div class="chaoshi_handy_carousel_nav clearfix">{bb&&}</div></div></div>`;
 
-					s1 = `<li class="chaoshi_handy_carousel_item" style="opacity: 1; z-index: 5; position: absolute;"><a href="//item.jd.com/${a.DATA.data[0].skuData[0].skuId}.html" clstag="channel|keycount|3054|handy1_${1}" target="_blank" class="chaoshi_handy_carousel_link"><img src="${a.DATA.data[0].skuData[0].image}" data-lazy-img="done" class="chaoshi_handy_carousel_img" title="${a.DATA.data[0].skuData[0].name}" alt="${a.DATA.data[0].skuData[0].name}"></a><a class="chaoshi_handy_carousel_enter" href="https://sale.jd.com/act/7UOF1BLiYI.html" clstag="channel|keycount|3054|handyEnter1_${1}" target="_blank">进入&gt;</a></li>`;
-					for(var i = 1; i < a.DATA.data[0].skuData.length; i++) {
-						s1 += `<li class="chaoshi_handy_carousel_item" style="opacity: 0; z-index: 0; position: absolute;"><a href="//item.jd.com/${a.DATA.data[0].skuData[i].skuId}.html" clstag="channel|keycount|3054|handy1_${i+1}" target="_blank" class="chaoshi_handy_carousel_link"><img src="${a.DATA.data[0].skuData[i].image}" data-lazy-img="done" class="chaoshi_handy_carousel_img" title="${a.DATA.data[0].skuData[i].name}" alt="${a.DATA.data[0].skuData[i].name}"></a><a class="chaoshi_handy_carousel_enter" href="https://sale.jd.com/act/7UOF1BLiYI.html" clstag="channel|keycount|3054|handyEnter1_${i+1}" target="_blank">进入&gt;</a></li>`;
-						//				a.DATA.data[0].skuData[i]
-					}
-					s = s.replace(/{aa&&}/, s1);
-					s2 = `<a href="javascript:void(0)" class="chaoshi_handy_carousel_nav_btn on"></a>`;
-					for(var i = 1; i < a.DATA.data[0].skuData.length; i++) {
-						s2 += `<a href="javascript:void(0)" class="chaoshi_handy_carousel_nav_btn"></a>`;
-					}
-					s = s.replace(/{bb&&}/, s2);
-					$(".chaoshi_right").append(s);
+		s1 = `<li class="chaoshi_handy_carousel_item" style="opacity: 1; z-index: 5; position: absolute;"><a href="//item.jd.com/${a.DATA.data[0].skuData[0].skuId}.html" clstag="channel|keycount|3054|handy1_${1}" target="_blank" class="chaoshi_handy_carousel_link"><img src="${a.DATA.data[0].skuData[0].image}" data-lazy-img="done" class="chaoshi_handy_carousel_img" title="${a.DATA.data[0].skuData[0].name}" alt="${a.DATA.data[0].skuData[0].name}"></a><a class="chaoshi_handy_carousel_enter" href="https://sale.jd.com/act/7UOF1BLiYI.html" clstag="channel|keycount|3054|handyEnter1_${1}" target="_blank">进入&gt;</a></li>`;
+		for(var i = 1; i < a.DATA.data[0].skuData.length; i++) {
+			s1 += `<li class="chaoshi_handy_carousel_item" style="opacity: 0; z-index: 0; position: absolute;"><a href="//item.jd.com/${a.DATA.data[0].skuData[i].skuId}.html" clstag="channel|keycount|3054|handy1_${i+1}" target="_blank" class="chaoshi_handy_carousel_link"><img src="${a.DATA.data[0].skuData[i].image}" data-lazy-img="done" class="chaoshi_handy_carousel_img" title="${a.DATA.data[0].skuData[i].name}" alt="${a.DATA.data[0].skuData[i].name}"></a><a class="chaoshi_handy_carousel_enter" href="https://sale.jd.com/act/7UOF1BLiYI.html" clstag="channel|keycount|3054|handyEnter1_${i+1}" target="_blank">进入&gt;</a></li>`;
+			//				a.DATA.data[0].skuData[i]
+		}
+		s = s.replace(/{aa&&}/, s1);
+		s2 = `<a href="javascript:void(0)" class="chaoshi_handy_carousel_nav_btn on"></a>`;
+		for(var i = 1; i < a.DATA.data[0].skuData.length; i++) {
+			s2 += `<a href="javascript:void(0)" class="chaoshi_handy_carousel_nav_btn"></a>`;
+		}
+		s = s.replace(/{bb&&}/, s2);
+		$(".chaoshi_right").append(s);
+		var len = $(".chaoshi_handy_carousel_main").children("li").length,
+			i = 0,
+			timer1 = null;
+		timer1 = setInterval(function() {
+			lunbs()
+		}, 3000);
 
-				}
-			})).done(
-				function() {
-					var len = $(".chaoshi_handy_carousel_main").children("li").length,
-						i = 0,
-						timer1 = null;
-					timer1 = setInterval(function() {
-						lunbs()
-					}, 3000);
+		$(".chaoshi_handy_carousel_nav_btn").hover(function(e) {
+			$(this).addClass("on").siblings().removeClass("on");
+			i = $(this).index() - 1;
+			lunbs();
+			clearInterval(timer1);
+		}, function() {
+			$(this).siblings().removeClass("on");
+			timer1 = setInterval(function() {
+				lunbs()
+			}, 3000)
+		})
 
-					$(".chaoshi_handy_carousel_nav_btn").hover(function(e) {
-						$(this).addClass("on").siblings().removeClass("on");
-						i = $(this).index() - 1;
-						lunbs();
-						clearInterval(timer1);
-					}, function() {
-						$(this).siblings().removeClass("on");
-						timer1 = setInterval(function() {
-							lunbs()
-						}, 3000)
-					})
-
-					function lunbs() {
-						i++;
-						if(i == len) {
-							i = 0;
-						}
-						//				chaoshi_handy_carousel_main
-						$(".chaoshi_handy_carousel_main").children("li").css("position", "absolute")
-						$(".chaoshi_handy_carousel_main").children("li").eq(i).animate({
-							"z-index": "5",
-							"opacity": "1"
-						}, 1000).siblings().animate({
-							"z-index": "0",
-							"opacity": "0"
-						}, 1000);
-						$(".chaoshi_handy_carousel_nav").children("a").eq(i).addClass("on").siblings().removeClass("on");
-					}
-				})
-			$.when(
-				$.ajax({
-					type: "get",
-					url: "https://ai.jd.com/General?app=Bi&action=get_sku&groupId=00725585&callback=?&num=1&position=0",
-					async: true,
-					dataType: "jsonp",
-					success: function(a) {
-						var len = 0;
-						s = '';
-						s1 = '',
-							s2 = '';
-						//			console.log(a);
-						len = a.DATA.data[0].skuData;
-						s = `<div class="chaoshi_seckill" id="chaoshi_seckill_2" data-id="chaoshi_seckill_2" data-tpl="chaoshi_seckill_tpl">
+		function lunbs() {
+			i++;
+			if(i == len) {
+				i = 0;
+			}
+			//				chaoshi_handy_carousel_main
+			$(".chaoshi_handy_carousel_main").children("li").css("position", "absolute")
+			$(".chaoshi_handy_carousel_main").children("li").eq(i).animate({
+				"z-index": "5",
+				"opacity": "1"
+			}, 1000).siblings().animate({
+				"z-index": "0",
+				"opacity": "0"
+			}, 1000);
+			$(".chaoshi_handy_carousel_nav").children("a").eq(i).addClass("on").siblings().removeClass("on");
+		}
+	}).done(function  () {
+	$.ajax({
+		type: "get",
+		url: "https://ai.jd.com/General?app=Bi&action=get_sku&groupId=00725585&callback=?&num=1&position=0",
+		async: true,
+		dataType: "jsonp"
+	})
+.done(
+	function(a) {
+			var len = 0;
+			s = '';
+			s1 = '',
+			s2 = '';
+			len = a.DATA.data[0].skuData;
+			s = `<div class="chaoshi_seckill" id="chaoshi_seckill_2" data-id="chaoshi_seckill_2" data-tpl="chaoshi_seckill_tpl">
 			<div class="grid_c1">
 				<div class="chaoshi_seckill_hd clearfix">
 					<h3 class="chaoshi_seckill_tit">{text%%}</h3>
@@ -572,60 +568,63 @@ $(function() {
 				</div>
 			</div>
 		</div>`
-						//			开发文档： {hour} {minute} {second} {li%%}	
-						var length = Math.floor(Math.random() * (len.length - 6));
+			//			开发文档： {hour} {minute} {second} {li%%}	
+			var length = Math.floor(Math.random() * (len.length - 6));
 
-						//			console.log(len)￥
-						for(var i = length; i < length + 5; i++) {
-							s1 += `<li class="chaoshi_seckill_item csi" >  <div class="csi_pic"><a class="csi_pic_lk" href="//chaoshi.jd.com/qianggou#${a.DATA.data[0].skuData[i].skuId}" target="_blank" clstag="channel|keycount|3054|sale_item_chaoshi_seckill_2_${i}"><img class="csi_img" src="${a.DATA.data[0].skuData[i].image}" data-lazy-img="done" alt="${a.DATA.data[0].skuData[i].name}" title="${a.DATA.data[0].skuData[i].name}">      <p class="csi_name">${a.DATA.data[0].skuData[i].name}</p>    </a>  </div>  <p class="csi_price clearfix"><span class="csi_price_new" data-price-id="${a.DATA.data[0].skuData[i].skuId}">￥${a.DATA.data[0].skuData[i].promoPrice}</span><del class="csi_price_origin" data-price-id="${a.DATA.data[0].skuData[i].skuId}" data-price-type="m">￥${a.DATA.data[0].skuData[i].jdPrice}</del></p></li>`;
-						}
+			//			console.log(len)￥
+			for(var i = length; i < length + 5; i++) {
+				s1 += `<li class="chaoshi_seckill_item csi" >  <div class="csi_pic"><a class="csi_pic_lk" href="//chaoshi.jd.com/qianggou#${a.DATA.data[0].skuData[i].skuId}" target="_blank" clstag="channel|keycount|3054|sale_item_chaoshi_seckill_2_${i}"><img class="csi_img" src="${a.DATA.data[0].skuData[i].image}" data-lazy-img="done" alt="${a.DATA.data[0].skuData[i].name}" title="${a.DATA.data[0].skuData[i].name}">      <p class="csi_name">${a.DATA.data[0].skuData[i].name}</p>    </a>  </div>  <p class="csi_price clearfix"><span class="csi_price_new" data-price-id="${a.DATA.data[0].skuData[i].skuId}">￥${a.DATA.data[0].skuData[i].promoPrice}</span><del class="csi_price_origin" data-price-id="${a.DATA.data[0].skuData[i].skuId}" data-price-type="m">￥${a.DATA.data[0].skuData[i].jdPrice}</del></p></li>`;
+			}
 
-						s2 = `<a href="${shuju1.data.more[0].url}" class="chaoshi_seckill_more" clstag="channel|keycount|3054|more2_1_1" target="_blank" title="${shuju1.data.more[0].title}"><img src="${shuju1.data.more[0].picUrl}" data-lazy-img="done" alt="${shuju1.data.more[0].title}" data-webp="no"></a>`
-					}
-				})
-			).done(
-				function() {
-					s = s.replace(/{li%%}/, s1);
-					s = s.replace(/{text%%}/, shuju1.data.title[0].NAME);
-					s = s.replace(/{hour}/, "00");
-					s = s.replace(/{minute}/, "00");
-					s = s.replace(/{second}/, "00");
-					s = s.replace(/{aa%%}/, s2)
-					$(".mod_container").append(s);
-					setInterval(function() {
-						var mydate = new Date();
-						var mydateyear = mydate.getFullYear()
-						var mydatemonth = mydate.getMonth();
-						var mydatenext = mydate.getDate() + 1;
-						var mydate1 = new Date(mydateyear, mydatemonth, mydatenext, "00", "00", "00", "0000");
-						var mytime = Math.floor(mydate1 - mydate);
-						var hour = Math.floor(mytime / 1000 / 3600);
-						var minute = Math.floor(mytime / 1000 / 60 % 60);
-						var second = Math.floor(mytime / 1000 % 60);
+			s2 = `<a href="${shuju1.data.more[0].url}" class="chaoshi_seckill_more" clstag="channel|keycount|3054|more2_1_1" target="_blank" title="${shuju1.data.more[0].title}"><img src="${shuju1.data.more[0].picUrl}" data-lazy-img="done" alt="${shuju1.data.more[0].title}" data-webp="no"></a>`
+		s = s.replace(/{li%%}/, s1);
+		s = s.replace(/{text%%}/, shuju1.data.title[0].NAME);
+		s = s.replace(/{hour}/, "00");
+		s = s.replace(/{minute}/, "00");
+		s = s.replace(/{second}/, "00");
+		s = s.replace(/{aa%%}/, s2)
+		$(".mod_container").append(s);
+		setInterval(function() {
+			var mydate = new Date();
+			var mydateyear = mydate.getFullYear()
+			var mydatemonth = mydate.getMonth();
+			var mydatenext = mydate.getDate() + 1;
+			var mydate1 = new Date(mydateyear, mydatemonth, mydatenext, "00", "00", "00", "0000");
+			var mytime = Math.floor(mydate1 - mydate);
+			var hour = Math.floor(mytime / 1000 / 3600);
+			var minute = Math.floor(mytime / 1000 / 60 % 60);
+			var second = Math.floor(mytime / 1000 % 60);
 
-						function zparseint(a) {
-							if(a < 10) {
-								a = "0" + a;
-								return a;
-							}
-							return a;
-						}
-						hour = zparseint(hour);
-						minute = zparseint(minute);
-						second = zparseint(second);
-						$(".time_hour").html(hour);
-						$(".time_minute").html(minute);
-						$(".time_second").html(second);
-					}, 500);
-
+			function zparseint(a) {
+				if(a < 10) {
+					a = "0" + a;
+					return a;
 				}
-			).done(function() {
-				//家庭量贩开始  
-				var s = '',
-					s1 = '',
-					s2 = '',
-					s3 = '';
-				s = `<div class="chaoshi_discount grid_c1" id="chaoshi_discount_3" data-id="chaoshi_discount_3" data-async="true" data-elevator="true" data-tpl="chaoshi_discount_tpl">
+				return a;
+			}
+			hour = zparseint(hour);
+			minute = zparseint(minute);
+			second = zparseint(second);
+			$(".time_hour").html(hour);
+			$(".time_minute").html(minute);
+			$(".time_second").html(second);
+		}, 500);
+		}
+).done(
+	function  () {
+			var s = '',
+		s1 = '',
+		s2 = '',
+		s3 = '';
+	$.ajax({
+				type: "get",
+				url: "https://ai.jd.com/General?app=Bi&action=get_sku&groupId=00725321&callback=?",
+				async: true,
+				dataType: "jsonp"
+			}).done(
+	//家庭量贩开始  
+		function(a) {
+	s = `<div class="chaoshi_discount grid_c1" id="chaoshi_discount_3" data-id="chaoshi_discount_3" data-async="true" data-elevator="true" data-tpl="chaoshi_discount_tpl">
 			<div class="chaoshi_mod_head">
 				<h3 class="chaoshi_mod_head_title">${shuju2.data.title[0].NAME}</h3>
 			</div>
@@ -641,21 +640,15 @@ $(function() {
 				{aa%%}
 			 </div>
 		</div>`;
-				//ul的ajax的提交
-				$.when($.ajax({
-					type: "get",
-					url: "https://ai.jd.com/General?app=Bi&action=get_sku&groupId=00725321&callback=?",
-					async: true,
-					dataType: 'jsonp',
-					success: function(a) {
-						for(var i = 0; i < a.DATA.data[0].skuData.length; i++) {
-							//				a.DATA.data[0].skuData[i]
-							// 				a.DATA.data[0].skuData[i].image 图片路径
-							//				a.DATA.data[0].skuData[i].name 标题
-							//				a.DATA.data[0].skuData[i].tag  内容
-							// 				a.DATA.data[0].skuData[i].skuId  商品ID
-							//				a.DATA.data[0].skuData[i].pPrice 量贩价
-							s1 += `<li class="J_goods_item cdb_item">
+			
+			for(var i = 0; i < a.DATA.data[0].skuData.length; i++) {
+				//				a.DATA.data[0].skuData[i]
+				// 				a.DATA.data[0].skuData[i].image 图片路径
+				//				a.DATA.data[0].skuData[i].name 标题
+				//				a.DATA.data[0].skuData[i].tag  内容
+				// 				a.DATA.data[0].skuData[i].skuId  商品ID
+				//				a.DATA.data[0].skuData[i].pPrice 量贩价
+				s1 += `<li class="J_goods_item cdb_item">
 			<div class="cdb_bd">
 				<a class="cdb_pic" href="//item.jd.com/1103186.html" target="_blank" clstag="channel|keycount|3054|bigItem3_${i}"><img class="J_goods_img" src="${a.DATA.data[0].skuData[i].image}" data-lazy-img="done" alt="${a.DATA.data[0].skuData[i].name}" title="${a.DATA.data[0].skuData[i].name}"></a><img class="cdb_logo" src="//static.360buyimg.com/mtd/pc/cms/images/mod_1x1.png" data-lazy-img="" alt="" data-webp="no">
 				<a class="cdb_name" href="//item.jd.com/${a.DATA.data[0].skuData[i].skuId}.html" target="_blank" clstag="channel|keycount|3054|bigItem3_${i}">${a.DATA.data[0].skuData[i].name}</a>
@@ -669,84 +662,1686 @@ $(function() {
 				<a class="J_goods_add cdb_ft_r cdb_add" href="javascript:;" clstag="channel|keycount|3054|buygoodsAdd3_2_${i}"><i class="cdb_add_icon"></i><span class="cdb_add_txt">加入购物车</span></a>
 			</div>
 		</li>`;
-						}
-					}
-				}), $.ajax({
-					type: "get",
-					url: "https://ai.jd.com/General?app=Bi&action=get_sku&groupId=00718507&callback=?",
-					async: true,
-					dataType: "jsonp",
-					success: function(a) {
-						//				console.log(a);
-						//			a.DATA.data[0].skuData[i] 开发文档
-						// 				a.DATA.data[0].skuData[i].image 图片路径
-						//				a.DATA.data[0].skuData[i].name 标题
-						//				a.DATA.data[0].skuData[i].tag  内容
-						// 				a.DATA.data[0].skuData[i].skuId  商品ID
-						//				a.DATA.data[0].skuData[i].pPrice 特价
-						//				s4 = '';
-						for(var i = 0; i < a.DATA.data[0].skuData.length; i++) {
-							s3 += `<li class="J_goods_item chaoshi_discount_item cdi"><div class="cdi_pic"><a class="cdi_pic_lk" href="//item.jd.com/${a.DATA.data[0].skuData[i].skuId}.html" target="_blank" clstag="channel|keycount|3054|smallItem3_${i}"><img class="J_goods_img cdi_img" src="${a.DATA.data[0].skuData[i].image}" data-lazy-img="done" alt="${a.DATA.data[0].skuData[i].name}" title="${a.DATA.data[0].skuData[i].name}"><p class="cdi_name">${a.DATA.data[0].skuData[i].name}</p></a></div><p class="cdi_promote">${a.DATA.data[0].skuData[i].tag}</p><p class="cdi_price clearfix"><span class="J_goods_price cdi_price_new" data-price-id="${a.DATA.data[0].skuData[i].skuId}">¥${a.DATA.data[0].skuData[i].pPrice}</span></p><a class="J_goods_add cdi_add" href="javascript:;" clstag="channel|keycount|3054|add3_${i}"><i class="cdi_add_icon"></i></a></li>`;
-						}
-					}
-				})).done(
-					function() {
-						//			console.log(s1)
-						s2 = `<a class="chaoshi_discount_more" href="//chaoshi.jd.com/liangfan" clstag="channel|keycount|3054|strollgoods3_1_1" target="_blank" title="${shuju2.data.more[0].title}" ><img src="${shuju2.data.more[0].picUrl}" data-lazy-img="done" alt="${shuju2.data.more[0].title}" data-webp="no"></a>`
-						//			shuju2.data.more[0].picUrl
-						//			shuju2.data.more[0].title 电磁炉的地址
-						s = s.replace(/{li%%}/, s1)
-						s = s.replace(/{aa%%}/, s2)
-						// 上半部分的最后一个里 添加一个class名：last
-						//			{li1%%} 此处替换下半部分的lI	
-						s = s.replace(/{li1%%}/, s3);
-						$(".mod_container").append(s);
-						$(".chaoshi_discount_big").children("li:last").addClass("last");
-					}
-					//家庭量贩结束
-				)
+			}
+
+			$.ajax({
+				type: "get",
+				url: "https://ai.jd.com/General?app=Bi&action=get_sku&groupId=00718507&callback=?",
+				async: true,
+				dataType: "jsonp"
 			}).done(
-				function() {
-					var s = '',
-						s1 = '',
-						s2 = '';
-					$.when($.ajax({
-							type: "get",
-							url: "https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368889&callback=?",
-							async: true,
-							dataType: "jsonp",
-							success: function(a) {
-								$.ajax({
-									type: "get",
-									url: "https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368889&callback=?",
-									async: true,
-									dataType: "jsonp",
-									success: function(b) {
-									console.log(shuju3.data);
-									
-//										for(var i = 0; i < Things.length; i++) {
-//											Things[i]
-											s1 = ``;
-											s2 = ``;
-//										}
-									}
-								})
-							}})).done()})
+			function(a) {
+		//			a.DATA.data[0].skuData[i] 开发文档
+		// 				a.DATA.data[0].skuData[i].image 图片路径
+		//				a.DATA.data[0].skuData[i].name 标题
+		//				a.DATA.data[0].skuData[i].tag  内容
+		// 				a.DATA.data[0].skuData[i].skuId  商品ID
+		//				a.DATA.data[0].skuData[i].pPrice 特价
+		//				s4 = '';
+		for(var i = 0; i < a.DATA.data[0].skuData.length; i++) {
+			s3 += `<li class="J_goods_item chaoshi_discount_item cdi"><div class="cdi_pic"><a class="cdi_pic_lk" href="//item.jd.com/${a.DATA.data[0].skuData[i].skuId}.html" target="_blank" clstag="channel|keycount|3054|smallItem3_${i}"><img class="J_goods_img cdi_img" src="${a.DATA.data[0].skuData[i].image}" data-lazy-img="done" alt="${a.DATA.data[0].skuData[i].name}" title="${a.DATA.data[0].skuData[i].name}"><p class="cdi_name">${a.DATA.data[0].skuData[i].name}</p></a></div><p class="cdi_promote">${a.DATA.data[0].skuData[i].tag}</p><p class="cdi_price clearfix"><span class="J_goods_price cdi_price_new" data-price-id="${a.DATA.data[0].skuData[i].skuId}">¥${a.DATA.data[0].skuData[i].pPrice}</span></p><a class="J_goods_add cdi_add" href="javascript:;" clstag="channel|keycount|3054|add3_${i}"><i class="cdi_add_icon"></i></a></li>`;
+		}
+			//			console.log(s1)
+			s2 = `<a class="chaoshi_discount_more" href="//chaoshi.jd.com/liangfan" clstag="channel|keycount|3054|strollgoods3_1_1" target="_blank" title="${shuju2.data.more[0].title}" ><img src="${shuju2.data.more[0].picUrl}" data-lazy-img="done" alt="${shuju2.data.more[0].title}" data-webp="no"></a>`
+			//			shuju2.data.more[0].picUrl
+			//			shuju2.data.more[0].title 电磁炉的地址
+			s = s.replace(/{li%%}/, s1)
+			s = s.replace(/{aa%%}/, s2)
+			// 上半部分的最后一个里 添加一个class名：last
+			//			{li1%%} 此处替换下半部分的lI	
+			s = s.replace(/{li1%%}/, s3);
+			$(".mod_container").append(s);
+			$(".chaoshi_discount_big").children("li:last").addClass("last");
+			
+		//家庭量贩结束
+	})}).done(
+		function () {
+		$.ajax({
+				type: "get",
+				url: "https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368889&callback=?",async: true,dataType: "jsonp"}).done(
+		// 品牌特卖开始
+		function(b) {
+			var s = '',
+				s1 = '',
+				s2 = '';
+			s = `<div class="chaoshi_brand grid_c1" id="chaoshi_brand_5" data-id="chaoshi_brand_5" data-async="true" data-elevator="true" data-tpl="chaoshi_brand_tpl">
+			<div class="chaoshi_mod_head">
+				<h3 class="chaoshi_mod_head_title"> ${shuju3.data.title[0].NAME}</h3>
+			</div>
+			<div class="chaoshi_brand_row clearfix">
+				<a class="chaoshi_brand_today" href="${b.DATA.adData[0].link}" clstag="channel|keycount|3054|today5_1_1" target="_blank" title="1"><img src="${b.DATA.adData[0].pictureUrl}" data-lazy-img="done" alt="1"></a>
+				<div class="chaoshi_brand_list chaoshi_brand_big clearfix">{aa1%%}</div>
+			</div>
+			<div class="chaoshi_brand_row clearfix">
+				<div class="chaoshi_brand_list chaoshi_brand_small clearfix">{aa2%%}</div>
+				<a class="chaoshi_brand_more" href="${shuju3.data.more[0].url}" clstag="channel|keycount|3054|more5_1_1" target="_blank" title="${shuju3.data.more[0].title}"><img src="${shuju3.data.more[0].picUrl}" data-lazy-img="done" data-webp="no" alt="${shuju3.data.more[0].picUrl}"></a>
+			</div>
+		</div>`;
+			$.ajax({
+				type: "get",
+				url: "https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368891&callback=?",
+				async: true,
+				dataType: "jsonp"
+			}).done(function(c) {
+				for(var i = 0; i < c.DATA.adData.length; i++) {
+					//								a.DATA.adData[i]
+					s1 += `<a class="chaoshi_brand_item" href="${c.DATA.adData[i].link}" target="_blank" clstag="channel|keycount|3054|bigItem5_${i}"><img src="${c.DATA.adData[i].pictureUrl}" data-lazy-img="done" alt="1" title="1"></a>`
 
+				}
+				
+			}).done(function() {
+				$.ajax({
+					type: "get",
+					url: "https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368892&callback=?",
+					async: true,
+					dataType: "jsonp"
+				}).done(
+				function(a) {
+				for(var i = 0; i < a.DATA.adData.length; i++) {
+					s2 += `<a class="chaoshi_brand_item" href="${a.DATA.adData[i].link}" target="_blank" clstag="channel|keycount|3054|smallItem5_0"><img src="${a.DATA.adData[i].pictureUrl}" data-lazy-img="done" alt="" title=""></a>`
+				}
+//				console.log(s2)
+					s = s.replace(/{aa1%%}/, s1);
+					s = s.replace(/{aa2%%}/, s2);
+					$(".mod_container").append(s);
+				}).done(function() {
+		//热卖商品开始
+		var s = '',
+			s1 = '',
+			s2 = '',
+			s3 = '',
+			s4 = '';
+		s = `<div class="chaoshi_buy grid_c1 chaoshi_mod" id="chaoshi_buy_6" data-id="chaoshi_buy_6" data-async="true" data-tpl="chaoshi_buy_tpl"><div class="chaoshi_mod_head"><h3 class="chaoshi_mod_head_title chaoshi_buy_title">${shuju4.data.title3[0].NAME}</h3></div><div class="chaoshi_mod_body"><div class="chaoshi_buy_goods goods" data-price-area="done"><div class="chaoshi_buy_goods_list goods_list clearfix" style="width: 4776px; position: absolute; top: 0px; left: -1194px;"><ul class="goods_list_items clearfix">{li1%%}</ul><ul class="goods_list_items clearfix">{li2%%}</ul></div><div class="chaoshi_buy_goods_btns">{aa%%}</div></div></div></div>`;
+//		console.log(shuju4['data']);
+		var len = Math.floor(shuju4.data.goodsBackup.length / 2);
+		for(var i = len; i < shuju4.data.goodsBackup.length; i++) {
+			//				shuju4.data.goodsBackup[i] 后6张图 构成一个ul 因为价格接口是 从后6开始
+			s2 += `
+			<li class="J_goods_item goods_item" data-skuid="${shuju4.data.goodsBackup[i].skuId}"><a class="goods_pic" href="//item.jd.com/${shuju4.data.goodsBackup[i].skuId}.html" clstag="channel|keycount|3054|buygoods6_${i}" target="_blank" title="${shuju4.data.goodsBackup[i].title}" ><img class="J_goods_img goods_img" src="${shuju4.data.goodsBackup[i].picUrl}" data-lazy-img="${shuju4.data.goodsBackup[i].picUrl}" alt="${shuju4.data.goodsBackup[i].title}"></a><p class="goods_title" target="_blank" title="${shuju4.data.goodsBackup[i].title}">${shuju4.data.goodsBackup[i].title}</p><p class="goods_desc"></p><p class="goods_priceall clearfix"><span class="J_goods_price goods_price" data-price-id="${shuju4.data.goodsBackup[i].skuId}">¥{价格}</span></p><a class="J_goods_add goods_add" href="javascript:;" clstag="channel|keycount|3054|buygoodsAdd6_2_7" ><i class="goods_add_icon"></i><span class="goods_add_txt">加入购物车</span></a></li>`;
+		}
+		for(var i = 0; i < len; i++) {
+			//				shuju4.data.goodsBackup[i] 开发文档
+			s3 += `
+			<li class="J_goods_item goods_item" data-skuid="${shuju4.data.goodsBackup[i].skuId}"><a class="goods_pic" href="//item.jd.com/${shuju4.data.goodsBackup[i].skuId}.html" clstag="channel|keycount|3054|buygoods6_${i}" target="_blank" title="${shuju4.data.goodsBackup[i].title}" ><img class="J_goods_img goods_img" src="${shuju4.data.goodsBackup[i].picUrl}" data-lazy-img="${shuju4.data.goodsBackup[i].picUrl}" alt="${shuju4.data.goodsBackup[i].title}"></a><p class="goods_title" target="_blank" title="${shuju4.data.goodsBackup[i].title}">${shuju4.data.goodsBackup[i].title}</p><p class="goods_desc"></p><p class="goods_priceall clearfix"><span class="J_goods_price goods_price" data-price-id="${shuju4.data.goodsBackup[i].skuId}">¥{价格}</span></p><a class="J_goods_add goods_add" href="javascript:;" clstag="channel|keycount|3054|buygoodsAdd6_2_7" ><i class="goods_add_icon"></i><span class="goods_add_txt">加入购物车</span></a></li>`;
+		}
+		s4 = `<a href="javascript:void(0)" clstag="channel|keycount|3054|buybtn6_1" class="chaoshi_buy_goods_prev">&lt;</a><a href="javascript:void(0)" clstag="channel|keycount|3054|buybtn6_2" class="chaoshi_buy_goods_next">&gt;</a>`;
+		s = s.replace(/{li1%%}/, s2);
+		s = s.replace(/{li2%%}/, s3);
+		s = s.replace(/{aa%%}/, s4)
+		$(".mod_container").append(s);
+		$.ajax({
+			type: "get",
+			url: "https://p.3.cn/prices/mgets?type=1&skuIds=J_1030656,J_1909882,J_1006574585,J_1029507,J_1135611,J_3043161,J_1385736,J_918498,J_1241849,J_1304821,J_848852,J_2518087,J_1030656,J_1909882,J_1006574585,J_1029507,J_1135611,J_3043161,J_1385736,J_918498,J_1241849,J_1304821,J_848852,J_2518087&callback=?&_=1510717499485",
+			async: true,
+			dataType: "jsonp"
+		}).done(
+			function(a) {
+				//						获取价格接口
+				var pircelen = $(".goods_list_items").children("li").find(".J_goods_price").length;
+				var ojqeryp = $(".goods_list_items").children("li").find(".J_goods_price");
+				for(var i = 0; i < pircelen; i++) {
+					//							a[i].p 实时价格
+					$(ojqeryp[i]).html("¥" + a[i].p);
+
+				}
+				//						console.log($(".chaoshi_buy_goods_list").children("ul:first"))
+				$(".chaoshi_buy_goods_list").children("ul:first").clone(true).appendTo(".chaoshi_buy_goods_list");
+				//;						console.log("clone")
+				var i = 0;
+				var len = $(".chaoshi_buy_goods_list").children("ul").length;
+				var timer = null;
+				timer = setInterval(function() {
+					start();
+					//							console.log("计时器")
+				}, 2000);
+				$(".chaoshi_buy_goods_list").find("li").hover(function() {
+					clearInterval(timer);
+				}, function() {
+					timer = setInterval(function() {
+						start();
+						//							console.log("计时器")
+					}, 2000);
+				})
+				$(".chaoshi_buy_goods_btns").find("a").hover(
+					function() {
+						clearInterval(timer);
+					},
+					function() {
+						timer = setInterval(function() {
+							start();
+							//							console.log("计时器")
+						}, 2000);
+					}
+				)
+				$(".chaoshi_buy_goods_btns").find("a:first").click(function() {
+					i -= 2;
+					if(i == -2) {
+						i = 0;
+						$(".chaoshi_buy_goods_list")[0].style.left = -(len - 1) * 1194 + "px";
+					}
+
+					start()
+				})
+
+				$(".chaoshi_buy_goods_btns").find("a:last").click(function() {
+					start();
+				})
+
+				function start() {
+					//							1194  2388
+					i++;
+//					console.log(len)
+					if(i == len) {
+						i = 0;
+//						console.log("执行");
+						//								chaoshi_buy_goods_list
+						$(".chaoshi_buy_goods_list")[0].style.left = 0 + "px";
+					}
+					//						.chaoshi_buy_goods_list 开发文档 这个是要移动div的class名
+					$(".chaoshi_buy_goods_list").animate({
+						"left": -i * 1194
+					}, 1500)
+				}
+			}
+			//热卖商品done结束
+		)
+		
+		
+		
+
+
+
+
+
+
+
+
+		//热卖结束done处
+	}).done(
+		function(){
+			s = '',
+			s1 = '',
+			s2 = '',
+			s3 = '';
+			
+			s =`<div class="chaoshi_category grid_c1" id="chaoshi_category_7" data-id="chaoshi_category_7" data-async="true" data-elevator="true" data-tpl="chaoshi_category_tpl">
+			<div class="chaoshi_mod_head grid_c1"><h3 class="chaoshi_mod_head_title">${shuju5.data.title[0].NAME}</h3></div>
+			<div class="chaoshi_category_focus">
+				{aa1%%}
+				<div class="chaoshi_category_focus_key">
+					<div class="chaoshi_category_focus_key_inner">{aa2%%}</div>
+				</div>
+			</div>
+			<div class="goods chaoshi_category_goods clearfix">
+			<ul class="chaoshi_category_ul goods_list">{li1%%}</ul>
+			</div>
+		</div>`;
+//		console.log(shuju5.data);
+//		shuju5.data.key 开发文档
+//			aa1生成
+			$.ajax({
+				type:"get",
+				url:"https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368362&callback=?",
+				async:true,
+				dataType:"jsonp",
+			}).done(
+				function  (a) {
+					s1 = `<a class="chaoshi_category_focus_pic" href="${a.DATA.adData[0].link}" target="_blank" title="" clstag="channel|keycount|3054|focus7_0"><img src="${a.DATA.adData[0].pictureUrl}" data-lazy-img="done" alt=""></a>`;
+//			aa2%%生成
+				for (var i = 0; i < shuju5.data.key.length; i++) {
 					
-//				); //done结束处
-			})
+//						shuju5.data.key[i]
+//					NAME URL
+					s2 += `<a href="${shuju5.data.key[i].URL}" target="_blank" title="${shuju5.data.key[i].NAME}" clstag="channel|keycount|3054|key7_${i}">${shuju5.data.key[i].NAME}</a>`
+					}
+					s = s.replace(/{aa1%%}/,s1);
+					s = s.replace(/{aa2%%}/,s2);
+					$.ajax({
+						type:"get",
+						url:"https://ai.jd.com/General?app=Bi&action=get_sku&groupId=00717303&callback=?",
+						async:true,
+						dataType:"jsonp",
+					}).done(
+						function  (a) {
+//							a.DATA.data[0].skuData
+//							a.DATA.data[0].skuData[i].name
+//							image 图片
+//							pPrice 价格
+							for (var i = 0; i < a.DATA.data[0].skuData.length; i++) {
+//								a.DATA.data[0].skuData[i]
 
-//		s = `<div class="chaoshi_brand grid_c1" id="chaoshi_brand_5" data-id="chaoshi_brand_5" data-async="true" data-elevator="true" data-tpl="chaoshi_brand_tpl">
-//			<div class="chaoshi_mod_head">
-//				<h3 class="chaoshi_mod_head_title"> ${shuju3.data.title[0].NAME}</h3>
-//			</div>
-//			<div class="chaoshi_brand_row clearfix">
-//				<a class="chaoshi_brand_today" href="${a.DATA.adData[0].link}" clstag="channel|keycount|3054|today5_1_1" target="_blank" title="1"><img src="${a.DATA.adData[0].pictureUrl}" data-lazy-img="done" alt="1"></a>
-//				<div class="chaoshi_brand_list chaoshi_brand_big clearfix">{aa1%%}</div>
-//			</div>
-//			<div class="chaoshi_brand_row clearfix">
-//				<div class="chaoshi_brand_list chaoshi_brand_small clearfix">{aa2%%}</div>
-//				<a class="chaoshi_brand_more" href="${shuju3.data.more[0].url}" clstag="channel|keycount|3054|more5_1_1" target="_blank" title="${shuju3.data.more[0].title}"><img src="${shuju3.data.more[0].picUrl}" data-lazy-img="done" data-webp="no" alt="${shuju3.data.more[0].picUrl}"></a>
-//			</div>
-//		</div>`;
+								s3 += `<li class="J_goods_item goods_item"><a class="goods_pic" href="//item.jd.com/2543188.html" target="_blank" title="" clstag="channel|keycount|3054|goods7_${i}" ><img class="J_goods_img goods_img" src="${a.DATA.data[0].skuData[i].image}" data-lazy-img="done" alt="${a.DATA.data[0].skuData[i].name}" title="${a.DATA.data[0].skuData[i].name}"></a><p class="goods_title">${a.DATA.data[0].skuData[i].name}</p><div class="goods_prices clearfix"><p class="J_goods_price goods_price" data-price-id="${a.DATA.data[0].skuData[i].skuId}">¥${a.DATA.data[0].skuData[i].pPrice}</p><p class="goods_prices_plus" data-price-id="${a.DATA.data[0].skuData[i].skuId}"><em class="goods_prices_plus_txt"></em><i class="goods_prices_plus_icon"></i></p></div><a class="J_goods_add goods_add" href="javascript:;" clstag="channel|keycount|3054|buygoodsAdd7_2_${i}" ><i class="goods_add_icon"></i><span class="goods_add_txt">加入购物车</span></a></li>`;
+							}
+							s = s.replace(/{li1%%}/,s3);
+							$(".mod_container").append(s);
+						}
+					)
+				
+				
+				
+				
+				
+				}
+			)
+			
+
+			
+			
+			
+			
+		}
+	).done(
+		function(){
+			s = '',
+			s1 = '',
+			s2 = '',
+			s3 = '';
+			
+			s =`<div class="chaoshi_category grid_c1" id="chaoshi_category_7" data-id="chaoshi_category_7" data-async="true" data-elevator="true" data-tpl="chaoshi_category_tpl">
+			<div class="chaoshi_mod_head grid_c1"><h3 class="chaoshi_mod_head_title">${shuju5.data.title[0].NAME}</h3></div>
+			<div class="chaoshi_category_focus">
+				{aa1%%}
+				<div class="chaoshi_category_focus_key">
+					<div class="chaoshi_category_focus_key_inner">{aa2%%}</div>
+				</div>
+			</div>
+			<div class="goods chaoshi_category_goods clearfix">
+			<ul class="chaoshi_category_ul goods_list">{li1%%}</ul>
+			</div>
+		</div>`;
+//		console.log(shuju5.data);
+//		shuju5.data.key 开发文档
+//			aa1生成
+			$.ajax({
+				type:"get",
+				url:"https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368362&callback=?",
+				async:true,
+				dataType:"jsonp",
+			}).done(
+				function  (a) {
+					s1 = `<a class="chaoshi_category_focus_pic" href="${a.DATA.adData[0].link}" target="_blank" title="" clstag="channel|keycount|3054|focus7_0"><img src="${a.DATA.adData[0].pictureUrl}" data-lazy-img="done" alt=""></a>`;
+//			aa2%%生成
+				for (var i = 0; i < shuju5.data.key.length; i++) {
+					
+//						shuju5.data.key[i]
+//					NAME URL
+					s2 += `<a href="${shuju5.data.key[i].URL}" target="_blank" title="${shuju5.data.key[i].NAME}" clstag="channel|keycount|3054|key7_${i}">${shuju5.data.key[i].NAME}</a>`
+					}
+					s = s.replace(/{aa1%%}/,s1);
+					s = s.replace(/{aa2%%}/,s2);
+					$.ajax({
+						type:"get",
+						url:"https://ai.jd.com/General?app=Bi&action=get_sku&groupId=00717303&callback=?",
+						async:true,
+						dataType:"jsonp",
+					}).done(
+						function  (a) {
+//							a.DATA.data[0].skuData
+//							a.DATA.data[0].skuData[i].name
+//							image 图片
+//							pPrice 价格
+							for (var i = 0; i < a.DATA.data[0].skuData.length; i++) {
+//								a.DATA.data[0].skuData[i]
+
+								s3 += `<li class="J_goods_item goods_item"><a class="goods_pic" href="//item.jd.com/2543188.html" target="_blank" title="" clstag="channel|keycount|3054|goods7_${i}" ><img class="J_goods_img goods_img" src="${a.DATA.data[0].skuData[i].image}" data-lazy-img="done" alt="${a.DATA.data[0].skuData[i].name}" title="${a.DATA.data[0].skuData[i].name}"></a><p class="goods_title">${a.DATA.data[0].skuData[i].name}</p><div class="goods_prices clearfix"><p class="J_goods_price goods_price" data-price-id="${a.DATA.data[0].skuData[i].skuId}">¥${a.DATA.data[0].skuData[i].pPrice}</p><p class="goods_prices_plus" data-price-id="${a.DATA.data[0].skuData[i].skuId}"><em class="goods_prices_plus_txt"></em><i class="goods_prices_plus_icon"></i></p></div><a class="J_goods_add goods_add" href="javascript:;" clstag="channel|keycount|3054|buygoodsAdd7_2_${i}" ><i class="goods_add_icon"></i><span class="goods_add_txt">加入购物车</span></a></li>`;
+							}
+							s = s.replace(/{li1%%}/,s3);
+							$(".mod_container").append(s);
+						}
+					)
+				
+				
+				
+				
+				
+				}
+			)
+			
+
+			
+			
+			
+			
+		}
+	).done(
+		function(){
+			s = '',
+			s1 = '',
+			s2 = '',
+			s3 = '';
+			
+			s =`<div class="chaoshi_category grid_c1" id="chaoshi_category_7" data-id="chaoshi_category_7" data-async="true" data-elevator="true" data-tpl="chaoshi_category_tpl">
+			<div class="chaoshi_mod_head grid_c1"><h3 class="chaoshi_mod_head_title">${shuju5.data.title[0].NAME}</h3></div>
+			<div class="chaoshi_category_focus">
+				{aa1%%}
+				<div class="chaoshi_category_focus_key">
+					<div class="chaoshi_category_focus_key_inner">{aa2%%}</div>
+				</div>
+			</div>
+			<div class="goods chaoshi_category_goods clearfix">
+			<ul class="chaoshi_category_ul goods_list">{li1%%}</ul>
+			</div>
+		</div>`;
+//		console.log(shuju5.data);
+//		shuju5.data.key 开发文档
+//			aa1生成
+			$.ajax({
+				type:"get",
+				url:"https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368362&callback=?",
+				async:true,
+				dataType:"jsonp",
+			}).done(
+				function  (a) {
+					s1 = `<a class="chaoshi_category_focus_pic" href="${a.DATA.adData[0].link}" target="_blank" title="" clstag="channel|keycount|3054|focus7_0"><img src="${a.DATA.adData[0].pictureUrl}" data-lazy-img="done" alt=""></a>`;
+//			aa2%%生成
+				for (var i = 0; i < shuju5.data.key.length; i++) {
+					
+//						shuju5.data.key[i]
+//					NAME URL
+					s2 += `<a href="${shuju5.data.key[i].URL}" target="_blank" title="${shuju5.data.key[i].NAME}" clstag="channel|keycount|3054|key7_${i}">${shuju5.data.key[i].NAME}</a>`
+					}
+					s = s.replace(/{aa1%%}/,s1);
+					s = s.replace(/{aa2%%}/,s2);
+					$.ajax({
+						type:"get",
+						url:"https://ai.jd.com/General?app=Bi&action=get_sku&groupId=00717303&callback=?",
+						async:true,
+						dataType:"jsonp",
+					}).done(
+						function  (a) {
+//							a.DATA.data[0].skuData
+//							a.DATA.data[0].skuData[i].name
+//							image 图片
+//							pPrice 价格
+							for (var i = 0; i < a.DATA.data[0].skuData.length; i++) {
+//								a.DATA.data[0].skuData[i]
+
+								s3 += `<li class="J_goods_item goods_item"><a class="goods_pic" href="//item.jd.com/2543188.html" target="_blank" title="" clstag="channel|keycount|3054|goods7_${i}" ><img class="J_goods_img goods_img" src="${a.DATA.data[0].skuData[i].image}" data-lazy-img="done" alt="${a.DATA.data[0].skuData[i].name}" title="${a.DATA.data[0].skuData[i].name}"></a><p class="goods_title">${a.DATA.data[0].skuData[i].name}</p><div class="goods_prices clearfix"><p class="J_goods_price goods_price" data-price-id="${a.DATA.data[0].skuData[i].skuId}">¥${a.DATA.data[0].skuData[i].pPrice}</p><p class="goods_prices_plus" data-price-id="${a.DATA.data[0].skuData[i].skuId}"><em class="goods_prices_plus_txt"></em><i class="goods_prices_plus_icon"></i></p></div><a class="J_goods_add goods_add" href="javascript:;" clstag="channel|keycount|3054|buygoodsAdd7_2_${i}" ><i class="goods_add_icon"></i><span class="goods_add_txt">加入购物车</span></a></li>`;
+							}
+							s = s.replace(/{li1%%}/,s3);
+							$(".mod_container").append(s);
+						}
+					)
+				
+				
+				
+				
+				
+				}
+			)
+			
+
+			
+			
+			
+			
+		}
+	).done(
+		function(){
+			s = '',
+			s1 = '',
+			s2 = '',
+			s3 = '';
+			
+			s =`<div class="chaoshi_category grid_c1" id="chaoshi_category_7" data-id="chaoshi_category_7" data-async="true" data-elevator="true" data-tpl="chaoshi_category_tpl">
+			<div class="chaoshi_mod_head grid_c1"><h3 class="chaoshi_mod_head_title">${shuju5.data.title[0].NAME}</h3></div>
+			<div class="chaoshi_category_focus">
+				{aa1%%}
+				<div class="chaoshi_category_focus_key">
+					<div class="chaoshi_category_focus_key_inner">{aa2%%}</div>
+				</div>
+			</div>
+			<div class="goods chaoshi_category_goods clearfix">
+			<ul class="chaoshi_category_ul goods_list">{li1%%}</ul>
+			</div>
+		</div>`;
+//		console.log(shuju5.data);
+//		shuju5.data.key 开发文档
+//			aa1生成
+			$.ajax({
+				type:"get",
+				url:"https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368362&callback=?",
+				async:true,
+				dataType:"jsonp",
+			}).done(
+				function  (a) {
+					s1 = `<a class="chaoshi_category_focus_pic" href="${a.DATA.adData[0].link}" target="_blank" title="" clstag="channel|keycount|3054|focus7_0"><img src="${a.DATA.adData[0].pictureUrl}" data-lazy-img="done" alt=""></a>`;
+//			aa2%%生成
+				for (var i = 0; i < shuju5.data.key.length; i++) {
+					
+//						shuju5.data.key[i]
+//					NAME URL
+					s2 += `<a href="${shuju5.data.key[i].URL}" target="_blank" title="${shuju5.data.key[i].NAME}" clstag="channel|keycount|3054|key7_${i}">${shuju5.data.key[i].NAME}</a>`
+					}
+					s = s.replace(/{aa1%%}/,s1);
+					s = s.replace(/{aa2%%}/,s2);
+					$.ajax({
+						type:"get",
+						url:"https://ai.jd.com/General?app=Bi&action=get_sku&groupId=00717303&callback=?",
+						async:true,
+						dataType:"jsonp",
+					}).done(
+						function  (a) {
+//							a.DATA.data[0].skuData
+//							a.DATA.data[0].skuData[i].name
+//							image 图片
+//							pPrice 价格
+							for (var i = 0; i < a.DATA.data[0].skuData.length; i++) {
+//								a.DATA.data[0].skuData[i]
+
+								s3 += `<li class="J_goods_item goods_item"><a class="goods_pic" href="//item.jd.com/2543188.html" target="_blank" title="" clstag="channel|keycount|3054|goods7_${i}" ><img class="J_goods_img goods_img" src="${a.DATA.data[0].skuData[i].image}" data-lazy-img="done" alt="${a.DATA.data[0].skuData[i].name}" title="${a.DATA.data[0].skuData[i].name}"></a><p class="goods_title">${a.DATA.data[0].skuData[i].name}</p><div class="goods_prices clearfix"><p class="J_goods_price goods_price" data-price-id="${a.DATA.data[0].skuData[i].skuId}">¥${a.DATA.data[0].skuData[i].pPrice}</p><p class="goods_prices_plus" data-price-id="${a.DATA.data[0].skuData[i].skuId}"><em class="goods_prices_plus_txt"></em><i class="goods_prices_plus_icon"></i></p></div><a class="J_goods_add goods_add" href="javascript:;" clstag="channel|keycount|3054|buygoodsAdd7_2_${i}" ><i class="goods_add_icon"></i><span class="goods_add_txt">加入购物车</span></a></li>`;
+							}
+							s = s.replace(/{li1%%}/,s3);
+							$(".mod_container").append(s);
+						}
+					)
+				
+				
+				
+				
+				
+				}
+			)
+			
+
+			
+			
+			
+			
+		}
+	).done(
+		function(){
+			s = '',
+			s1 = '',
+			s2 = '',
+			s3 = '';
+			
+			s =`<div class="chaoshi_category grid_c1" id="chaoshi_category_7" data-id="chaoshi_category_7" data-async="true" data-elevator="true" data-tpl="chaoshi_category_tpl">
+			<div class="chaoshi_mod_head grid_c1"><h3 class="chaoshi_mod_head_title">${shuju5.data.title[0].NAME}</h3></div>
+			<div class="chaoshi_category_focus">
+				{aa1%%}
+				<div class="chaoshi_category_focus_key">
+					<div class="chaoshi_category_focus_key_inner">{aa2%%}</div>
+				</div>
+			</div>
+			<div class="goods chaoshi_category_goods clearfix">
+			<ul class="chaoshi_category_ul goods_list">{li1%%}</ul>
+			</div>
+		</div>`;
+//		console.log(shuju5.data);
+//		shuju5.data.key 开发文档
+//			aa1生成
+			$.ajax({
+				type:"get",
+				url:"https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368362&callback=?",
+				async:true,
+				dataType:"jsonp",
+			}).done(
+				function  (a) {
+					s1 = `<a class="chaoshi_category_focus_pic" href="${a.DATA.adData[0].link}" target="_blank" title="" clstag="channel|keycount|3054|focus7_0"><img src="${a.DATA.adData[0].pictureUrl}" data-lazy-img="done" alt=""></a>`;
+//			aa2%%生成
+				for (var i = 0; i < shuju5.data.key.length; i++) {
+					
+//						shuju5.data.key[i]
+//					NAME URL
+					s2 += `<a href="${shuju5.data.key[i].URL}" target="_blank" title="${shuju5.data.key[i].NAME}" clstag="channel|keycount|3054|key7_${i}">${shuju5.data.key[i].NAME}</a>`
+					}
+					s = s.replace(/{aa1%%}/,s1);
+					s = s.replace(/{aa2%%}/,s2);
+					$.ajax({
+						type:"get",
+						url:"https://ai.jd.com/General?app=Bi&action=get_sku&groupId=00717303&callback=?",
+						async:true,
+						dataType:"jsonp",
+					}).done(
+						function  (a) {
+//							a.DATA.data[0].skuData
+//							a.DATA.data[0].skuData[i].name
+//							image 图片
+//							pPrice 价格
+							for (var i = 0; i < a.DATA.data[0].skuData.length; i++) {
+//								a.DATA.data[0].skuData[i]
+
+								s3 += `<li class="J_goods_item goods_item"><a class="goods_pic" href="//item.jd.com/2543188.html" target="_blank" title="" clstag="channel|keycount|3054|goods7_${i}" ><img class="J_goods_img goods_img" src="${a.DATA.data[0].skuData[i].image}" data-lazy-img="done" alt="${a.DATA.data[0].skuData[i].name}" title="${a.DATA.data[0].skuData[i].name}"></a><p class="goods_title">${a.DATA.data[0].skuData[i].name}</p><div class="goods_prices clearfix"><p class="J_goods_price goods_price" data-price-id="${a.DATA.data[0].skuData[i].skuId}">¥${a.DATA.data[0].skuData[i].pPrice}</p><p class="goods_prices_plus" data-price-id="${a.DATA.data[0].skuData[i].skuId}"><em class="goods_prices_plus_txt"></em><i class="goods_prices_plus_icon"></i></p></div><a class="J_goods_add goods_add" href="javascript:;" clstag="channel|keycount|3054|buygoodsAdd7_2_${i}" ><i class="goods_add_icon"></i><span class="goods_add_txt">加入购物车</span></a></li>`;
+							}
+							s = s.replace(/{li1%%}/,s3);
+							$(".mod_container").append(s);
+						}
+					)
+				
+				
+				
+				
+				
+				}
+			)
+			
+
+			
+			
+			
+			
+		}
+	).done(
+		function(){
+			s = '',
+			s1 = '',
+			s2 = '',
+			s3 = '';
+			
+			s =`<div class="chaoshi_category grid_c1" id="chaoshi_category_7" data-id="chaoshi_category_7" data-async="true" data-elevator="true" data-tpl="chaoshi_category_tpl">
+			<div class="chaoshi_mod_head grid_c1"><h3 class="chaoshi_mod_head_title">${shuju5.data.title[0].NAME}</h3></div>
+			<div class="chaoshi_category_focus">
+				{aa1%%}
+				<div class="chaoshi_category_focus_key">
+					<div class="chaoshi_category_focus_key_inner">{aa2%%}</div>
+				</div>
+			</div>
+			<div class="goods chaoshi_category_goods clearfix">
+			<ul class="chaoshi_category_ul goods_list">{li1%%}</ul>
+			</div>
+		</div>`;
+//		console.log(shuju5.data);
+//		shuju5.data.key 开发文档
+//			aa1生成
+			$.ajax({
+				type:"get",
+				url:"https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368362&callback=?",
+				async:true,
+				dataType:"jsonp",
+			}).done(
+				function  (a) {
+					s1 = `<a class="chaoshi_category_focus_pic" href="${a.DATA.adData[0].link}" target="_blank" title="" clstag="channel|keycount|3054|focus7_0"><img src="${a.DATA.adData[0].pictureUrl}" data-lazy-img="done" alt=""></a>`;
+//			aa2%%生成
+				for (var i = 0; i < shuju5.data.key.length; i++) {
+					
+//						shuju5.data.key[i]
+//					NAME URL
+					s2 += `<a href="${shuju5.data.key[i].URL}" target="_blank" title="${shuju5.data.key[i].NAME}" clstag="channel|keycount|3054|key7_${i}">${shuju5.data.key[i].NAME}</a>`
+					}
+					s = s.replace(/{aa1%%}/,s1);
+					s = s.replace(/{aa2%%}/,s2);
+					$.ajax({
+						type:"get",
+						url:"https://ai.jd.com/General?app=Bi&action=get_sku&groupId=00717303&callback=?",
+						async:true,
+						dataType:"jsonp",
+					}).done(
+						function  (a) {
+//							a.DATA.data[0].skuData
+//							a.DATA.data[0].skuData[i].name
+//							image 图片
+//							pPrice 价格
+							for (var i = 0; i < a.DATA.data[0].skuData.length; i++) {
+//								a.DATA.data[0].skuData[i]
+
+								s3 += `<li class="J_goods_item goods_item"><a class="goods_pic" href="//item.jd.com/2543188.html" target="_blank" title="" clstag="channel|keycount|3054|goods7_${i}" ><img class="J_goods_img goods_img" src="${a.DATA.data[0].skuData[i].image}" data-lazy-img="done" alt="${a.DATA.data[0].skuData[i].name}" title="${a.DATA.data[0].skuData[i].name}"></a><p class="goods_title">${a.DATA.data[0].skuData[i].name}</p><div class="goods_prices clearfix"><p class="J_goods_price goods_price" data-price-id="${a.DATA.data[0].skuData[i].skuId}">¥${a.DATA.data[0].skuData[i].pPrice}</p><p class="goods_prices_plus" data-price-id="${a.DATA.data[0].skuData[i].skuId}"><em class="goods_prices_plus_txt"></em><i class="goods_prices_plus_icon"></i></p></div><a class="J_goods_add goods_add" href="javascript:;" clstag="channel|keycount|3054|buygoodsAdd7_2_${i}" ><i class="goods_add_icon"></i><span class="goods_add_txt">加入购物车</span></a></li>`;
+							}
+							s = s.replace(/{li1%%}/,s3);
+							$(".mod_container").append(s);
+						}
+					)
+				
+				
+				
+				
+				
+				}
+			)
+			
+
+			
+			
+			
+			
+		}
+	).done(
+		function(){
+			s = '',
+			s1 = '',
+			s2 = '',
+			s3 = '';
+			
+			s =`<div class="chaoshi_category grid_c1" id="chaoshi_category_7" data-id="chaoshi_category_7" data-async="true" data-elevator="true" data-tpl="chaoshi_category_tpl">
+			<div class="chaoshi_mod_head grid_c1"><h3 class="chaoshi_mod_head_title">${shuju5.data.title[0].NAME}</h3></div>
+			<div class="chaoshi_category_focus">
+				{aa1%%}
+				<div class="chaoshi_category_focus_key">
+					<div class="chaoshi_category_focus_key_inner">{aa2%%}</div>
+				</div>
+			</div>
+			<div class="goods chaoshi_category_goods clearfix">
+			<ul class="chaoshi_category_ul goods_list">{li1%%}</ul>
+			</div>
+		</div>`;
+//		console.log(shuju5.data);
+//		shuju5.data.key 开发文档
+//			aa1生成
+			$.ajax({
+				type:"get",
+				url:"https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368362&callback=?",
+				async:true,
+				dataType:"jsonp",
+			}).done(
+				function  (a) {
+					s1 = `<a class="chaoshi_category_focus_pic" href="${a.DATA.adData[0].link}" target="_blank" title="" clstag="channel|keycount|3054|focus7_0"><img src="${a.DATA.adData[0].pictureUrl}" data-lazy-img="done" alt=""></a>`;
+//			aa2%%生成
+				for (var i = 0; i < shuju5.data.key.length; i++) {
+					
+//						shuju5.data.key[i]
+//					NAME URL
+					s2 += `<a href="${shuju5.data.key[i].URL}" target="_blank" title="${shuju5.data.key[i].NAME}" clstag="channel|keycount|3054|key7_${i}">${shuju5.data.key[i].NAME}</a>`
+					}
+					s = s.replace(/{aa1%%}/,s1);
+					s = s.replace(/{aa2%%}/,s2);
+					$.ajax({
+						type:"get",
+						url:"https://ai.jd.com/General?app=Bi&action=get_sku&groupId=00717303&callback=?",
+						async:true,
+						dataType:"jsonp",
+					}).done(
+						function  (a) {
+//							a.DATA.data[0].skuData
+//							a.DATA.data[0].skuData[i].name
+//							image 图片
+//							pPrice 价格
+							for (var i = 0; i < a.DATA.data[0].skuData.length; i++) {
+//								a.DATA.data[0].skuData[i]
+
+								s3 += `<li class="J_goods_item goods_item"><a class="goods_pic" href="//item.jd.com/2543188.html" target="_blank" title="" clstag="channel|keycount|3054|goods7_${i}" ><img class="J_goods_img goods_img" src="${a.DATA.data[0].skuData[i].image}" data-lazy-img="done" alt="${a.DATA.data[0].skuData[i].name}" title="${a.DATA.data[0].skuData[i].name}"></a><p class="goods_title">${a.DATA.data[0].skuData[i].name}</p><div class="goods_prices clearfix"><p class="J_goods_price goods_price" data-price-id="${a.DATA.data[0].skuData[i].skuId}">¥${a.DATA.data[0].skuData[i].pPrice}</p><p class="goods_prices_plus" data-price-id="${a.DATA.data[0].skuData[i].skuId}"><em class="goods_prices_plus_txt"></em><i class="goods_prices_plus_icon"></i></p></div><a class="J_goods_add goods_add" href="javascript:;" clstag="channel|keycount|3054|buygoodsAdd7_2_${i}" ><i class="goods_add_icon"></i><span class="goods_add_txt">加入购物车</span></a></li>`;
+							}
+							s = s.replace(/{li1%%}/,s3);
+							$(".mod_container").append(s);
+						}
+					)
+				
+				
+				
+				
+				
+				}
+			)
+			
+
+			
+			
+			
+			
+		}
+	).done(
+		function(){
+			s = '',
+			s1 = '',
+			s2 = '',
+			s3 = '';
+			
+			s =`<div class="chaoshi_category grid_c1" id="chaoshi_category_7" data-id="chaoshi_category_7" data-async="true" data-elevator="true" data-tpl="chaoshi_category_tpl">
+			<div class="chaoshi_mod_head grid_c1"><h3 class="chaoshi_mod_head_title">${shuju5.data.title[0].NAME}</h3></div>
+			<div class="chaoshi_category_focus">
+				{aa1%%}
+				<div class="chaoshi_category_focus_key">
+					<div class="chaoshi_category_focus_key_inner">{aa2%%}</div>
+				</div>
+			</div>
+			<div class="goods chaoshi_category_goods clearfix">
+			<ul class="chaoshi_category_ul goods_list">{li1%%}</ul>
+			</div>
+		</div>`;
+//		console.log(shuju5.data);
+//		shuju5.data.key 开发文档
+//			aa1生成
+			$.ajax({
+				type:"get",
+				url:"https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368362&callback=?",
+				async:true,
+				dataType:"jsonp",
+			}).done(
+				function  (a) {
+					s1 = `<a class="chaoshi_category_focus_pic" href="${a.DATA.adData[0].link}" target="_blank" title="" clstag="channel|keycount|3054|focus7_0"><img src="${a.DATA.adData[0].pictureUrl}" data-lazy-img="done" alt=""></a>`;
+//			aa2%%生成
+				for (var i = 0; i < shuju5.data.key.length; i++) {
+					
+//						shuju5.data.key[i]
+//					NAME URL
+					s2 += `<a href="${shuju5.data.key[i].URL}" target="_blank" title="${shuju5.data.key[i].NAME}" clstag="channel|keycount|3054|key7_${i}">${shuju5.data.key[i].NAME}</a>`
+					}
+					s = s.replace(/{aa1%%}/,s1);
+					s = s.replace(/{aa2%%}/,s2);
+					$.ajax({
+						type:"get",
+						url:"https://ai.jd.com/General?app=Bi&action=get_sku&groupId=00717303&callback=?",
+						async:true,
+						dataType:"jsonp",
+					}).done(
+						function  (a) {
+//							a.DATA.data[0].skuData
+//							a.DATA.data[0].skuData[i].name
+//							image 图片
+//							pPrice 价格
+							for (var i = 0; i < a.DATA.data[0].skuData.length; i++) {
+//								a.DATA.data[0].skuData[i]
+
+								s3 += `<li class="J_goods_item goods_item"><a class="goods_pic" href="//item.jd.com/2543188.html" target="_blank" title="" clstag="channel|keycount|3054|goods7_${i}" ><img class="J_goods_img goods_img" src="${a.DATA.data[0].skuData[i].image}" data-lazy-img="done" alt="${a.DATA.data[0].skuData[i].name}" title="${a.DATA.data[0].skuData[i].name}"></a><p class="goods_title">${a.DATA.data[0].skuData[i].name}</p><div class="goods_prices clearfix"><p class="J_goods_price goods_price" data-price-id="${a.DATA.data[0].skuData[i].skuId}">¥${a.DATA.data[0].skuData[i].pPrice}</p><p class="goods_prices_plus" data-price-id="${a.DATA.data[0].skuData[i].skuId}"><em class="goods_prices_plus_txt"></em><i class="goods_prices_plus_icon"></i></p></div><a class="J_goods_add goods_add" href="javascript:;" clstag="channel|keycount|3054|buygoodsAdd7_2_${i}" ><i class="goods_add_icon"></i><span class="goods_add_txt">加入购物车</span></a></li>`;
+							}
+							s = s.replace(/{li1%%}/,s3);
+							$(".mod_container").append(s);
+						}
+					)
+				
+				
+				
+				
+				
+				}
+			)
+			
+
+			
+			
+			
+			
+		}
+	).done(
+		function(){
+			s = '',
+			s1 = '',
+			s2 = '',
+			s3 = '';
+			
+			s =`<div class="chaoshi_category grid_c1" id="chaoshi_category_7" data-id="chaoshi_category_7" data-async="true" data-elevator="true" data-tpl="chaoshi_category_tpl">
+			<div class="chaoshi_mod_head grid_c1"><h3 class="chaoshi_mod_head_title">${shuju5.data.title[0].NAME}</h3></div>
+			<div class="chaoshi_category_focus">
+				{aa1%%}
+				<div class="chaoshi_category_focus_key">
+					<div class="chaoshi_category_focus_key_inner">{aa2%%}</div>
+				</div>
+			</div>
+			<div class="goods chaoshi_category_goods clearfix">
+			<ul class="chaoshi_category_ul goods_list">{li1%%}</ul>
+			</div>
+		</div>`;
+//		console.log(shuju5.data);
+//		shuju5.data.key 开发文档
+//			aa1生成
+			$.ajax({
+				type:"get",
+				url:"https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368362&callback=?",
+				async:true,
+				dataType:"jsonp",
+			}).done(
+				function  (a) {
+					s1 = `<a class="chaoshi_category_focus_pic" href="${a.DATA.adData[0].link}" target="_blank" title="" clstag="channel|keycount|3054|focus7_0"><img src="${a.DATA.adData[0].pictureUrl}" data-lazy-img="done" alt=""></a>`;
+//			aa2%%生成
+				for (var i = 0; i < shuju5.data.key.length; i++) {
+					
+//						shuju5.data.key[i]
+//					NAME URL
+					s2 += `<a href="${shuju5.data.key[i].URL}" target="_blank" title="${shuju5.data.key[i].NAME}" clstag="channel|keycount|3054|key7_${i}">${shuju5.data.key[i].NAME}</a>`
+					}
+					s = s.replace(/{aa1%%}/,s1);
+					s = s.replace(/{aa2%%}/,s2);
+					$.ajax({
+						type:"get",
+						url:"https://ai.jd.com/General?app=Bi&action=get_sku&groupId=00717303&callback=?",
+						async:true,
+						dataType:"jsonp",
+					}).done(
+						function  (a) {
+//							a.DATA.data[0].skuData
+//							a.DATA.data[0].skuData[i].name
+//							image 图片
+//							pPrice 价格
+							for (var i = 0; i < a.DATA.data[0].skuData.length; i++) {
+//								a.DATA.data[0].skuData[i]
+
+								s3 += `<li class="J_goods_item goods_item"><a class="goods_pic" href="//item.jd.com/2543188.html" target="_blank" title="" clstag="channel|keycount|3054|goods7_${i}" ><img class="J_goods_img goods_img" src="${a.DATA.data[0].skuData[i].image}" data-lazy-img="done" alt="${a.DATA.data[0].skuData[i].name}" title="${a.DATA.data[0].skuData[i].name}"></a><p class="goods_title">${a.DATA.data[0].skuData[i].name}</p><div class="goods_prices clearfix"><p class="J_goods_price goods_price" data-price-id="${a.DATA.data[0].skuData[i].skuId}">¥${a.DATA.data[0].skuData[i].pPrice}</p><p class="goods_prices_plus" data-price-id="${a.DATA.data[0].skuData[i].skuId}"><em class="goods_prices_plus_txt"></em><i class="goods_prices_plus_icon"></i></p></div><a class="J_goods_add goods_add" href="javascript:;" clstag="channel|keycount|3054|buygoodsAdd7_2_${i}" ><i class="goods_add_icon"></i><span class="goods_add_txt">加入购物车</span></a></li>`;
+							}
+							s = s.replace(/{li1%%}/,s3);
+							$(".mod_container").append(s);
+						}
+					)
+				
+				
+				
+				
+				
+				}
+			)
+			
+
+			
+			
+			
+			
+		}
+	).done(
+		function(){
+			s = '',
+			s1 = '',
+			s2 = '',
+			s3 = '';
+			
+			s =`<div class="chaoshi_category grid_c1" id="chaoshi_category_7" data-id="chaoshi_category_7" data-async="true" data-elevator="true" data-tpl="chaoshi_category_tpl">
+			<div class="chaoshi_mod_head grid_c1"><h3 class="chaoshi_mod_head_title">${shuju5.data.title[0].NAME}</h3></div>
+			<div class="chaoshi_category_focus">
+				{aa1%%}
+				<div class="chaoshi_category_focus_key">
+					<div class="chaoshi_category_focus_key_inner">{aa2%%}</div>
+				</div>
+			</div>
+			<div class="goods chaoshi_category_goods clearfix">
+			<ul class="chaoshi_category_ul goods_list">{li1%%}</ul>
+			</div>
+		</div>`;
+//		console.log(shuju5.data);
+//		shuju5.data.key 开发文档
+//			aa1生成
+			$.ajax({
+				type:"get",
+				url:"https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368362&callback=?",
+				async:true,
+				dataType:"jsonp",
+			}).done(
+				function  (a) {
+					s1 = `<a class="chaoshi_category_focus_pic" href="${a.DATA.adData[0].link}" target="_blank" title="" clstag="channel|keycount|3054|focus7_0"><img src="${a.DATA.adData[0].pictureUrl}" data-lazy-img="done" alt=""></a>`;
+//			aa2%%生成
+				for (var i = 0; i < shuju5.data.key.length; i++) {
+					
+//						shuju5.data.key[i]
+//					NAME URL
+					s2 += `<a href="${shuju5.data.key[i].URL}" target="_blank" title="${shuju5.data.key[i].NAME}" clstag="channel|keycount|3054|key7_${i}">${shuju5.data.key[i].NAME}</a>`
+					}
+					s = s.replace(/{aa1%%}/,s1);
+					s = s.replace(/{aa2%%}/,s2);
+					$.ajax({
+						type:"get",
+						url:"https://ai.jd.com/General?app=Bi&action=get_sku&groupId=00717303&callback=?",
+						async:true,
+						dataType:"jsonp",
+					}).done(
+						function  (a) {
+//							a.DATA.data[0].skuData
+//							a.DATA.data[0].skuData[i].name
+//							image 图片
+//							pPrice 价格
+							for (var i = 0; i < a.DATA.data[0].skuData.length; i++) {
+//								a.DATA.data[0].skuData[i]
+
+								s3 += `<li class="J_goods_item goods_item"><a class="goods_pic" href="//item.jd.com/2543188.html" target="_blank" title="" clstag="channel|keycount|3054|goods7_${i}" ><img class="J_goods_img goods_img" src="${a.DATA.data[0].skuData[i].image}" data-lazy-img="done" alt="${a.DATA.data[0].skuData[i].name}" title="${a.DATA.data[0].skuData[i].name}"></a><p class="goods_title">${a.DATA.data[0].skuData[i].name}</p><div class="goods_prices clearfix"><p class="J_goods_price goods_price" data-price-id="${a.DATA.data[0].skuData[i].skuId}">¥${a.DATA.data[0].skuData[i].pPrice}</p><p class="goods_prices_plus" data-price-id="${a.DATA.data[0].skuData[i].skuId}"><em class="goods_prices_plus_txt"></em><i class="goods_prices_plus_icon"></i></p></div><a class="J_goods_add goods_add" href="javascript:;" clstag="channel|keycount|3054|buygoodsAdd7_2_${i}" ><i class="goods_add_icon"></i><span class="goods_add_txt">加入购物车</span></a></li>`;
+							}
+							s = s.replace(/{li1%%}/,s3);
+							$(".mod_container").append(s);
+						}
+					)
+				
+				
+				
+				
+				
+				}
+			)
+			
+
+			
+			
+			
+			
+		}
+	).done(
+		function(){
+			s = '',
+			s1 = '',
+			s2 = '',
+			s3 = '';
+			
+			s =`<div class="chaoshi_category grid_c1" id="chaoshi_category_7" data-id="chaoshi_category_7" data-async="true" data-elevator="true" data-tpl="chaoshi_category_tpl">
+			<div class="chaoshi_mod_head grid_c1"><h3 class="chaoshi_mod_head_title">${shuju5.data.title[0].NAME}</h3></div>
+			<div class="chaoshi_category_focus">
+				{aa1%%}
+				<div class="chaoshi_category_focus_key">
+					<div class="chaoshi_category_focus_key_inner">{aa2%%}</div>
+				</div>
+			</div>
+			<div class="goods chaoshi_category_goods clearfix">
+			<ul class="chaoshi_category_ul goods_list">{li1%%}</ul>
+			</div>
+		</div>`;
+//		console.log(shuju5.data);
+//		shuju5.data.key 开发文档
+//			aa1生成
+			$.ajax({
+				type:"get",
+				url:"https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368362&callback=?",
+				async:true,
+				dataType:"jsonp",
+			}).done(
+				function  (a) {
+					s1 = `<a class="chaoshi_category_focus_pic" href="${a.DATA.adData[0].link}" target="_blank" title="" clstag="channel|keycount|3054|focus7_0"><img src="${a.DATA.adData[0].pictureUrl}" data-lazy-img="done" alt=""></a>`;
+//			aa2%%生成
+				for (var i = 0; i < shuju5.data.key.length; i++) {
+					
+//						shuju5.data.key[i]
+//					NAME URL
+					s2 += `<a href="${shuju5.data.key[i].URL}" target="_blank" title="${shuju5.data.key[i].NAME}" clstag="channel|keycount|3054|key7_${i}">${shuju5.data.key[i].NAME}</a>`
+					}
+					s = s.replace(/{aa1%%}/,s1);
+					s = s.replace(/{aa2%%}/,s2);
+					$.ajax({
+						type:"get",
+						url:"https://ai.jd.com/General?app=Bi&action=get_sku&groupId=00717303&callback=?",
+						async:true,
+						dataType:"jsonp",
+					}).done(
+						function  (a) {
+//							a.DATA.data[0].skuData
+//							a.DATA.data[0].skuData[i].name
+//							image 图片
+//							pPrice 价格
+							for (var i = 0; i < a.DATA.data[0].skuData.length; i++) {
+//								a.DATA.data[0].skuData[i]
+
+								s3 += `<li class="J_goods_item goods_item"><a class="goods_pic" href="//item.jd.com/2543188.html" target="_blank" title="" clstag="channel|keycount|3054|goods7_${i}" ><img class="J_goods_img goods_img" src="${a.DATA.data[0].skuData[i].image}" data-lazy-img="done" alt="${a.DATA.data[0].skuData[i].name}" title="${a.DATA.data[0].skuData[i].name}"></a><p class="goods_title">${a.DATA.data[0].skuData[i].name}</p><div class="goods_prices clearfix"><p class="J_goods_price goods_price" data-price-id="${a.DATA.data[0].skuData[i].skuId}">¥${a.DATA.data[0].skuData[i].pPrice}</p><p class="goods_prices_plus" data-price-id="${a.DATA.data[0].skuData[i].skuId}"><em class="goods_prices_plus_txt"></em><i class="goods_prices_plus_icon"></i></p></div><a class="J_goods_add goods_add" href="javascript:;" clstag="channel|keycount|3054|buygoodsAdd7_2_${i}" ><i class="goods_add_icon"></i><span class="goods_add_txt">加入购物车</span></a></li>`;
+							}
+							s = s.replace(/{li1%%}/,s3);
+							$(".mod_container").append(s);
+						}
+					)
+				
+				
+				
+				
+				
+				}
+			)
+			
+
+			
+			
+			
+			
+		}
+	).done(
+		function(){
+			s = '',
+			s1 = '',
+			s2 = '',
+			s3 = '';
+			
+			s =`<div class="chaoshi_category grid_c1" id="chaoshi_category_7" data-id="chaoshi_category_7" data-async="true" data-elevator="true" data-tpl="chaoshi_category_tpl">
+			<div class="chaoshi_mod_head grid_c1"><h3 class="chaoshi_mod_head_title">${shuju5.data.title[0].NAME}</h3></div>
+			<div class="chaoshi_category_focus">
+				{aa1%%}
+				<div class="chaoshi_category_focus_key">
+					<div class="chaoshi_category_focus_key_inner">{aa2%%}</div>
+				</div>
+			</div>
+			<div class="goods chaoshi_category_goods clearfix">
+			<ul class="chaoshi_category_ul goods_list">{li1%%}</ul>
+			</div>
+		</div>`;
+//		console.log(shuju5.data);
+//		shuju5.data.key 开发文档
+//			aa1生成
+			$.ajax({
+				type:"get",
+				url:"https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368362&callback=?",
+				async:true,
+				dataType:"jsonp",
+			}).done(
+				function  (a) {
+					s1 = `<a class="chaoshi_category_focus_pic" href="${a.DATA.adData[0].link}" target="_blank" title="" clstag="channel|keycount|3054|focus7_0"><img src="${a.DATA.adData[0].pictureUrl}" data-lazy-img="done" alt=""></a>`;
+//			aa2%%生成
+				for (var i = 0; i < shuju5.data.key.length; i++) {
+					
+//						shuju5.data.key[i]
+//					NAME URL
+					s2 += `<a href="${shuju5.data.key[i].URL}" target="_blank" title="${shuju5.data.key[i].NAME}" clstag="channel|keycount|3054|key7_${i}">${shuju5.data.key[i].NAME}</a>`
+					}
+					s = s.replace(/{aa1%%}/,s1);
+					s = s.replace(/{aa2%%}/,s2);
+					$.ajax({
+						type:"get",
+						url:"https://ai.jd.com/General?app=Bi&action=get_sku&groupId=00717303&callback=?",
+						async:true,
+						dataType:"jsonp",
+					}).done(
+						function  (a) {
+//							a.DATA.data[0].skuData
+//							a.DATA.data[0].skuData[i].name
+//							image 图片
+//							pPrice 价格
+							for (var i = 0; i < a.DATA.data[0].skuData.length; i++) {
+//								a.DATA.data[0].skuData[i]
+
+								s3 += `<li class="J_goods_item goods_item"><a class="goods_pic" href="//item.jd.com/2543188.html" target="_blank" title="" clstag="channel|keycount|3054|goods7_${i}" ><img class="J_goods_img goods_img" src="${a.DATA.data[0].skuData[i].image}" data-lazy-img="done" alt="${a.DATA.data[0].skuData[i].name}" title="${a.DATA.data[0].skuData[i].name}"></a><p class="goods_title">${a.DATA.data[0].skuData[i].name}</p><div class="goods_prices clearfix"><p class="J_goods_price goods_price" data-price-id="${a.DATA.data[0].skuData[i].skuId}">¥${a.DATA.data[0].skuData[i].pPrice}</p><p class="goods_prices_plus" data-price-id="${a.DATA.data[0].skuData[i].skuId}"><em class="goods_prices_plus_txt"></em><i class="goods_prices_plus_icon"></i></p></div><a class="J_goods_add goods_add" href="javascript:;" clstag="channel|keycount|3054|buygoodsAdd7_2_${i}" ><i class="goods_add_icon"></i><span class="goods_add_txt">加入购物车</span></a></li>`;
+							}
+							s = s.replace(/{li1%%}/,s3);
+							$(".mod_container").append(s);
+						}
+					)
+				
+				
+				
+				
+				
+				}
+			)
+			
+
+			
+			
+			
+			
+		}
+	).done(
+		function(){
+			s = '',
+			s1 = '',
+			s2 = '',
+			s3 = '';
+			
+			s =`<div class="chaoshi_category grid_c1" id="chaoshi_category_7" data-id="chaoshi_category_7" data-async="true" data-elevator="true" data-tpl="chaoshi_category_tpl">
+			<div class="chaoshi_mod_head grid_c1"><h3 class="chaoshi_mod_head_title">${shuju5.data.title[0].NAME}</h3></div>
+			<div class="chaoshi_category_focus">
+				{aa1%%}
+				<div class="chaoshi_category_focus_key">
+					<div class="chaoshi_category_focus_key_inner">{aa2%%}</div>
+				</div>
+			</div>
+			<div class="goods chaoshi_category_goods clearfix">
+			<ul class="chaoshi_category_ul goods_list">{li1%%}</ul>
+			</div>
+		</div>`;
+//		console.log(shuju5.data);
+//		shuju5.data.key 开发文档
+//			aa1生成
+			$.ajax({
+				type:"get",
+				url:"https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368362&callback=?",
+				async:true,
+				dataType:"jsonp",
+			}).done(
+				function  (a) {
+					s1 = `<a class="chaoshi_category_focus_pic" href="${a.DATA.adData[0].link}" target="_blank" title="" clstag="channel|keycount|3054|focus7_0"><img src="${a.DATA.adData[0].pictureUrl}" data-lazy-img="done" alt=""></a>`;
+//			aa2%%生成
+				for (var i = 0; i < shuju5.data.key.length; i++) {
+					
+//						shuju5.data.key[i]
+//					NAME URL
+					s2 += `<a href="${shuju5.data.key[i].URL}" target="_blank" title="${shuju5.data.key[i].NAME}" clstag="channel|keycount|3054|key7_${i}">${shuju5.data.key[i].NAME}</a>`
+					}
+					s = s.replace(/{aa1%%}/,s1);
+					s = s.replace(/{aa2%%}/,s2);
+					$.ajax({
+						type:"get",
+						url:"https://ai.jd.com/General?app=Bi&action=get_sku&groupId=00717303&callback=?",
+						async:true,
+						dataType:"jsonp",
+					}).done(
+						function  (a) {
+//							a.DATA.data[0].skuData
+//							a.DATA.data[0].skuData[i].name
+//							image 图片
+//							pPrice 价格
+							for (var i = 0; i < a.DATA.data[0].skuData.length; i++) {
+//								a.DATA.data[0].skuData[i]
+
+								s3 += `<li class="J_goods_item goods_item"><a class="goods_pic" href="//item.jd.com/2543188.html" target="_blank" title="" clstag="channel|keycount|3054|goods7_${i}" ><img class="J_goods_img goods_img" src="${a.DATA.data[0].skuData[i].image}" data-lazy-img="done" alt="${a.DATA.data[0].skuData[i].name}" title="${a.DATA.data[0].skuData[i].name}"></a><p class="goods_title">${a.DATA.data[0].skuData[i].name}</p><div class="goods_prices clearfix"><p class="J_goods_price goods_price" data-price-id="${a.DATA.data[0].skuData[i].skuId}">¥${a.DATA.data[0].skuData[i].pPrice}</p><p class="goods_prices_plus" data-price-id="${a.DATA.data[0].skuData[i].skuId}"><em class="goods_prices_plus_txt"></em><i class="goods_prices_plus_icon"></i></p></div><a class="J_goods_add goods_add" href="javascript:;" clstag="channel|keycount|3054|buygoodsAdd7_2_${i}" ><i class="goods_add_icon"></i><span class="goods_add_txt">加入购物车</span></a></li>`;
+							}
+							s = s.replace(/{li1%%}/,s3);
+							$(".mod_container").append(s);
+						}
+					)
+				
+				
+				
+				
+				
+				}
+			)
+			
+
+			
+			
+			
+			
+		}
+	).done(
+		function(){
+			s = '',
+			s1 = '',
+			s2 = '',
+			s3 = '';
+			
+			s =`<div class="chaoshi_category grid_c1" id="chaoshi_category_7" data-id="chaoshi_category_7" data-async="true" data-elevator="true" data-tpl="chaoshi_category_tpl">
+			<div class="chaoshi_mod_head grid_c1"><h3 class="chaoshi_mod_head_title">${shuju5.data.title[0].NAME}</h3></div>
+			<div class="chaoshi_category_focus">
+				{aa1%%}
+				<div class="chaoshi_category_focus_key">
+					<div class="chaoshi_category_focus_key_inner">{aa2%%}</div>
+				</div>
+			</div>
+			<div class="goods chaoshi_category_goods clearfix">
+			<ul class="chaoshi_category_ul goods_list">{li1%%}</ul>
+			</div>
+		</div>`;
+//		console.log(shuju5.data);
+//		shuju5.data.key 开发文档
+//			aa1生成
+			$.ajax({
+				type:"get",
+				url:"https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368362&callback=?",
+				async:true,
+				dataType:"jsonp",
+			}).done(
+				function  (a) {
+					s1 = `<a class="chaoshi_category_focus_pic" href="${a.DATA.adData[0].link}" target="_blank" title="" clstag="channel|keycount|3054|focus7_0"><img src="${a.DATA.adData[0].pictureUrl}" data-lazy-img="done" alt=""></a>`;
+//			aa2%%生成
+				for (var i = 0; i < shuju5.data.key.length; i++) {
+					
+//						shuju5.data.key[i]
+//					NAME URL
+					s2 += `<a href="${shuju5.data.key[i].URL}" target="_blank" title="${shuju5.data.key[i].NAME}" clstag="channel|keycount|3054|key7_${i}">${shuju5.data.key[i].NAME}</a>`
+					}
+					s = s.replace(/{aa1%%}/,s1);
+					s = s.replace(/{aa2%%}/,s2);
+					$.ajax({
+						type:"get",
+						url:"https://ai.jd.com/General?app=Bi&action=get_sku&groupId=00717303&callback=?",
+						async:true,
+						dataType:"jsonp",
+					}).done(
+						function  (a) {
+//							a.DATA.data[0].skuData
+//							a.DATA.data[0].skuData[i].name
+//							image 图片
+//							pPrice 价格
+							for (var i = 0; i < a.DATA.data[0].skuData.length; i++) {
+//								a.DATA.data[0].skuData[i]
+
+								s3 += `<li class="J_goods_item goods_item"><a class="goods_pic" href="//item.jd.com/2543188.html" target="_blank" title="" clstag="channel|keycount|3054|goods7_${i}" ><img class="J_goods_img goods_img" src="${a.DATA.data[0].skuData[i].image}" data-lazy-img="done" alt="${a.DATA.data[0].skuData[i].name}" title="${a.DATA.data[0].skuData[i].name}"></a><p class="goods_title">${a.DATA.data[0].skuData[i].name}</p><div class="goods_prices clearfix"><p class="J_goods_price goods_price" data-price-id="${a.DATA.data[0].skuData[i].skuId}">¥${a.DATA.data[0].skuData[i].pPrice}</p><p class="goods_prices_plus" data-price-id="${a.DATA.data[0].skuData[i].skuId}"><em class="goods_prices_plus_txt"></em><i class="goods_prices_plus_icon"></i></p></div><a class="J_goods_add goods_add" href="javascript:;" clstag="channel|keycount|3054|buygoodsAdd7_2_${i}" ><i class="goods_add_icon"></i><span class="goods_add_txt">加入购物车</span></a></li>`;
+							}
+							s = s.replace(/{li1%%}/,s3);
+							$(".mod_container").append(s);
+						}
+					)
+				
+				
+				
+				
+				
+				}
+			)
+			
+
+			
+			
+			
+			
+		}
+	).done(
+		function(){
+			s = '',
+			s1 = '',
+			s2 = '',
+			s3 = '';
+			
+			s =`<div class="chaoshi_category grid_c1" id="chaoshi_category_7" data-id="chaoshi_category_7" data-async="true" data-elevator="true" data-tpl="chaoshi_category_tpl">
+			<div class="chaoshi_mod_head grid_c1"><h3 class="chaoshi_mod_head_title">${shuju5.data.title[0].NAME}</h3></div>
+			<div class="chaoshi_category_focus">
+				{aa1%%}
+				<div class="chaoshi_category_focus_key">
+					<div class="chaoshi_category_focus_key_inner">{aa2%%}</div>
+				</div>
+			</div>
+			<div class="goods chaoshi_category_goods clearfix">
+			<ul class="chaoshi_category_ul goods_list">{li1%%}</ul>
+			</div>
+		</div>`;
+//		console.log(shuju5.data);
+//		shuju5.data.key 开发文档
+//			aa1生成
+			$.ajax({
+				type:"get",
+				url:"https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368362&callback=?",
+				async:true,
+				dataType:"jsonp",
+			}).done(
+				function  (a) {
+					s1 = `<a class="chaoshi_category_focus_pic" href="${a.DATA.adData[0].link}" target="_blank" title="" clstag="channel|keycount|3054|focus7_0"><img src="${a.DATA.adData[0].pictureUrl}" data-lazy-img="done" alt=""></a>`;
+//			aa2%%生成
+				for (var i = 0; i < shuju5.data.key.length; i++) {
+					
+//						shuju5.data.key[i]
+//					NAME URL
+					s2 += `<a href="${shuju5.data.key[i].URL}" target="_blank" title="${shuju5.data.key[i].NAME}" clstag="channel|keycount|3054|key7_${i}">${shuju5.data.key[i].NAME}</a>`
+					}
+					s = s.replace(/{aa1%%}/,s1);
+					s = s.replace(/{aa2%%}/,s2);
+					$.ajax({
+						type:"get",
+						url:"https://ai.jd.com/General?app=Bi&action=get_sku&groupId=00717303&callback=?",
+						async:true,
+						dataType:"jsonp",
+					}).done(
+						function  (a) {
+//							a.DATA.data[0].skuData
+//							a.DATA.data[0].skuData[i].name
+//							image 图片
+//							pPrice 价格
+							for (var i = 0; i < a.DATA.data[0].skuData.length; i++) {
+//								a.DATA.data[0].skuData[i]
+
+								s3 += `<li class="J_goods_item goods_item"><a class="goods_pic" href="//item.jd.com/2543188.html" target="_blank" title="" clstag="channel|keycount|3054|goods7_${i}" ><img class="J_goods_img goods_img" src="${a.DATA.data[0].skuData[i].image}" data-lazy-img="done" alt="${a.DATA.data[0].skuData[i].name}" title="${a.DATA.data[0].skuData[i].name}"></a><p class="goods_title">${a.DATA.data[0].skuData[i].name}</p><div class="goods_prices clearfix"><p class="J_goods_price goods_price" data-price-id="${a.DATA.data[0].skuData[i].skuId}">¥${a.DATA.data[0].skuData[i].pPrice}</p><p class="goods_prices_plus" data-price-id="${a.DATA.data[0].skuData[i].skuId}"><em class="goods_prices_plus_txt"></em><i class="goods_prices_plus_icon"></i></p></div><a class="J_goods_add goods_add" href="javascript:;" clstag="channel|keycount|3054|buygoodsAdd7_2_${i}" ><i class="goods_add_icon"></i><span class="goods_add_txt">加入购物车</span></a></li>`;
+							}
+							s = s.replace(/{li1%%}/,s3);
+							$(".mod_container").append(s);
+						}
+					)
+				
+				
+				
+				
+				
+				}
+			)
+			
+
+			
+			
+			
+			
+		}
+	).done(
+		function(){
+			s = '',
+			s1 = '',
+			s2 = '',
+			s3 = '';
+			
+			s =`<div class="chaoshi_category grid_c1" id="chaoshi_category_7" data-id="chaoshi_category_7" data-async="true" data-elevator="true" data-tpl="chaoshi_category_tpl">
+			<div class="chaoshi_mod_head grid_c1"><h3 class="chaoshi_mod_head_title">${shuju5.data.title[0].NAME}</h3></div>
+			<div class="chaoshi_category_focus">
+				{aa1%%}
+				<div class="chaoshi_category_focus_key">
+					<div class="chaoshi_category_focus_key_inner">{aa2%%}</div>
+				</div>
+			</div>
+			<div class="goods chaoshi_category_goods clearfix">
+			<ul class="chaoshi_category_ul goods_list">{li1%%}</ul>
+			</div>
+		</div>`;
+//		console.log(shuju5.data);
+//		shuju5.data.key 开发文档
+//			aa1生成
+			$.ajax({
+				type:"get",
+				url:"https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368362&callback=?",
+				async:true,
+				dataType:"jsonp",
+			}).done(
+				function  (a) {
+					s1 = `<a class="chaoshi_category_focus_pic" href="${a.DATA.adData[0].link}" target="_blank" title="" clstag="channel|keycount|3054|focus7_0"><img src="${a.DATA.adData[0].pictureUrl}" data-lazy-img="done" alt=""></a>`;
+//			aa2%%生成
+				for (var i = 0; i < shuju5.data.key.length; i++) {
+					
+//						shuju5.data.key[i]
+//					NAME URL
+					s2 += `<a href="${shuju5.data.key[i].URL}" target="_blank" title="${shuju5.data.key[i].NAME}" clstag="channel|keycount|3054|key7_${i}">${shuju5.data.key[i].NAME}</a>`
+					}
+					s = s.replace(/{aa1%%}/,s1);
+					s = s.replace(/{aa2%%}/,s2);
+					$.ajax({
+						type:"get",
+						url:"https://ai.jd.com/General?app=Bi&action=get_sku&groupId=00717303&callback=?",
+						async:true,
+						dataType:"jsonp",
+					}).done(
+						function  (a) {
+//							a.DATA.data[0].skuData
+//							a.DATA.data[0].skuData[i].name
+//							image 图片
+//							pPrice 价格
+							for (var i = 0; i < a.DATA.data[0].skuData.length; i++) {
+//								a.DATA.data[0].skuData[i]
+
+								s3 += `<li class="J_goods_item goods_item"><a class="goods_pic" href="//item.jd.com/2543188.html" target="_blank" title="" clstag="channel|keycount|3054|goods7_${i}" ><img class="J_goods_img goods_img" src="${a.DATA.data[0].skuData[i].image}" data-lazy-img="done" alt="${a.DATA.data[0].skuData[i].name}" title="${a.DATA.data[0].skuData[i].name}"></a><p class="goods_title">${a.DATA.data[0].skuData[i].name}</p><div class="goods_prices clearfix"><p class="J_goods_price goods_price" data-price-id="${a.DATA.data[0].skuData[i].skuId}">¥${a.DATA.data[0].skuData[i].pPrice}</p><p class="goods_prices_plus" data-price-id="${a.DATA.data[0].skuData[i].skuId}"><em class="goods_prices_plus_txt"></em><i class="goods_prices_plus_icon"></i></p></div><a class="J_goods_add goods_add" href="javascript:;" clstag="channel|keycount|3054|buygoodsAdd7_2_${i}" ><i class="goods_add_icon"></i><span class="goods_add_txt">加入购物车</span></a></li>`;
+							}
+							s = s.replace(/{li1%%}/,s3);
+							$(".mod_container").append(s);
+						}
+					)
+				
+				
+				
+				
+				
+				}
+			)
+			
+
+			
+			
+			
+			
+		}
+	).done(
+		function(){
+			s = '',
+			s1 = '',
+			s2 = '',
+			s3 = '';
+			
+			s =`<div class="chaoshi_category grid_c1" id="chaoshi_category_7" data-id="chaoshi_category_7" data-async="true" data-elevator="true" data-tpl="chaoshi_category_tpl">
+			<div class="chaoshi_mod_head grid_c1"><h3 class="chaoshi_mod_head_title">${shuju5.data.title[0].NAME}</h3></div>
+			<div class="chaoshi_category_focus">
+				{aa1%%}
+				<div class="chaoshi_category_focus_key">
+					<div class="chaoshi_category_focus_key_inner">{aa2%%}</div>
+				</div>
+			</div>
+			<div class="goods chaoshi_category_goods clearfix">
+			<ul class="chaoshi_category_ul goods_list">{li1%%}</ul>
+			</div>
+		</div>`;
+//		console.log(shuju5.data);
+//		shuju5.data.key 开发文档
+//			aa1生成
+			$.ajax({
+				type:"get",
+				url:"https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368362&callback=?",
+				async:true,
+				dataType:"jsonp",
+			}).done(
+				function  (a) {
+					s1 = `<a class="chaoshi_category_focus_pic" href="${a.DATA.adData[0].link}" target="_blank" title="" clstag="channel|keycount|3054|focus7_0"><img src="${a.DATA.adData[0].pictureUrl}" data-lazy-img="done" alt=""></a>`;
+//			aa2%%生成
+				for (var i = 0; i < shuju5.data.key.length; i++) {
+					
+//						shuju5.data.key[i]
+//					NAME URL
+					s2 += `<a href="${shuju5.data.key[i].URL}" target="_blank" title="${shuju5.data.key[i].NAME}" clstag="channel|keycount|3054|key7_${i}">${shuju5.data.key[i].NAME}</a>`
+					}
+					s = s.replace(/{aa1%%}/,s1);
+					s = s.replace(/{aa2%%}/,s2);
+					$.ajax({
+						type:"get",
+						url:"https://ai.jd.com/General?app=Bi&action=get_sku&groupId=00717303&callback=?",
+						async:true,
+						dataType:"jsonp",
+					}).done(
+						function  (a) {
+//							a.DATA.data[0].skuData
+//							a.DATA.data[0].skuData[i].name
+//							image 图片
+//							pPrice 价格
+							for (var i = 0; i < a.DATA.data[0].skuData.length; i++) {
+//								a.DATA.data[0].skuData[i]
+
+								s3 += `<li class="J_goods_item goods_item"><a class="goods_pic" href="//item.jd.com/2543188.html" target="_blank" title="" clstag="channel|keycount|3054|goods7_${i}" ><img class="J_goods_img goods_img" src="${a.DATA.data[0].skuData[i].image}" data-lazy-img="done" alt="${a.DATA.data[0].skuData[i].name}" title="${a.DATA.data[0].skuData[i].name}"></a><p class="goods_title">${a.DATA.data[0].skuData[i].name}</p><div class="goods_prices clearfix"><p class="J_goods_price goods_price" data-price-id="${a.DATA.data[0].skuData[i].skuId}">¥${a.DATA.data[0].skuData[i].pPrice}</p><p class="goods_prices_plus" data-price-id="${a.DATA.data[0].skuData[i].skuId}"><em class="goods_prices_plus_txt"></em><i class="goods_prices_plus_icon"></i></p></div><a class="J_goods_add goods_add" href="javascript:;" clstag="channel|keycount|3054|buygoodsAdd7_2_${i}" ><i class="goods_add_icon"></i><span class="goods_add_txt">加入购物车</span></a></li>`;
+							}
+							s = s.replace(/{li1%%}/,s3);
+							$(".mod_container").append(s);
+						}
+					)
+				
+				
+				
+				
+				
+				}
+			)
+			
+
+			
+			
+			
+			
+		}
+	).done(
+		function(){
+			s = '',
+			s1 = '',
+			s2 = '',
+			s3 = '';
+			
+			s =`<div class="chaoshi_category grid_c1" id="chaoshi_category_7" data-id="chaoshi_category_7" data-async="true" data-elevator="true" data-tpl="chaoshi_category_tpl">
+			<div class="chaoshi_mod_head grid_c1"><h3 class="chaoshi_mod_head_title">${shuju5.data.title[0].NAME}</h3></div>
+			<div class="chaoshi_category_focus">
+				{aa1%%}
+				<div class="chaoshi_category_focus_key">
+					<div class="chaoshi_category_focus_key_inner">{aa2%%}</div>
+				</div>
+			</div>
+			<div class="goods chaoshi_category_goods clearfix">
+			<ul class="chaoshi_category_ul goods_list">{li1%%}</ul>
+			</div>
+		</div>`;
+//		console.log(shuju5.data);
+//		shuju5.data.key 开发文档
+//			aa1生成
+			$.ajax({
+				type:"get",
+				url:"https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368362&callback=?",
+				async:true,
+				dataType:"jsonp",
+			}).done(
+				function  (a) {
+					s1 = `<a class="chaoshi_category_focus_pic" href="${a.DATA.adData[0].link}" target="_blank" title="" clstag="channel|keycount|3054|focus7_0"><img src="${a.DATA.adData[0].pictureUrl}" data-lazy-img="done" alt=""></a>`;
+//			aa2%%生成
+				for (var i = 0; i < shuju5.data.key.length; i++) {
+					
+//						shuju5.data.key[i]
+//					NAME URL
+					s2 += `<a href="${shuju5.data.key[i].URL}" target="_blank" title="${shuju5.data.key[i].NAME}" clstag="channel|keycount|3054|key7_${i}">${shuju5.data.key[i].NAME}</a>`
+					}
+					s = s.replace(/{aa1%%}/,s1);
+					s = s.replace(/{aa2%%}/,s2);
+					$.ajax({
+						type:"get",
+						url:"https://ai.jd.com/General?app=Bi&action=get_sku&groupId=00717303&callback=?",
+						async:true,
+						dataType:"jsonp",
+					}).done(
+						function  (a) {
+//							a.DATA.data[0].skuData
+//							a.DATA.data[0].skuData[i].name
+//							image 图片
+//							pPrice 价格
+							for (var i = 0; i < a.DATA.data[0].skuData.length; i++) {
+//								a.DATA.data[0].skuData[i]
+
+								s3 += `<li class="J_goods_item goods_item"><a class="goods_pic" href="//item.jd.com/2543188.html" target="_blank" title="" clstag="channel|keycount|3054|goods7_${i}" ><img class="J_goods_img goods_img" src="${a.DATA.data[0].skuData[i].image}" data-lazy-img="done" alt="${a.DATA.data[0].skuData[i].name}" title="${a.DATA.data[0].skuData[i].name}"></a><p class="goods_title">${a.DATA.data[0].skuData[i].name}</p><div class="goods_prices clearfix"><p class="J_goods_price goods_price" data-price-id="${a.DATA.data[0].skuData[i].skuId}">¥${a.DATA.data[0].skuData[i].pPrice}</p><p class="goods_prices_plus" data-price-id="${a.DATA.data[0].skuData[i].skuId}"><em class="goods_prices_plus_txt"></em><i class="goods_prices_plus_icon"></i></p></div><a class="J_goods_add goods_add" href="javascript:;" clstag="channel|keycount|3054|buygoodsAdd7_2_${i}" ><i class="goods_add_icon"></i><span class="goods_add_txt">加入购物车</span></a></li>`;
+							}
+							s = s.replace(/{li1%%}/,s3);
+							$(".mod_container").append(s);
+						}
+					)
+				
+				
+				
+				
+				
+				}
+			)
+			
+
+			
+			
+			
+			
+		}
+	).done(
+		function(){
+			s = '',
+			s1 = '',
+			s2 = '',
+			s3 = '';
+			
+			s =`<div class="chaoshi_category grid_c1" id="chaoshi_category_7" data-id="chaoshi_category_7" data-async="true" data-elevator="true" data-tpl="chaoshi_category_tpl">
+			<div class="chaoshi_mod_head grid_c1"><h3 class="chaoshi_mod_head_title">${shuju5.data.title[0].NAME}</h3></div>
+			<div class="chaoshi_category_focus">
+				{aa1%%}
+				<div class="chaoshi_category_focus_key">
+					<div class="chaoshi_category_focus_key_inner">{aa2%%}</div>
+				</div>
+			</div>
+			<div class="goods chaoshi_category_goods clearfix">
+			<ul class="chaoshi_category_ul goods_list">{li1%%}</ul>
+			</div>
+		</div>`;
+//		console.log(shuju5.data);
+//		shuju5.data.key 开发文档
+//			aa1生成
+			$.ajax({
+				type:"get",
+				url:"https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368362&callback=?",
+				async:true,
+				dataType:"jsonp",
+			}).done(
+				function  (a) {
+					s1 = `<a class="chaoshi_category_focus_pic" href="${a.DATA.adData[0].link}" target="_blank" title="" clstag="channel|keycount|3054|focus7_0"><img src="${a.DATA.adData[0].pictureUrl}" data-lazy-img="done" alt=""></a>`;
+//			aa2%%生成
+				for (var i = 0; i < shuju5.data.key.length; i++) {
+					
+//						shuju5.data.key[i]
+//					NAME URL
+					s2 += `<a href="${shuju5.data.key[i].URL}" target="_blank" title="${shuju5.data.key[i].NAME}" clstag="channel|keycount|3054|key7_${i}">${shuju5.data.key[i].NAME}</a>`
+					}
+					s = s.replace(/{aa1%%}/,s1);
+					s = s.replace(/{aa2%%}/,s2);
+					$.ajax({
+						type:"get",
+						url:"https://ai.jd.com/General?app=Bi&action=get_sku&groupId=00717303&callback=?",
+						async:true,
+						dataType:"jsonp",
+					}).done(
+						function  (a) {
+//							a.DATA.data[0].skuData
+//							a.DATA.data[0].skuData[i].name
+//							image 图片
+//							pPrice 价格
+							for (var i = 0; i < a.DATA.data[0].skuData.length; i++) {
+//								a.DATA.data[0].skuData[i]
+
+								s3 += `<li class="J_goods_item goods_item"><a class="goods_pic" href="//item.jd.com/2543188.html" target="_blank" title="" clstag="channel|keycount|3054|goods7_${i}" ><img class="J_goods_img goods_img" src="${a.DATA.data[0].skuData[i].image}" data-lazy-img="done" alt="${a.DATA.data[0].skuData[i].name}" title="${a.DATA.data[0].skuData[i].name}"></a><p class="goods_title">${a.DATA.data[0].skuData[i].name}</p><div class="goods_prices clearfix"><p class="J_goods_price goods_price" data-price-id="${a.DATA.data[0].skuData[i].skuId}">¥${a.DATA.data[0].skuData[i].pPrice}</p><p class="goods_prices_plus" data-price-id="${a.DATA.data[0].skuData[i].skuId}"><em class="goods_prices_plus_txt"></em><i class="goods_prices_plus_icon"></i></p></div><a class="J_goods_add goods_add" href="javascript:;" clstag="channel|keycount|3054|buygoodsAdd7_2_${i}" ><i class="goods_add_icon"></i><span class="goods_add_txt">加入购物车</span></a></li>`;
+							}
+							s = s.replace(/{li1%%}/,s3);
+							$(".mod_container").append(s);
+						}
+					)
+				
+				
+				
+				
+				
+				}
+			)
+		}
+	).done(
+		function(){
+			s = '',
+			s1 = '',
+			s2 = '',
+			s3 = '';
+			
+			s =`<div class="chaoshi_category grid_c1" id="chaoshi_category_7" data-id="chaoshi_category_7" data-async="true" data-elevator="true" data-tpl="chaoshi_category_tpl">
+			<div class="chaoshi_mod_head grid_c1"><h3 class="chaoshi_mod_head_title">${shuju5.data.title[0].NAME}</h3></div>
+			<div class="chaoshi_category_focus">
+				{aa1%%}
+				<div class="chaoshi_category_focus_key">
+					<div class="chaoshi_category_focus_key_inner">{aa2%%}</div>
+				</div>
+			</div>
+			<div class="goods chaoshi_category_goods clearfix">
+			<ul class="chaoshi_category_ul goods_list">{li1%%}</ul>
+			</div>
+		</div>`;
+//		console.log(shuju5.data);
+//		shuju5.data.key 开发文档
+//			aa1生成
+			$.ajax({
+				type:"get",
+				url:"https://ai.jd.com/General?app=Bi&action=get_ad&groupId=00368362&callback=?",
+				async:true,
+				dataType:"jsonp",
+			}).done(
+				function  (a) {
+					s1 = `<a class="chaoshi_category_focus_pic" href="${a.DATA.adData[0].link}" target="_blank" title="" clstag="channel|keycount|3054|focus7_0"><img src="${a.DATA.adData[0].pictureUrl}" data-lazy-img="done" alt=""></a>`;
+//			aa2%%生成
+				for (var i = 0; i < shuju5.data.key.length; i++) {
+					
+//						shuju5.data.key[i]
+//					NAME URL
+					s2 += `<a href="${shuju5.data.key[i].URL}" target="_blank" title="${shuju5.data.key[i].NAME}" clstag="channel|keycount|3054|key7_${i}">${shuju5.data.key[i].NAME}</a>`
+					}
+					s = s.replace(/{aa1%%}/,s1);
+					s = s.replace(/{aa2%%}/,s2);
+					$.ajax({
+						type:"get",
+						url:"https://ai.jd.com/General?app=Bi&action=get_sku&groupId=00717303&callback=?",
+						async:true,
+						dataType:"jsonp",
+					}).done(
+						function  (a) {
+//							a.DATA.data[0].skuData
+//							a.DATA.data[0].skuData[i].name
+//							image 图片
+//							pPrice 价格
+							for (var i = 0; i < a.DATA.data[0].skuData.length; i++) {
+//								a.DATA.data[0].skuData[i]
+
+								s3 += `<li class="J_goods_item goods_item"><a class="goods_pic" href="//item.jd.com/2543188.html" target="_blank" title="" clstag="channel|keycount|3054|goods7_${i}" ><img class="J_goods_img goods_img" src="${a.DATA.data[0].skuData[i].image}" data-lazy-img="done" alt="${a.DATA.data[0].skuData[i].name}" title="${a.DATA.data[0].skuData[i].name}"></a><p class="goods_title">${a.DATA.data[0].skuData[i].name}</p><div class="goods_prices clearfix"><p class="J_goods_price goods_price" data-price-id="${a.DATA.data[0].skuData[i].skuId}">¥${a.DATA.data[0].skuData[i].pPrice}</p><p class="goods_prices_plus" data-price-id="${a.DATA.data[0].skuData[i].skuId}"><em class="goods_prices_plus_txt"></em><i class="goods_prices_plus_icon"></i></p></div><a class="J_goods_add goods_add" href="javascript:;" clstag="channel|keycount|3054|buygoodsAdd7_2_${i}" ><i class="goods_add_icon"></i><span class="goods_add_txt">加入购物车</span></a></li>`;
+							}
+							s = s.replace(/{li1%%}/,s3);
+							$(".mod_container").append(s);
+						}
+					)
+				
+				
+				
+				
+				
+				}
+			)
+			
+
+			
+			
+			
+			
+		}
+	)
+				
+			
+			
+			})})})
+	//done 结束处
+	})
+	
+})
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

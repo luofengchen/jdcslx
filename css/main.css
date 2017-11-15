@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body,
 .mod_container {
   min-height: 1190px; }
@@ -1467,7 +1468,9 @@ body,
     text-align: center;
     background: #ffa133; }
 
-.cdb_add_icon, .cdi_add_icon, .goods_add_icon {
+.cdb_add_icon,
+.cdi_add_icon,
+.goods_add_icon {
   display: inline-block;
   vertical-align: middle;
   background-image: url("//static.360buyimg.com/mtd/pc/supermarket_v3/3.0.1/v3/images/sprite_chaoshi_index@1x.png");
@@ -1559,5 +1562,319 @@ body,
     margin-left: -20px;
     min-width: 200px;
     min-height: 259px; }
+
+.chaoshi_brand_row {
+  margin-bottom: 10px; }
+
+.chaoshi_brand_today {
+  float: left;
+  width: 390px;
+  height: 270px; }
+  .chaoshi_brand_today img {
+    width: 100%;
+    height: 100%;
+    transition: all .2s ease; }
+    .chaoshi_brand_today img:hover {
+      transform: translateY(-5px); }
+
+.chaoshi_brand_list {
+  float: left; }
+
+.chaoshi_brand_item {
+  float: left;
+  margin: 0 0 0 10px;
+  width: 190px;
+  height: 270px; }
+  .chaoshi_brand_item img {
+    width: 100%;
+    height: 100%;
+    transition: all .2s ease; }
+    .chaoshi_brand_item img:hover {
+      transform: translateY(-5px); }
+
+.chaoshi_brand_small {
+  width: 1000px; }
+  .chaoshi_brand_small .chaoshi_brand_item {
+    margin: 0 10px 0 0; }
+
+.chaoshi_brand_more {
+  float: left;
+  position: relative;
+  z-index: 2;
+  width: 190px;
+  height: 270px; }
+  .chaoshi_brand_more img {
+    margin-left: -20px;
+    min-height: 270px; }
+
+.chaoshi_buy_goods {
+  width: 1189px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  position: relative;
+  height: 260px;
+  top: 0;
+  left: 0; }
+
+.chaoshi_buy_goods_list {
+  background-color: #fff;
+  height: 260px;
+  transition: transform 0.6s cubic-bezier(0, 1.35, 0.83, 0.98), -webkit-transform 0.6s cubic-bezier(0, 1.35, 0.83, 0.98), -moz-transform 0.6s cubic-bezier(0, 1.35, 0.83, 0.98);
+  transform: translateZ(0); }
+  .chaoshi_buy_goods_list .goods_item {
+    padding: 20px 20px 0 19px;
+    width: 160px;
+    height: 240px; }
+    .chaoshi_buy_goods_list .goods_item:hover {
+      -moz-box-shadow: 0 0 10px rgba(4, 0, 0, 0.1);
+      box-shadow: 0 0 10px rgba(4, 0, 0, 0.1); }
+    .chaoshi_buy_goods_list .goods_item.xinren:hover {
+      -moz-box-shadow: none;
+      box-shadow: none; }
+  .chaoshi_buy_goods_list .goods_title {
+    white-space: nowrap; }
+
+.goods_item {
+  position: relative;
+  float: left;
+  overflow: hidden; }
+  .goods_item .goods_add {
+    transition: bottom .25s ease; }
+
+.goods_list_items {
+  float: left;
+  width: 1194px; }
+
+.goods_pic {
+  display: block;
+  margin: 0 auto 10px;
+  width: 140px;
+  height: 140px;
+  text-align: center;
+  overflow: hidden; }
+
+.goods_img {
+  width: 100%;
+  height: 100%; }
+
+.goods_add {
+  display: block;
+  position: absolute;
+  bottom: -60px;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background: #ffa133;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center; }
+
+.goods_desc,
+.goods_title {
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+.goods_title {
+  display: block;
+  font-size: 12px;
+  color: #333; }
+
+.goods_desc {
+  margin-bottom: 14px;
+  height: 18px;
+  color: #999;
+  white-space: nowrap;
+  text-align: left; }
+
+.goods_price {
+  font-size: 18px;
+  color: #ff002f; }
+
+.goods_add_txt {
+  display: inline-block;
+  vertical-align: middle; }
+
+.chaoshi_buy_goods_prev {
+  left: 0; }
+
+.chaoshi_buy_goods_next,
+.chaoshi_buy_goods_prev {
+  position: absolute;
+  top: 50%;
+  margin-top: -30px;
+  display: block;
+  width: 24px;
+  height: 60px;
+  line-height: 60px;
+  background: rgba(0, 0, 0, 0.4);
+  text-align: center;
+  font-size: 24px;
+  font-weight: 400;
+  font-family: simsunm;
+  color: #fff;
+  z-index: 5; }
+  .chaoshi_buy_goods_next：hover,
+  .chaoshi_buy_goods_prev：hover {
+    color: #ffa133; }
+
+.chaoshi_buy_goods_next {
+  right: 0; }
+
+.goods_item:hover .goods_desc,
+.goods_item:hover .goods_price_origin,
+.goods_item:hover .goods_title {
+  display: none;
+  float: none; }
+.goods_item:hover .goods_add {
+  bottom: 0; }
+.goods_item:hover a {
+  color: #fff; }
+
+.goods_add:hover .goods_price, .goods_add:hover .goods_priceall, .goods_item:hover .goods_price, .goods_item:hover .goods_priceall {
+  text-align: center; }
+
+.goods_add_icon {
+  margin: 0 6px 0 0; }
+
+.chaoshi_category {
+  margin-bottom: 15px;
+  min-height: 540px;
+  margin-top: 40px; }
+
+.chaoshi_category_bd {
+  height: 485px;
+  overflow: hidden; }
+
+.chaoshi_category_focus {
+  position: relative;
+  width: 190px;
+  float: left; }
+  .chaoshi_category_focus img {
+    width: 190px;
+    height: 485px; }
+
+.chaoshi_category_goods {
+  margin-left: 190px;
+  background-color: #fff; }
+  .chaoshi_category_goods .goods_item {
+    width: 169px;
+    height: 233px;
+    padding: 10px 15px 0;
+    border-left: 1px solid #f2f2f2;
+    border-bottom: 1px solid #f2f2f2; }
+  .chaoshi_category_goods .goods_pic {
+    width: 130px;
+    height: 130px;
+    margin-bottom: 17px; }
+  .chaoshi_category_goods .goods_title {
+    margin-bottom: 7px;
+    height: 36px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; }
+  .chaoshi_category_goods .goods_price {
+    float: left;
+    margin-right: 10px;
+    font-size: 14px; }
+  .chaoshi_category_goods .goods_prices_plus {
+    display: none;
+    float: right;
+    font-size: 0; }
+  .chaoshi_category_goods .goods_prices_plus_txt {
+    margin-right: 5px;
+    font-size: 12px;
+    color: #000; }
+  .chaoshi_category_goods .goods_prices_plus_icon {
+    display: inline-block;
+    background: url("//static.360buyimg.com/mtd/pc/supermarket_v3/3.0.1/v3/images/chaoshi_plus.png") 0 0 no-repeat;
+    width: 39px;
+    height: 12px; }
+  .chaoshi_category_goods .goods_add {
+    height: 50px;
+    line-height: 50px; }
+
+.goods_price {
+  color: #ff002f; }
+
+.goods_pic {
+  display: block;
+  margin: 0 auto 10px;
+  text-align: center;
+  overflow: hidden; }
+
+.goods_desc, .goods_title {
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+.chaoshi_category_focus_pic {
+  display: block; }
+
+.chaoshi_category_focus_key {
+  position: absolute;
+  bottom: 0;
+  height: 133px;
+  padding: 20px 10px 12px;
+  background: rgba(0, 0, 0, 0.2); }
+  .chaoshi_category_focus_key a {
+    float: left;
+    width: 73px;
+    height: 24px;
+    margin: 0 5px 8px;
+    line-height: 24px;
+    color: #fff;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    background: rgba(242, 242, 242, 0.2);
+    overflow: hidden; }
+    .chaoshi_category_focus_key a:hover {
+      color: #fff;
+      border-color: #fff; }
+
+.chaoshi_category_focus_key_inner {
+  height: 133px;
+  overflow: hidden; }
+
+.chaoshi_lift {
+  width: 56px;
+  position: fixed;
+  z-index: 100;
+  background: #fff;
+  -webkit-backface-visibility: hidden; }
+
+.chaoshi_lift_item {
+  font-size: 12px;
+  text-align: center;
+  position: relative; }
+
+.chaoshi_lift_item_btn {
+  color: #666;
+  cursor: pointer;
+  border-bottom: 1px solid #f3f3f3;
+  padding: 3px 0;
+  display: block;
+  text-align: center; }
+
+.chaoshi_lift_top {
+  border: 0;
+  background: #ff2d54;
+  position: relative;
+  z-index: 1;
+  padding-bottom: 0; }
+  .chaoshi_lift_top .chaoshi_lift_item_btn {
+    background-color: #ffa133;
+    color: #fff;
+    border-color: #ffa133; }
+
+.chaoshi_lift_item_btn {
+  cursor: pointer;
+  border-bottom: 1px solid #f3f3f3;
+  padding: 3px 0;
+  display: block;
+  text-align: center; }
+
+.chaoshi_lift_item_btn:hover, .chaoshi_lift_item_btn .chaoshi_lift_item_btn_active {
+  color: #fff;
+  background: #ffa133; }
 
 /*# sourceMappingURL=main.css.map */
