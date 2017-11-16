@@ -93,7 +93,7 @@ $("#ttbar-apps").hover(function() {
 $(function() {
 	$.ajax({
 		type: "get",
-		url: "json/province&city.json?callback=?",
+		url: "../json/province&city.json?callback=?",
 		async: true
 	}).done(function(data) {
 		var str1 = '';

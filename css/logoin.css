@@ -1,0 +1,412 @@
+html, body, ul, ol, dl, li, dt, dd, p, h1, h2, h3, h4, h5, h6, form, input, form, textarea {
+  margin: 0;
+  padding: 0; }
+
+body {
+  -webkit-font-smoothing: antialiased;
+  background-color: #fff;
+  font: 14px/1.5 Microsoft YaHei;
+  color: #666; }
+
+em, i {
+  font-style: normal; }
+
+strong, b {
+  font-weight: normal; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 100; }
+
+img, fieldset {
+  border: 0; }
+
+li {
+  list-style: none; }
+
+a {
+  color: #666;
+  text-decoration: none; }
+
+a:hover {
+  color: #c81623 !important; }
+
+input, textarea, button {
+  border: 0;
+  outline: none;
+  font-family: Microsoft YaHei; }
+
+textarea {
+  resize: none; }
+
+.clearfix:after {
+  content: ".";
+  clear: both;
+  display: block;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  visibility: hidden; }
+
+.clearfix {
+  zoom: 1; }
+
+.bx {
+  width: 1210px;
+  margin: 0 auto; }
+
+.fl {
+  float: left; }
+
+.fr {
+  float: right; }
+
+#header {
+  height: 110px;
+  background: url(../img/headbg.jpg) repeat-x left bottom; }
+  #header .header > a {
+    width: 160px;
+    height: 50px;
+    float: left;
+    margin-top: 24px;
+    background: url(../img/icon.png) no-repeat 0 0; }
+  #header .header .logo_title {
+    float: left;
+    height: 34px;
+    line-height: 34px;
+    font-size: 24px;
+    color: #333;
+    padding-left: 20px;
+    margin-top: 34px; }
+  #header .header .have {
+    font-size: 16px;
+    float: right;
+    margin-top: 55px;
+    color: #999; }
+    #header .header .have a {
+      color: #333; }
+      #header .header .have a:hover {
+        text-decoration: underline;
+        color: #333 !important; }
+
+#content .main {
+  margin: 50px auto 60px;
+  width: 830px; }
+  #content .main .reg_form {
+    width: 400px; }
+    #content .main .reg_form form .username {
+      z-index: 13;
+      position: relative;
+      border: solid 1px #ddd;
+      width: 398px;
+      height: 52px; }
+      #content .main .reg_form form .username label {
+        width: 90px;
+        height: 52px;
+        line-height: 52px;
+        padding-left: 20px; }
+      #content .main .reg_form form .username input {
+        font-size: 14px;
+        width: 273px;
+        height: 19px;
+        padding: 16px 0 11px 30px; }
+      #content .main .reg_form form .username b {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        top: 20px;
+        right: 20px;
+        background: url(../img/icon.png) no-repeat 0 -117px;
+        display: none; }
+    #content .main .reg_form form .username_tip, #content .main .reg_form form .psw_tip, #content .main .reg_form form .confirm_tip, #content .main .reg_form form .tel_tip, #content .main .reg_form form .ver_code_tip {
+      color: #c5c5c5;
+      height: 27px;
+      font-size: 12px;
+      padding-top: 5px;
+      visibility: hidden; }
+      #content .main .reg_form form .username_tip i, #content .main .reg_form form .psw_tip i, #content .main .reg_form form .confirm_tip i, #content .main .reg_form form .tel_tip i, #content .main .reg_form form .ver_code_tip i {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        vertical-align: text-top;
+        margin-right: 8px;
+        background: url(../img/icon.png) no-repeat 0 -100px; }
+    #content .main .reg_form form .username_error, #content .main .reg_form form .psw_error, #content .main .reg_form form .confirm_error, #content .main .reg_form form .tel_error, #content .main .reg_form form .ver_code_error {
+      display: none;
+      color: #c5c5c5;
+      height: 27px;
+      font-size: 12px;
+      padding-top: 5px;
+      color: #e22; }
+      #content .main .reg_form form .username_error i, #content .main .reg_form form .psw_error i, #content .main .reg_form form .confirm_error i, #content .main .reg_form form .tel_error i, #content .main .reg_form form .ver_code_error i {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        vertical-align: text-top;
+        margin-right: 8px;
+        background: url(../img/icon.png) no-repeat 0 -100px; }
+      #content .main .reg_form form .username_error i, #content .main .reg_form form .psw_error i, #content .main .reg_form form .confirm_error i, #content .main .reg_form form .tel_error i, #content .main .reg_form form .ver_code_error i {
+        background-position: -17px -100px; }
+    #content .main .reg_form form .phone_code_error {
+      visibility: hidden;
+      color: #c5c5c5;
+      height: 27px;
+      font-size: 12px;
+      padding-top: 5px;
+      color: #e22; }
+      #content .main .reg_form form .phone_code_error i {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        vertical-align: text-top;
+        margin-right: 8px;
+        background: url(../img/icon.png) no-repeat 0 -100px; }
+      #content .main .reg_form form .phone_code_error i {
+        background-position: -17px -100px; }
+    #content .main .reg_form form .psw {
+      z-index: 13;
+      position: relative;
+      border: solid 1px #ddd;
+      width: 398px;
+      height: 52px; }
+      #content .main .reg_form form .psw label {
+        width: 90px;
+        height: 52px;
+        line-height: 52px;
+        padding-left: 20px; }
+      #content .main .reg_form form .psw input {
+        font-size: 14px;
+        width: 273px;
+        height: 19px;
+        padding: 16px 0 11px 30px; }
+      #content .main .reg_form form .psw b {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        top: 20px;
+        right: 20px;
+        background: url(../img/icon.png) no-repeat 0 -117px;
+        display: none; }
+    #content .main .reg_form form .psw_ok {
+      display: none;
+      color: #c5c5c5;
+      height: 27px;
+      font-size: 12px;
+      padding-top: 5px; }
+      #content .main .reg_form form .psw_ok i {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        vertical-align: text-top;
+        margin-right: 8px;
+        background: url(../img/icon.png) no-repeat 0 -100px; }
+    #content .main .reg_form form .confirm {
+      z-index: 13;
+      position: relative;
+      border: solid 1px #ddd;
+      width: 398px;
+      height: 52px; }
+      #content .main .reg_form form .confirm label {
+        width: 90px;
+        height: 52px;
+        line-height: 52px;
+        padding-left: 20px; }
+      #content .main .reg_form form .confirm input {
+        font-size: 14px;
+        width: 273px;
+        height: 19px;
+        padding: 16px 0 11px 30px; }
+      #content .main .reg_form form .confirm b {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        top: 20px;
+        right: 20px;
+        background: url(../img/icon.png) no-repeat 0 -117px;
+        display: none; }
+    #content .main .reg_form form .tel {
+      z-index: 13;
+      position: relative;
+      border: solid 1px #ddd;
+      width: 398px;
+      height: 52px; }
+      #content .main .reg_form form .tel label {
+        width: 90px;
+        height: 52px;
+        line-height: 52px;
+        padding-left: 20px; }
+      #content .main .reg_form form .tel input {
+        font-size: 14px;
+        width: 273px;
+        height: 19px;
+        padding: 16px 0 11px 30px; }
+      #content .main .reg_form form .tel b {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        top: 20px;
+        right: 20px;
+        background: url(../img/icon.png) no-repeat 0 -117px;
+        display: none; }
+      #content .main .reg_form form .tel label {
+        display: inline-block;
+        border-right: solid 1px #ddd;
+        height: 52px; }
+        #content .main .reg_form form .tel label i {
+          background: url(../img/icon.png) no-repeat -2px -151px;
+          width: 15px;
+          height: 15px;
+          display: inline-block;
+          margin-top: 15px;
+          margin-left: 5px; }
+      #content .main .reg_form form .tel input {
+        padding-left: 7px; }
+    #content .main .reg_form form .ver_code {
+      z-index: 13;
+      position: relative;
+      border: solid 1px #ddd;
+      width: 398px;
+      height: 52px; }
+      #content .main .reg_form form .ver_code label {
+        width: 90px;
+        height: 52px;
+        line-height: 52px;
+        padding-left: 20px; }
+      #content .main .reg_form form .ver_code input {
+        font-size: 14px;
+        width: 273px;
+        height: 19px;
+        padding: 16px 0 11px 30px; }
+      #content .main .reg_form form .ver_code b {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        top: 20px;
+        right: 20px;
+        background: url(../img/icon.png) no-repeat 0 -117px;
+        display: none; }
+      #content .main .reg_form form .ver_code input {
+        width: 150px; }
+      #content .main .reg_form form .ver_code span {
+        display: inline-block;
+        width: 110px;
+        height: 46px;
+        vertical-align: middle;
+        cursor: pointer;
+        text-align: center;
+        line-height: 46px;
+        border: 1px solid red;
+        font-size: 30px;
+        color: purple; }
+    #content .main .reg_form form .phone_code {
+      z-index: 13;
+      position: relative;
+      border: solid 1px #ddd;
+      width: 398px;
+      height: 52px; }
+      #content .main .reg_form form .phone_code label {
+        width: 90px;
+        height: 52px;
+        line-height: 52px;
+        padding-left: 20px; }
+      #content .main .reg_form form .phone_code input {
+        font-size: 14px;
+        width: 273px;
+        height: 19px;
+        padding: 16px 0 11px 30px; }
+      #content .main .reg_form form .phone_code b {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        top: 20px;
+        right: 20px;
+        background: url(../img/icon.png) no-repeat 0 -117px;
+        display: none; }
+      #content .main .reg_form form .phone_code input {
+        width: 150px; }
+      #content .main .reg_form form .phone_code span {
+        position: absolute;
+        right: 8px;
+        top: 3px;
+        line-height: 46px;
+        text-align: center;
+        background: #f2f2f2;
+        width: 110px;
+        height: 46px;
+        color: #333;
+        cursor: pointer; }
+    #content .main .reg_form form > input[type="button"] {
+      width: 100%;
+      height: 54px;
+      color: #fff;
+      background: #e22;
+      font-size: 16px;
+      line-height: 54px;
+      text-align: center;
+      cursor: pointer; }
+  #content .main .form_company {
+    margin-left: 104px;
+    height: 605px;
+    border-left: solid 1px #e6e6e6;
+    padding-left: 90px; }
+    #content .main .form_company .company_reg {
+      width: 160px;
+      height: 60px;
+      border-bottom: solid 1px #ddd;
+      margin-left: 30px; }
+      #content .main .form_company .company_reg a {
+        display: block;
+        width: 160px;
+        height: 30px; }
+        #content .main .form_company .company_reg a:hover {
+          color: #000 !important;
+          text-decoration: underline;
+          font-weight: 700; }
+        #content .main .form_company .company_reg a i {
+          display: inline-block;
+          width: 30px;
+          height: 29px;
+          vertical-align: middle;
+          margin-right: 15px;
+          background: url(../img/icon.png) no-repeat 0 -50px; }
+        #content .main .form_company .company_reg a span {
+          vertical-align: middle; }
+    #content .main .form_company .inter_cust {
+      width: 160px;
+      margin-left: 30px;
+      margin-top: 30px; }
+      #content .main .form_company .inter_cust a {
+        display: block;
+        width: 170px;
+        height: 40px; }
+        #content .main .form_company .inter_cust a:hover {
+          color: #000 !important;
+          font-weight: 700; }
+        #content .main .form_company .inter_cust a i {
+          background: url(../img/icon.png) no-repeat -50px -50px;
+          display: inline-block;
+          width: 30px;
+          height: 30px;
+          vertical-align: text-bottom;
+          margin-right: 15px;
+          float: left;
+          margin-top: 7px; }
+        #content .main .form_company .inter_cust a span {
+          display: inline-block; }
+
+#footer {
+  font-size: 12px;
+  text-align: center;
+  border-top: solid 1px #e6e6e6;
+  color: #999;
+  padding-bottom: 30px; }
+  #footer .links {
+    padding-top: 30px;
+    padding-bottom: 15px; }
+    #footer .links a {
+      color: #999;
+      margin: 0 10px; }
+      #footer .links a:hover {
+        text-decoration: underline;
+        color: #999 !important; }
+
+/*# sourceMappingURL=logoin.css.map */

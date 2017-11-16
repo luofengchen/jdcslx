@@ -18,7 +18,6 @@ $(function() {
 	});
 	$(window).scroll(function() {
 		var scroll = $('html,body').scrollTop();
-		console.log(scroll);
 		if(scroll < 720) {
 			$("#chaoshi_lift_27").fadeOut(1000);
 		}
@@ -28,7 +27,7 @@ $(function() {
 			for (let i = 0; i < $(".mod_container").children(".grid_c1").length; i++) {
 				var jquerytop = $(".mod_container").children(".grid_c1")[i].offsetTop;
 //				console.log($(".mod_container").children(".grid_c1"))
-				console.log($('html,body').scrollTop(),jquerytop)
+//				console.log($('html,body').scrollTop(),jquerytop)
 				if (jquerytop - $('html,body').scrollTop()<= $(window).height()/2 && jquerytop - scroll >=0 ) {
 					$("#chaoshi_lift_27").find("li").not(".chaoshi_lift_item_last").eq(i).css({"background":"#ffa133"}).find("a").css({"color":"#fff"})
 					$("#chaoshi_lift_27").find("li").not(".chaoshi_lift_item_last").eq(i).siblings().not(".chaoshi_lift_item_last").css({"background":"rgb(255, 255, 255)"}).find("a").css({"color":"#666"});
@@ -40,7 +39,7 @@ $(function() {
 //css({"background":background}).siblings().css({"background":"#fff"})
 		//337 第一块滚动1057 每块608
 	})
-	console.log($("#chaoshi_lift_27").find("li"));
+//	console.log($("#chaoshi_lift_27").find("li"));
 	$("#chaoshi_lift_27").find("li").not(".chaoshi_lift_item_last").bind("click", function() {
 		var i = $(this).index();
 		var firstscroll = 1057;
@@ -51,6 +50,11 @@ $(function() {
 		var jequerytop = $(".mod_container").children(".grid_c1")[i].offsetTop
 		$("html,body").animate({
 			scrollTop: jequerytop
+		}, 1000)
+	})
+	$("#chaoshi_lift_27").find(".chaoshi_lift_item_last").click(function  () {
+		$("html,body").animate({
+			scrollTop: 0
 		}, 1000)
 	})
 })

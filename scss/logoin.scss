@@ -1,0 +1,365 @@
+@charset "UTF-8";
+html,body,ul,ol,dl,li,dt,dd,p,h1,h2,h3,h4,h5,h6,form,input,form,textarea{
+    margin: 0;
+    padding: 0;
+}
+body {
+    -webkit-font-smoothing: antialiased;
+    background-color: #fff;
+    font: 14px/1.5 Microsoft YaHei;
+    color: #666;
+}
+em,i{
+    font-style: normal;
+}
+strong,b{
+    font-weight: normal;
+}
+h1,h2,h3,h4,h5,h6{
+    font-weight:100;
+}
+img,fieldset{
+    border:0; 
+}
+li{
+    list-style: none;
+}
+a {
+    color: #666;
+    text-decoration: none;
+}
+a:hover {
+    color: #c81623 !important;
+}
+input,textarea,button{
+    border: 0;
+    outline: none;
+    font-family: Microsoft YaHei;
+}
+textarea {
+    resize: none;
+}
+.clearfix:after{
+    content:".";clear:both;display:block;height:0;width:0;overflow:hidden;visibility:hidden;
+}
+.clearfix{
+    zoom:1
+}
+
+.bx{
+    width: 1210px;
+    margin: 0 auto;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+
+
+//----------header区域----------
+#header{
+    height: 110px;
+    background: url(../img/headbg.jpg) repeat-x left bottom;
+    .header{
+        >a{
+            width: 160px;
+            height: 50px;
+            float: left;
+            margin-top: 24px;
+            background: url(../img/icon.png) no-repeat 0 0;
+        }
+        
+        .logo_title{
+            float: left;
+            height: 34px;
+            line-height: 34px;
+            font-size: 24px;
+            color: #333;
+            padding-left: 20px;
+            margin-top: 34px;
+            
+        }
+        
+        .have{
+            font-size: 16px;
+            float: right;
+            margin-top: 55px;
+            color: #999;
+            a{
+                color: #333;
+                &:hover{
+                    text-decoration: underline;
+                    color: #333 !important;
+                }
+            }
+        }
+        
+    }
+}
+
+
+//----------content区域----------
+@mixin total{
+    z-index: 13;
+    position: relative;
+    border: solid 1px #ddd;
+    width: 398px;
+    height: 52px;
+    label{
+        width: 90px;
+        height: 52px;
+        line-height: 52px;
+        padding-left: 20px;
+    }
+    input{
+        font-size: 14px;
+        width: 273px;
+        height: 19px;
+        padding: 16px 0 11px 30px;
+    }
+    b{
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        top: 20px;
+        right: 20px;
+        background: url(../img/icon.png) no-repeat 0 -117px;
+        display: none;
+    }
+}
+
+@mixin tip{
+    color: #c5c5c5;
+    height: 27px;
+    font-size: 12px;
+    padding-top: 5px;
+    i{
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        vertical-align: text-top;
+        margin-right: 8px;
+        background: url(../img/icon.png) no-repeat 0 -100px;
+    }
+}
+
+#content{
+    .main{
+        margin: 50px auto 60px;
+        width: 830px;
+        .reg_form{
+            width: 400px;
+            form{
+                .username{
+                    @include total;
+                }
+                .username_tip,.psw_tip,.confirm_tip,.tel_tip,.ver_code_tip{
+                    @include tip;
+                    visibility: hidden;
+                }
+                .username_error,.psw_error,.confirm_error,.tel_error,.ver_code_error{
+                    display: none;
+                    @include tip;
+                    color: #e22;
+                    i{
+                        background-position: -17px -100px;
+                    }
+                }
+                .phone_code_error{
+                    visibility: hidden;
+                    @include tip;
+                    color: #e22;
+                    i{
+                        background-position: -17px -100px;
+                    }
+                }
+                
+                
+                .psw{
+                    @include total;
+                }
+                .psw_ok{
+                    display: none;
+                    @include tip;
+                }
+                
+                .confirm{
+                    @include total;
+                }
+                
+                .tel{
+                    @include total;
+                    label{
+                        display: inline-block;
+                        border-right: solid 1px #ddd;
+                        height: 52px;
+                        i{
+                            background: url(../img/icon.png) no-repeat -2px -151px;
+                            width: 15px;
+                            height: 15px;
+                            display: inline-block;
+                            margin-top: 15px;
+                            margin-left: 5px;
+                            
+                        }
+                    }
+                    input{
+                        padding-left: 7px;
+                    }
+                }
+                
+                .ver_code{
+                    @include total;
+                    input{
+                        width: 150px;
+                    }
+                    span{
+                        display: inline-block;
+                        width: 110px;
+                        height: 46px;
+                        vertical-align: middle;
+                        cursor: pointer;
+                        text-align: center;
+                        line-height: 46px;
+                        border: 1px solid red;
+                        font-size: 30px;
+                        color: purple;
+                    }
+                }
+                
+                .phone_code{
+                    @include total;
+                    input{
+                        width: 150px;
+                    }
+                    span{
+                        position: absolute;
+                        right: 8px;
+                        top: 3px;
+                        line-height: 46px;
+                        text-align: center;
+                        background: #f2f2f2;
+                        width: 110px;
+                        height: 46px;
+                        color: #333;
+                        cursor: pointer;
+                    }
+                }
+                
+                >input[type="button"]{
+                    width: 100%;
+                    height: 54px;
+                    color: #fff;
+                    background: #e22;
+                    font-size: 16px;
+                    line-height: 54px;
+                    text-align: center;
+                    cursor: pointer;
+                }
+                
+                
+            }
+        }
+        .form_company{
+            margin-left: 104px;
+            height: 605px;
+            border-left: solid 1px #e6e6e6;
+            padding-left: 90px;
+            
+            .company_reg{
+                width: 160px;
+                height: 60px;
+                border-bottom: solid 1px #ddd;
+                margin-left: 30px;
+                a{
+                    &:hover{
+                        color: #000 !important;
+                        text-decoration: underline;
+                        font-weight: 700;
+                    }
+                    display: block;
+                    width: 160px;
+                    height: 30px;
+                    i{
+                        display: inline-block;
+                        width: 30px;
+                        height: 29px;
+                        vertical-align: middle;
+                        margin-right: 15px;
+                        background: url(../img/icon.png) no-repeat 0 -50px;
+                    }
+                    span{
+                        vertical-align: middle;
+                    }
+                }
+            }
+            
+            .inter_cust{
+                width: 160px;
+                margin-left: 30px;
+                margin-top: 30px;
+                a{
+                    &:hover{
+                        color: #000 !important;
+                        font-weight: 700;
+                    }
+                    display: block;
+                    width: 170px;
+                    height: 40px;
+                    i{
+                        background: url(../img/icon.png) no-repeat -50px -50px;
+                        display: inline-block;
+                        width: 30px;
+                        height: 30px;
+                        vertical-align: text-bottom;
+                        margin-right: 15px;
+                        float: left;
+                        margin-top: 7px;
+                    }
+                    span{
+                        display: inline-block;
+                        
+                    }
+                }
+            }
+            
+        }
+    }
+}
+
+
+//----------footer区域----------
+#footer{
+    font-size: 12px;
+    text-align: center;
+    border-top: solid 1px #e6e6e6;
+    color: #999;
+    padding-bottom: 30px;
+    
+    .links{
+        padding-top: 30px;
+        padding-bottom: 15px;
+        a{
+            color: #999;
+            margin: 0 10px;
+            &:hover{
+                text-decoration: underline;
+                color: #999 !important;
+            }
+        }
+    }
+    
+}
+
+
+
+//----------nav区域----------
+//----------nav区域----------
+//----------nav区域----------
+//----------nav区域----------
+//----------nav区域----------
+//----------nav区域----------
+//----------nav区域----------
+//----------nav区域----------
